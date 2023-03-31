@@ -6,5 +6,6 @@ $(function () {
 	locationlist();
 	mixiltup();
 	popup();
+	video();
 	feedbackForm();
 });

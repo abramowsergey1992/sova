@@ -140,8 +140,8 @@ function locationlist() {
 }
 
 $(function(){})
-
 $(function(){})
+
 $(function(){})
 $(function(){})
 function bigslider() {
@@ -208,7 +208,53 @@ function bigslider() {
 	});
 }
 
+function feedbackForm() {
+	let valid = $("#feedback-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#feedback-form .btn-1").attr("disabled", "disabled");
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					popupOpen("#feedback-popup-thanks");
+					$("#feedback-form .btn-1").removeAttr("disabled");
+				},
+				error: function () {
+					popupOpen("#feedback-popup-error");
+					$("#feedback-form btn-1").removeAttr("disabled");
+				},
+			});
+		},
+	});
+}
+
 $(function(){})
+function header() {
+	let menu = $(".header__hidden-menu");
+	$(".header__menu-btn").click(function () {
+		$(this).toggleClass("_open");
+		if ($(this).hasClass("_open")) {
+			menu.stop().slideDown({
+				start: function () {
+					$(this).css({
+						display: "flex",
+					});
+				},
+			});
+		} else {
+			menu.stop().slideUp();
+		}
+	});
+}
+
 function form() {
 	$("._mask-int").each(function () {
 		Inputmask("9{1,5}").mask(this);
@@ -246,69 +292,7 @@ function form() {
 		);
 }
 
-function feedbackForm() {
-	let valid = $("#feedback-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#feedback-form .btn-1").attr("disabled", "disabled");
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					popupOpen("#feedback-popup-thanks");
-					$("#feedback-form .btn-1").removeAttr("disabled");
-				},
-				error: function () {
-					popupOpen("#feedback-popup-error");
-					$("#feedback-form btn-1").removeAttr("disabled");
-				},
-			});
-		},
-	});
-}
-
-function header() {
-	let menu = $(".header__hidden-menu");
-	$(".header__menu-btn").click(function () {
-		$(this).toggleClass("_open");
-		if ($(this).hasClass("_open")) {
-			menu.stop().slideDown({
-				start: function () {
-					$(this).css({
-						display: "flex",
-					});
-				},
-			});
-		} else {
-			menu.stop().slideUp();
-		}
-	});
-}
-
-function paginator() {
-	$(".paginator__more").click(function () {
-		$(this).closest(".paginator").addClass("_view-hidden");
-	});
-}
-
 $(function(){})
-function mixiltup() {
-	if ($(".mixiltup").length) {
-		var mixer = mixitup(".mixiltup", {
-			selectors: {
-				target: ".mix",
-			},
-		});
-	}
-}
-
 function popupClose(popup) {
 	let $popup = $(popup);
 	$popup.removeClass("_animate");
@@ -338,6 +322,22 @@ function popup() {
 	});
 }
 
+function paginator() {
+	$(".paginator__more").click(function () {
+		$(this).closest(".paginator").addClass("_view-hidden");
+	});
+}
+
+function mixiltup() {
+	if ($(".mixiltup").length) {
+		var mixer = mixitup(".mixiltup", {
+			selectors: {
+				target: ".mix",
+			},
+		});
+	}
+}
+
 var vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 var width = window.innerWidth;
@@ -349,6 +349,12 @@ window.addEventListener("resize", () => {
 	}
 });
 
+function video() {
+	$(".video-click-play").click(function () {
+		this.play();
+	});
+}
+
 $(function () {
 	header();
 	form();
@@ -357,5 +363,6 @@ $(function () {
 	locationlist();
 	mixiltup();
 	popup();
+	video();
 	feedbackForm();
 });
