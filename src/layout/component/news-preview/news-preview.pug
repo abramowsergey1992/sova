@@ -1,0 +1,9 @@
+mixin newsPreview(name,img,date)
+	.news-preview 
+		.news-preview__img 
+			+picture(img,'jpg') 
+		.news-preview__content 
+			a(href="#").news-preview__title.h4= name 
+			.news-preview__footer 
+				.news-preview__date= date 
+				.news-preview__plus

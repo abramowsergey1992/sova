@@ -1,0 +1,154 @@
+extends ../../layout/layout
+block title
+	title Sova 
+
+block content
+
+	.object-page
+		.object-top.block 
+			.object-top__bg
+				+picture('loc-1','jpg')
+			.download-presentation
+				img(src="img/download-text.svg", alt="").download-presentation__text
+				.download-presentation__circle
+					img(src="img/download-img.svg", alt="").download-presentation__img
+			+breadcrumb(['Главная ','Локации и объекты','Сова «На прудах»'], 'Коттедж «Комфорт»')
+			.object-top__content
+				.object-top__center
+					.object-top__name.h1 Коттедж «Комфорт»
+					.btn-3(data-popup="#feedback-popup") Узнать цену
+				.object-top__complect
+					p Комплектация
+						br
+						| 2 спальни и двухместный диван-кровать в кухне-гостиной.
+		.object-top-text.text.block
+			.h1 Загородные доходные объекты «Сова» это лучшее решение  для вложения ваших денег.
+			p Дом в скандинавском стиле с панорамными окнами. Большая гостиная зона с камином, обеденным столом и стульями. Кухонная зона оборудована чайником, микроволновой печью, электроплитой и двухкамерным холодильником
+		.object-predmets.mblock
+			.object-predmet
+				.object-predmet__img
+					img(src="img/p-1.svg", alt="")
+				.object-predmet__title Камин
+				.object-predmet__desc
+					p Панорамные окна в гостиной, терраса с гамаком и столом для застолий на свежем воздухе. Зона барбекю с мангалом.
+			.object-predmet
+				.object-predmet__img
+					img(src="img/p-2.svg", alt="")
+				.object-predmet__title Техника
+				.object-predmet__desc
+					p Есть вся необходимая техника, кухонный модуль с посудой  и столовыми приборами.
+			.object-predmet
+				.object-predmet__img
+					img(src="img/p-3.svg", alt="")
+				.object-predmet__title Средства гигиены
+				.object-predmet__desc
+					p Полотенца, тапочки, мыло, гель  для душа и шампунь. Санузел, душ.
+			.object-predmet
+				.object-predmet__img
+					img(src="img/p-4.svg", alt="")
+				.object-predmet__title Электрика
+				.object-predmet__desc 
+					p Wi-Fi, чайник, микроволновая печь, плита, телевизор, вентилятор, фен, холодильник.
+		.big-slider.mblock
+			.swiper.big-slider__full-slider 
+				.swiper-wrapper
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					
+			.big-slider__bottom 
+				.big-slider__bottom-left 
+					.big-slider__thumb-slider.swiper 
+						
+				.big-slider__bottom-right
+					
+
+					
+					.big-slider__content 
+						.big-slider__bottom-nav
+							button.big-slider__bottom-nav-prev
+								<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.38014 11.6545L7.03461 12.0159L7.75741 12.7069L8.10294 12.3455L7.38014 11.6545ZM13 6.5L13.3614 6.84553L13.6918 6.5L13.3614 6.15447L13 6.5ZM8.10294 0.654471L7.75741 0.293071L7.03461 0.984128L7.38014 1.34553L8.10294 0.654471ZM10.3708 3.75L10.0094 4.09553H10.0094L10.3708 3.75ZM8.10294 12.3455L13.3614 6.84553L12.6386 6.15447L7.38014 11.6545L8.10294 12.3455ZM13 6H0V7H13V6ZM10.7322 3.40447L8.10294 0.654471L7.38014 1.34553L10.0094 4.09553L10.7322 3.40447ZM13.3614 6.15447L12.0468 4.77947L11.324 5.47053L12.6386 6.84553L13.3614 6.15447ZM12.0468 4.77947L10.7322 3.40447L10.0094 4.09553L11.324 5.47053L12.0468 4.77947Z" fill="white"/>
+								</svg>
+							button.big-slider__bottom-nav-next
+								<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.38014 11.6545L7.03461 12.0159L7.75741 12.7069L8.10294 12.3455L7.38014 11.6545ZM13 6.5L13.3614 6.84553L13.6918 6.5L13.3614 6.15447L13 6.5ZM8.10294 0.654471L7.75741 0.293071L7.03461 0.984128L7.38014 1.34553L8.10294 0.654471ZM10.3708 3.75L10.0094 4.09553H10.0094L10.3708 3.75ZM8.10294 12.3455L13.3614 6.84553L12.6386 6.15447L7.38014 11.6545L8.10294 12.3455ZM13 6H0V7H13V6ZM10.7322 3.40447L8.10294 0.654471L7.38014 1.34553L10.0094 4.09553L10.7322 3.40447ZM13.3614 6.15447L12.0468 4.77947L11.324 5.47053L12.6386 6.84553L13.3614 6.15447ZM12.0468 4.77947L10.7322 3.40447L10.0094 4.09553L11.324 5.47053L12.0468 4.77947Z" fill="white"/>
+								</svg>
+						
+						.big-slider__pagination
+							span.big-slider__pagination-now 01
+							| /
+							span.big-slider__pagination-all 11
+						.swiper.big-slider__content-slider
+							.swiper-wrapper 
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 2
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 3
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 4
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 5
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 6
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 7
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 8
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 9
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 10
+						
+		.object-parametrs 
+			.object-parametrs__column
+				ul 
+					li.text 
+						p 
+							b Общее о доме
+						ul 
+							li  площадь 60м
+								sup 2 
+							li вместимость до 6 человек
+							li дом в скандинавском стиле с панорамными окнами
+							li большая гостиная зона с камином, обеденным столом и стульями
+							li конвекторы
+					li.text 
+						p 
+							b Ванная комната с душем и раковиной
+					li.text 
+						p 
+							b Крытая и освещённая терраса с уличной мебелью идеально подходит для отдыха на свежем воздухе.
+							
+							
+			
+			.object-parametrs__column
+				ul 
+					li.text 
+						p 
+							b Кухня
+						ul 
+							li  чайник
+							li микроволновая печь
+							li электроплита
+							li двухкамерный холодильник
+				

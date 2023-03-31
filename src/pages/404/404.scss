@@ -1,0 +1,53 @@
+.p404 {
+	background-size: 2090px !important;
+}
+
+.p404 {
+	background-color: #2F3740;
+	padding-top: 140px;
+
+	background-image: url('../img/black-pattern.svg');
+
+
+	.header {
+
+		border-color: #5E6E80;
+		;
+		background-color: #2F3740;
+
+		&__phone {
+			span {
+				font-weight: 500;
+			}
+		}
+
+		&__go-front {
+			font-family: 'Unbounded';
+			font-style: normal;
+			font-weight: 700;
+			border: 0 solid;
+			font-size: 14px;
+			line-height: 20px;
+			width: 146px;
+			text-align: center;
+			background: #fff;
+			white-space: nowrap;
+			color: rgba(47, 55, 64, 1);
+			padding: 20px 10px;
+		}
+	}
+
+	h1 {
+		color: #fff;
+		font-weight: 300;
+
+		span {
+			background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+			border-radius: 100px;
+			padding: 5px 20px;
+			letter-spacing: -1px;
+			color: #fff;
+			font-size: 24px;
+		}
+	}
+}

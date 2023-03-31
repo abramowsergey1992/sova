@@ -1,0 +1,184 @@
+body {
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 100;
+	font-size: 16px;
+	line-height: 150%;
+	color: #2F3740;
+
+	letter-spacing: -0.02em;
+
+	&._no-scroll {
+		overflow: hidden;
+	}
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+.page {
+	background: linear-gradient(118.71deg, #FFFFFF -8.55%, #D3D6DB 122.24%);
+}
+
+img {
+	max-width: 100%;
+}
+
+* {
+	-webkit-box-decoration-break: clone;
+	isolation: isolate;
+}
+
+@media (min-width: 992px) {
+	._v-mob {
+		display: none;
+	}
+}
+
+@media (max-width: 992px) {
+	._v-desc {
+		display: none;
+	}
+}
+
+.page {
+	overflow: hidden;
+	position: relative;
+	padding-top: 80px;
+}
+
+.block {
+	margin-bottom: 80px;
+}
+
+.mblock {
+	margin-bottom: 16px;
+}
+
+.inner {
+	max-width: 1440px;
+	padding-left: 48px;
+	padding-right: 48px;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media(max-width:1100px) {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+}
+
+.container {
+	margin-bottom: 70px;
+}
+
+._hidden {
+	display: none !important;
+}
+
+.block {
+	margin-bottom: 130px;
+
+	@media (max-width: 992px) {
+		margin-bottom: 80px;
+	}
+}
+
+.center {
+	text-align: center;
+}
+
+.page-inner {}
+
+.head-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 50px;
+	flex-wrap: wrap;
+
+	@media(max-width:992px) {
+		margin-bottom: 20px;
+	}
+
+	h1,
+	.h1 {
+		margin: 0;
+		margin-right: auto;
+
+		@media(max-width:992px) {
+			width: 100%;
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.filters {
+
+	max-width: 100%;
+	overflow: auto;
+
+	@media(max-width:992px) {
+		margin-left: -16px;
+		margin-right: -16px;
+		padding: 0 16px;
+		max-width: initial;
+	}
+
+	&__flex {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+	}
+
+	&__wrap {
+		width: max-content;
+		background: #FFFFFF;
+		border-radius: 30px;
+		padding: 4px;
+	}
+
+	&__btn {
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: -0.02em;
+		color: #2F3740;
+		border-radius: 30px;
+		border: 0 solid;
+		background: transparent;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		&:hover {
+			box-shadow: inset 0 0 0 2px $green;
+		}
+
+		svg {
+			margin-left: 10px;
+		}
+
+		&.mixitup-control-active,
+		&._active {
+			color: #fff;
+			background: $grandient;
+		}
+	}
+}
+
+.p404 {
+	background: #2F3740;
+
+	h1 {
+		color: #fff;
+		max-width: 780px;
+		font-weight: 300;
+	}
+}

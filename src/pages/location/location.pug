@@ -1,0 +1,65 @@
+extends ../../layout/layout
+block title
+	title Sova 
+mixin locationMini(img,tag,close,name)
+	.location-mini(data-filter=filter, class!=attributes.class)
+		.location-mini__img-wrap
+			+picture(img,'jpg').location-mini__img 
+			.location-mini__plus
+			.location-mini__tags
+				.location-mini__tag= name 
+				if close
+					.location-mini__tag._close Закрыто до весны
+				else
+		.location-mini__content 
+			a(href="#").location-mini__title= name 
+
+
+block content
+
+	.location-page
+		.location-top
+			.download-presentation
+				img(src="img/download-text.svg", alt="").download-presentation__text
+				.download-presentation__circle
+					img(src="img/download-img.svg", alt="").download-presentation__img
+			.location-top__bg
+				+picture('loc-1','jpg')
+			.location-top__wrap
+				+breadcrumb(['Главная ','Локации и объекты'], 'Сова «На прудах»')
+				.location-top__content 
+					.location-top__type Готовая локация
+					.location-top__adress дер. Гостилицы, 20 км от Петергофа
+					.location-top__name.h1 Сова «На прудах»
+					.location-top__desc 
+						p — это коттеджный комплекс, расположенный в удивительном
+							br
+							| месте среди озёр, прудов и леса.
+				.location-top__down 
+					<svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9 9L5 13M5 13L1 9M5 13L5 0" stroke="white"/>
+					</svg>
+
+		.location-text
+			.h1 Необычный ландшафт дарит многообразие природных локаций, в которые органично вписаны коттеджи и глэмпинг-палатки.
+			p Место для тех, кто любит проводить свой отдых активно и с пользой. Днём прогуляйтесь  по эко-тропам, насладитесь шумом водопада и пением птиц, а вечером посидите  у открытого костра и приготовьте любимые блюда на мангале. Зимой на локации обустроен каток и горка для катания на ватрушках.
+		.location-list.block
+			.head-row
+				.h1 Объекты на локации
+				.filters 
+					.filters__wrap
+						.filters__flex
+							button(data-filter="all").filters__btn Все
+							button(data-filter=".category-1").filters__btn Коттедж
+							button(data-filter=".category-2").filters__btn Баня
+							button(data-filter=".category-3").filters__btn Гостиница
+							button(data-filter=".category-4").filters__btn Купель
+							button(data-filter=".category-5").filters__btn Глэмпинг
+	
+			.location-row.mixiltup
+			
+				+locationMini("loc-2","9 объектов",false,"Коттедж «Комфорт»").mix.category-1
+				+locationMini("loc-3","2 объекта",false,"Коттедж «Лайт»").mix.category-1
+				+locationMini("loc-4","2 объекта",true,"Глэмпинг").mix.category-5
+				+locationMini("loc-5","2 объекта",false,"Баня «Комфорт»").mix.category-2
+				+locationMini("loc-6","2 объекта",false,"Купель «Фурако»").mix.category-4

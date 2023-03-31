@@ -1,0 +1,145 @@
+extends ../../layout/layout
+block title
+	title Sova 
+
+
+block content
+
+	.about-page
+		.about-top
+			.about-top__content 
+				.about-top__title Секрет успеха в деталях
+				img.about-top__logo(src="img/about-logo.svg")
+			.about-top__bg
+				+picture('about-top','jpg')
+				.download-presentation
+					img(src="img/download-text.svg", alt="").download-presentation__text
+					.download-presentation__circle
+						img(src="img/download-img.svg", alt="").download-presentation__im
+			+breadcrumb(['Главная '], 'О компании')
+	
+			
+		.about-sova.block
+			.about-sova__row
+				.about-sova__desc
+					h1
+						color Об управляющей компании «Сова»
+					p 	
+						b Недвижимость — самый безопасный инструмент инвестирования. Ваша собственность — ваши гарантии.
+							br
+							| Это отражение высокой надёжности инвестиций. Локации интересные и притягательные не только для жителей Петербурга, но и России.
+				.about-sova__numbers
+					.about-sova__number
+						span 13
+						br
+						| Локаций
+					.about-sova__number
+						span 140
+						br
+						| Объектов построено
+					.about-sova__number
+						span 131
+						br
+						| Инвестор
+					.about-sova__number
+						span 47
+						| Объектов
+						br
+						| на стадии строительства
+					.about-sova__number
+						span > 6 000
+						br
+						| Гостей, ежемесячно посещают наши объекты
+		
+		.about-1.block
+			.about-1__text.text
+				q Управляющая компания «Сова»
+				.h1 Объекты сети коттеджей «Сова» 
+					br
+					| приносят до 20% годовых
+				p Все наши локации выбирались самыми тщательным образом и продуманы до мелочей –  от благоустройства европейского уровня до фотозон, отопления, оснащения дома мебелью и техникой. Все необходимое и ничего лишнего.
+				p Локации интересные и притягательные не только для жителей Петербурга, но и России. 
+					br
+					| За месяц нас посещают более 6000 гостей, это говорит о многом. Стоимость входа  в проект не высока — от 4,5 млн в зависимости от выбранного объекта и локации.
+			.about-1__gallery
+				.about-1__gallery-l
+					+picture('about-1','jpg')
+				.about-1__gallery-r
+					+picture('about-2','jpg')
+
+		.about-2
+			.text
+				q Рынок аренды загородной недвижимости
+				.h1 Самая главная ценность — в людях, которые работают в нашей управляющей компании. 
+					br
+					| Мы выберем локацию, построим качественные объекты, благоустроим территорию, введём в эксплуатацию.
+		.big-slider.mblock
+			.swiper.big-slider__full-slider 
+				.swiper-wrapper
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					.swiper-slide
+						+picture('object-2','jpg')
+					.swiper-slide
+						+picture('loc-1','jpg')
+					
+			.big-slider__bottom 
+				.big-slider__bottom-left 
+					.big-slider__thumb-slider.swiper 
+						
+				.big-slider__bottom-right
+					
+
+					
+					.big-slider__content 
+						.big-slider__bottom-nav
+							button.big-slider__bottom-nav-prev
+								<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.38014 11.6545L7.03461 12.0159L7.75741 12.7069L8.10294 12.3455L7.38014 11.6545ZM13 6.5L13.3614 6.84553L13.6918 6.5L13.3614 6.15447L13 6.5ZM8.10294 0.654471L7.75741 0.293071L7.03461 0.984128L7.38014 1.34553L8.10294 0.654471ZM10.3708 3.75L10.0094 4.09553H10.0094L10.3708 3.75ZM8.10294 12.3455L13.3614 6.84553L12.6386 6.15447L7.38014 11.6545L8.10294 12.3455ZM13 6H0V7H13V6ZM10.7322 3.40447L8.10294 0.654471L7.38014 1.34553L10.0094 4.09553L10.7322 3.40447ZM13.3614 6.15447L12.0468 4.77947L11.324 5.47053L12.6386 6.84553L13.3614 6.15447ZM12.0468 4.77947L10.7322 3.40447L10.0094 4.09553L11.324 5.47053L12.0468 4.77947Z" fill="white"/>
+								</svg>
+							button.big-slider__bottom-nav-next
+								<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7.38014 11.6545L7.03461 12.0159L7.75741 12.7069L8.10294 12.3455L7.38014 11.6545ZM13 6.5L13.3614 6.84553L13.6918 6.5L13.3614 6.15447L13 6.5ZM8.10294 0.654471L7.75741 0.293071L7.03461 0.984128L7.38014 1.34553L8.10294 0.654471ZM10.3708 3.75L10.0094 4.09553H10.0094L10.3708 3.75ZM8.10294 12.3455L13.3614 6.84553L12.6386 6.15447L7.38014 11.6545L8.10294 12.3455ZM13 6H0V7H13V6ZM10.7322 3.40447L8.10294 0.654471L7.38014 1.34553L10.0094 4.09553L10.7322 3.40447ZM13.3614 6.15447L12.0468 4.77947L11.324 5.47053L12.6386 6.84553L13.3614 6.15447ZM12.0468 4.77947L10.7322 3.40447L10.0094 4.09553L11.324 5.47053L12.0468 4.77947Z" fill="white"/>
+								</svg>
+						
+						.big-slider__pagination
+							span.big-slider__pagination-now 01
+							| /
+							span.big-slider__pagination-all 11
+						.swiper.big-slider__content-slider
+							.swiper-wrapper 
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 2
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 3
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 4
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 5
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 6
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 7
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 8
+								.swiper-slide 
+									.big-slider__title Общий вид локации «Сова на прудах» 9
+								.swiper-slide
+									.big-slider__title Общий вид локации «Сова на прудах» 10
+						
