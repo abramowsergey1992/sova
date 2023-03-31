@@ -126,7 +126,17 @@
 		align-items: center;
 		justify-content: center;
 		bottom: 40px;
+		cursor: pointer;
 
+		&:hover {
+			background: #fff;
+
+			svg {
+				path {
+					stroke: #2F3740;
+				}
+			}
+		}
 	}
 
 	&__desc {

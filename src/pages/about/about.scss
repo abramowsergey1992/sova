@@ -206,7 +206,10 @@
 
 
 	&__gallery-r {
+		padding-top: 130px;
+
 		@media(max-width:768px) {
+			padding-top: 0;
 			transform: translateX(16px);
 		}
 	}

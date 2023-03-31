@@ -1,6 +1,7 @@
 $(function () {
 	header();
 	form();
+	aosInit();
 	paginator();
 	bigslider();
 	locationlist();
@@ -8,4 +9,5 @@ $(function () {
 	popup();
 	video();
 	feedbackForm();
+	locationPage();
 });

@@ -7,7 +7,7 @@ block content
 
 	.about-page
 		.about-top
-			.about-top__content 
+			.about-top__content(data-aos="fade-up") 
 				.about-top__title Секрет успеха в деталях
 				img.about-top__logo(src="img/about-logo.svg")
 			.about-top__bg
@@ -19,7 +19,7 @@ block content
 			+breadcrumb(['Главная '], 'О компании')
 	
 			
-		.about-sova.block
+		.about-sova.block(data-aos="fade-up")
 			.about-sova__row
 				.about-sova__desc
 					h1
@@ -51,7 +51,7 @@ block content
 						br
 						| Гостей, ежемесячно посещают наши объекты
 		
-		.about-1.block
+		.about-1.block(data-aos="fade-up")
 			.about-1__text.text
 				q Управляющая компания «Сова»
 				.h1 Объекты сети коттеджей «Сова» 
@@ -62,18 +62,18 @@ block content
 					br
 					| За месяц нас посещают более 6000 гостей, это говорит о многом. Стоимость входа  в проект не высока — от 4,5 млн в зависимости от выбранного объекта и локации.
 			.about-1__gallery
-				.about-1__gallery-l
+				.about-1__gallery-l(data-aos="fade-right")
 					+picture('about-1','jpg')
-				.about-1__gallery-r
+				.about-1__gallery-r(data-aos="fade-left")
 					+picture('about-2','jpg')
 
-		.about-2
+		.about-2(data-aos="fade-up")
 			.text
 				q Рынок аренды загородной недвижимости
 				.h1 Самая главная ценность — в людях, которые работают в нашей управляющей компании. 
 					br
 					| Мы выберем локацию, построим качественные объекты, благоустроим территорию, введём в эксплуатацию.
-		.big-slider.mblock
+		.big-slider.mblock(data-aos="fade-up")
 			.swiper.big-slider__full-slider 
 				.swiper-wrapper
 					.swiper-slide
