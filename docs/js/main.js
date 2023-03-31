@@ -1,6 +1,4 @@
 $(function(){})
-$(function(){})
-$(function(){})
 function locationlist() {
 	let $map = $("#locations-map");
 	$(".location-prev__gallery").each(function () {
@@ -26,7 +24,7 @@ function locationlist() {
 	});
 	let dataloc;
 	$.getJSON($map.data("json"), function (data) {
-		dataloc = data;
+		dataloc = data.locations;
 		setTimeout(function () {
 			var myMap = new ymaps.Map(
 				"locations-map",
@@ -96,15 +94,15 @@ function locationlist() {
 				let location = [];
 				myMap.geoObjects.removeAll();
 				$(".location-map-prev").stop().slideUp();
-				location.push(dataloc);
-				console.log("s", dataloc);
+				location = Array.from(dataloc);
+				console.log("s", location);
 				let city = $("#filter-city option:selected").attr("value");
 				let status = $("#filter-status option:selected").attr("value");
 
 				if (city == "all" || city == undefined) {
 					$(".location-prev").removeClass("_city-hidden");
 				} else {
-					location.filter(function (l) {
+					location = location.filter(function (l) {
 						return l.city == city;
 					});
 					$(".location-prev").each(function () {
@@ -115,11 +113,11 @@ function locationlist() {
 						}
 					});
 				}
-				console.log("loca", location);
+
 				if (status == "all" || status == undefined) {
 					$(".location-prev").removeClass("_status-hidden");
 				} else {
-					location.filter(function (l) {
+					location = location.filter(function (l) {
 						return l.tags.indexOf(status) >= 0;
 					});
 					$(".location-prev").each(function () {
@@ -133,6 +131,7 @@ function locationlist() {
 						}
 					});
 				}
+				console.log("location", location);
 				locationRender(location);
 			});
 			locationRender(data.locations);
@@ -140,8 +139,6 @@ function locationlist() {
 	});
 }
 
-
-$(function(){})
 $(function(){})
 function locationPage() {
 	$(".location-top__down").click(function () {
@@ -155,29 +152,10 @@ function locationPage() {
 	});
 }
 
-function aosInit() {
-	AOS.init({
-		// Global settings:
-		disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-		startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-		initClassName: "aos-init", // class applied after initialization
-		animatedClassName: "aos-animate", // class applied on animation
-		useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-		disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-		debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-		throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+$(function(){})
 
-		// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-		offset: 120, // offset (in px) from the original trigger point
-		delay: 0, // values from 0 to 3000, with step 50ms
-		duration: 600, // values from 0 to 3000, with step 50ms
-		easing: "ease", // default easing for AOS animations
-		once: true, // whether animation should happen only once - while scrolling down
-		mirror: false, // whether elements should animate out while scrolling past them
-		anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-	});
-}
-
+$(function(){})
+$(function(){})
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
@@ -242,6 +220,29 @@ function bigslider() {
 	});
 }
 
+function aosInit() {
+	AOS.init({
+		// Global settings:
+		disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+		startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+		initClassName: "aos-init", // class applied after initialization
+		animatedClassName: "aos-animate", // class applied on animation
+		useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+		disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+		debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+		throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+		// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+		offset: 120, // offset (in px) from the original trigger point
+		delay: 0, // values from 0 to 3000, with step 50ms
+		duration: 600, // values from 0 to 3000, with step 50ms
+		easing: "ease", // default easing for AOS animations
+		once: true, // whether animation should happen only once - while scrolling down
+		mirror: false, // whether elements should animate out while scrolling past them
+		anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+	});
+}
+
 function feedbackForm() {
 	let valid = $("#feedback-form").validate({
 		errorPlacement: function (error, element) {},
@@ -270,6 +271,7 @@ function feedbackForm() {
 	});
 }
 
+$(function(){})
 function form() {
 	$("._mask-int").each(function () {
 		Inputmask("9{1,5}").mask(this);
@@ -335,18 +337,13 @@ function mixiltup() {
 	}
 }
 
-$(function(){})
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
-});
+function paginator() {
+	$(".paginator__more").click(function () {
+		$(this).closest(".paginator").addClass("_view-hidden");
+	});
+}
 
+$(function(){})
 function popupClose(popup) {
 	let $popup = $(popup);
 	$popup.removeClass("_animate");
@@ -376,6 +373,17 @@ function popup() {
 	});
 }
 
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
+});
+
 function video() {
 	$(".video-click-play").click(function () {
 		this.play();
@@ -395,10 +403,3 @@ $(function () {
 	feedbackForm();
 	locationPage();
 });
-
-$(function(){})
-function paginator() {
-	$(".paginator__more").click(function () {
-		$(this).closest(".paginator").addClass("_view-hidden");
-	});
-}

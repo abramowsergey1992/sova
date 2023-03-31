@@ -23,7 +23,7 @@ function locationlist() {
 	});
 	let dataloc;
 	$.getJSON($map.data("json"), function (data) {
-		dataloc = data;
+		dataloc = data.locations;
 		setTimeout(function () {
 			var myMap = new ymaps.Map(
 				"locations-map",
@@ -93,15 +93,15 @@ function locationlist() {
 				let location = [];
 				myMap.geoObjects.removeAll();
 				$(".location-map-prev").stop().slideUp();
-				location.push(dataloc);
-				console.log("s", dataloc);
+				location = Array.from(dataloc);
+				console.log("s", location);
 				let city = $("#filter-city option:selected").attr("value");
 				let status = $("#filter-status option:selected").attr("value");
 
 				if (city == "all" || city == undefined) {
 					$(".location-prev").removeClass("_city-hidden");
 				} else {
-					location.filter(function (l) {
+					location = location.filter(function (l) {
 						return l.city == city;
 					});
 					$(".location-prev").each(function () {
@@ -112,11 +112,11 @@ function locationlist() {
 						}
 					});
 				}
-				console.log("loca", location);
+
 				if (status == "all" || status == undefined) {
 					$(".location-prev").removeClass("_status-hidden");
 				} else {
-					location.filter(function (l) {
+					location = location.filter(function (l) {
 						return l.tags.indexOf(status) >= 0;
 					});
 					$(".location-prev").each(function () {
@@ -130,6 +130,7 @@ function locationlist() {
 						}
 					});
 				}
+				console.log("location", location);
 				locationRender(location);
 			});
 			locationRender(data.locations);
