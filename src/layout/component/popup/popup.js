@@ -21,6 +21,20 @@ function popup() {
 	$("[data-popup]").click(function () {
 		popupOpen($(this).data("popup"));
 	});
+	$(".open-video").click(function () {
+		$(".video-popup").fadeIn();
+		$(".video-popup__wrap").html(
+			'<video autoplay src="' + $(".open-video").data("video") + '"/>'
+		);
+	});
+	$(".video-popup__overlay ,.video-popup__close").click(function () {
+		$(this)
+			.closest(".video-popup")
+			.stop()
+			.fadeOut(function () {
+				$(".video-popup__wrap").html("");
+			});
+	});
 	$(".popup__overlay ,.popup__close").click(function () {
 		console.log("#" + $(this).closest(".popup").attr("id"));
 		popupClose("#" + $(this).closest(".popup").attr("id"));

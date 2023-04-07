@@ -10,4 +10,5 @@ $(function () {
 	video();
 	feedbackForm();
 	locationPage();
+	frontPage();
 });

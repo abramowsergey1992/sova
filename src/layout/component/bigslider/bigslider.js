@@ -1,6 +1,10 @@
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
+		console.log(
+			"big-slider__full-slider",
+			$th.find(".big-slider__full-slider")[0]
+		);
 		$th.find(".big-slider__thumb-slider").html(
 			$th.find(".big-slider__full-slider").html()
 		);
@@ -12,6 +16,7 @@ function bigslider() {
 				loop: true,
 				spaceBetween: 28,
 				watchSlidesProgress: true,
+				setWrapperSize: true,
 				breakpoints: {
 					320: {
 						slidesPerView: "auto",
@@ -29,6 +34,7 @@ function bigslider() {
 		const sliderContent = new Swiper(
 			$th.find(".big-slider__content-slider")[0],
 			{
+				setWrapperSize: true,
 				slidesPerView: 1,
 				effect: "fade",
 				fadeEffect: {
@@ -41,6 +47,7 @@ function bigslider() {
 		const slider = new Swiper($th.find(".big-slider__full-slider")[0], {
 			slidesPerView: 1,
 			spaceBetween: 10,
+			setWrapperSize: true,
 			loop: true,
 			pagination: {
 				el: $th.find(".big-slider__pagination")[0],
@@ -59,5 +66,6 @@ function bigslider() {
 				},
 			},
 		});
+		// const
 	});
 }

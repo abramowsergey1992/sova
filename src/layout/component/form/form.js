@@ -22,15 +22,11 @@ function form() {
 	// $(this).addClass("_active");
 
 	$(".select2").select2({ minimumResultsForSearch: -1 });
-	document
-		.querySelectorAll(".btn-1,.btn-2,.btn-3, .btn-4")
-		.forEach(
-			(button) =>
-				(button.innerHTML =
-					"<span class='button-content'><span>" +
-					button.textContent +
-					"</span><span>" +
-					button.textContent +
-					"</span></span>")
+	$(".btn-1,.btn-2,.btn-3, .btn-4").each(function () {
+		$(this).html(
+			`<span class='button-content'><span>${$(
+				this
+			).html()}</span><span>${$(this).html()}</span></span>`
 		);
+	});
 }

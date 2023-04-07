@@ -10,6 +10,18 @@ function locationlist() {
 			spaceBetween: 10,
 		});
 	});
+
+	const locationlist = new Swiper(".locationlist-slide", {
+		speed: 400,
+		autoHeight: true,
+		allowTouchMove: false,
+		spaceBetween: 30,
+	});
+	$(".locations-page  .filters__btn").click(function () {
+		$(".locations-page  .filters__btn").removeClass("_active");
+		$(this).addClass("_active");
+		locationlist.slideTo($(this).data("slide"));
+	});
 	$(".location-map-prev__slider").each(function () {
 		const lpm = new Swiper(this, {
 			speed: 400,

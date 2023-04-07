@@ -88,861 +88,869 @@
               <div class="filters">
                 <div class="filters__wrap">
                   <div class="filters__flex">
-                    <button class="filters__btn">
+                    <button class="filters__btn _active" data-slide="0">
                       Локации на карте<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.99928 10.0751C8.17107 10.0751 9.12209 9.11174 9.12209 7.92473C9.12209 6.73773 8.17107 5.77437 6.99928 5.77437C5.82749 5.77437 4.87647 6.73773 4.87647 7.92473C4.87647 9.11174 5.82749 10.0751 6.99928 10.0751Z" stroke="#2F3740" stroke-linecap="square"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3677 7.92473C13.3677 13.3007 8.06068 16.5263 6.99928 16.5263C5.93788 16.5263 0.630859 13.3007 0.630859 7.92473C0.630859 4.36264 3.48285 1.47363 6.99928 1.47363C10.5157 1.47363 13.3677 4.36264 13.3677 7.92473Z" stroke="#2F3740" stroke-linecap="square"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.99928 10.0751C8.17107 10.0751 9.12209 9.11174 9.12209 7.92473C9.12209 6.73773 8.17107 5.77437 6.99928 5.77437C5.82749 5.77437 4.87647 6.73773 4.87647 7.92473C4.87647 9.11174 5.82749 10.0751 6.99928 10.0751Z" stroke="currentColor" stroke-linecap="square"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.3677 7.92473C13.3677 13.3007 8.06068 16.5263 6.99928 16.5263C5.93788 16.5263 0.630859 13.3007 0.630859 7.92473C0.630859 4.36264 3.48285 1.47363 6.99928 1.47363C10.5157 1.47363 13.3677 4.36264 13.3677 7.92473Z" stroke="currentColor" stroke-linecap="square"/>
 </svg>
                     </button>
-                    <button class="filters__btn _active">
+                    <button class="filters__btn" data-slide="1">
                       Локации списком<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.5 3H15.5M7.5 11H15.5M2 1H4C4.55228 1 5 1.44772 5 2V4C5 4.55228 4.55228 5 4 5H2C1.44772 5 1 4.55228 1 4V2C1 1.44772 1.44772 1 2 1ZM2 9H4C4.55228 9 5 9.44772 5 10V12C5 12.5523 4.55228 13 4 13H2C1.44772 13 1 12.5523 1 12V10C1 9.44772 1.44772 9 2 9Z" stroke="white" stroke-linecap="square"/>
+<path d="M7.5 3H15.5M7.5 11H15.5M2 1H4C4.55228 1 5 1.44772 5 2V4C5 4.55228 4.55228 5 4 5H2C1.44772 5 1 4.55228 1 4V2C1 1.44772 1.44772 1 2 1ZM2 9H4C4.55228 9 5 9.44772 5 10V12C5 12.5523 4.55228 13 4 13H2C1.44772 13 1 12.5523 1 12V10C1 9.44772 1.44772 9 2 9Z" stroke="currentColor" stroke-linecap="square"/>
 </svg>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="locations-map">
-              <div id="locations-map" data-json="json/locations.json" data-icon="img/map-icon.svg" data-activeicon="img/map-icon-active.svg"></div>
-              <div class="location-map-prev" id="location-map-prev-1">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Новинка</li>
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «На пляже»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-2">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title"> Сова «На прудах»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-3">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Форелевая ферма»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-4">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Сочи»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-5">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «На заливе»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-6">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Сказка»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-7">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Лыжный парк»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-8">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Голубое озеро»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-9">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «На речке»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-10">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Сказка Вест»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-11">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Таменгонт»</div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-              <div class="location-map-prev" id="location-map-prev-12">
-                <div class="location-map-prev__img"> 
-                  <div class="swiper location-map-prev__slider"> 
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                        </picture>
-                      </div>
-                      <div class="swiper-slide"> 
-                        <picture>
-                          <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                        </picture>
-                      </div>
-                    </div>
-                    <div class="location-map-prev__slider-pagi"></div>
-                  </div>
-                  <ul class="location-map-prev__tags"> 
-                    <li>Готовая локация</li>
-                  </ul>
-                </div>
-                <div class="location-map-prev__content">
-                  <div class="location-map-prev__title">Сова «Сойкино» </div>
-                  <ul class="location-map-prev__list">
-                    <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                    <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                    <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                    <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                    <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                  </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
-                </div>
-              </div>
-            </div>
-            <div class="locations-list" data-aos="fade-up"> 
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Новинка|Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li class="_bg"> <span>Новинка</span></li>
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">пос. Лебяжье, 20 км от Ломоносова</div>
-                    <div class="location-prev__title">Сова «На пляже»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-6.svg" alt="">16 номеров «Стандарт» с отдельным входом</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+            <div class="swiper locationlist-slide">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="locations-map">
+                    <div id="locations-map" data-json="json/locations.json" data-icon="img/map-icon.svg" data-activeicon="img/map-icon-active.svg"></div>
+                    <div class="location-map-prev" id="location-map-prev-1">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
                         </div>
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li>Новинка</li>
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
                       </div>
-                      <div class="location-prev__gallery-nav">
-                        <div class="location-prev__gallery-prev"></div>
-                        <div class="location-prev__gallery-next"></div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «На пляже»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-2">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title"> Сова «На прудах»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-3">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li><span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Форелевая ферма»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-4">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Сочи»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-5">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li><span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «На заливе»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-6">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Сказка»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-7">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Лыжный парк»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-8">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Голубое озеро»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-9">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li><span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «На речке»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-10">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li><span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Сказка Вест»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-11">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li><span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Таменгонт»</div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
+                      </div>
+                    </div>
+                    <div class="location-map-prev" id="location-map-prev-12">
+                      <div class="location-map-prev__img"> 
+                        <div class="swiper location-map-prev__slider"> 
+                          <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                              </picture>
+                            </div>
+                            <div class="swiper-slide"> 
+                              <picture>
+                                <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                              </picture>
+                            </div>
+                          </div>
+                          <div class="location-map-prev__slider-pagi"></div>
+                        </div>
+                        <ul class="location-map-prev__tags"> 
+                          <li> <span>Готовая локация</span></li>
+                        </ul>
+                      </div>
+                      <div class="location-map-prev__content">
+                        <div class="location-map-prev__title">Сова «Сойкино» </div>
+                        <ul class="location-map-prev__list">
+                          <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                          <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                          <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                        </ul><a class="btn-4 location-map-prev__link" href="#">Подробнее о локации </a>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">дер. Гостилицы, 20 км от Петергофа</div>
-                    <div class="location-prev__title">Сова «На прудах»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
-                      <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
-                      <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
-                      <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+                <div class="swiper-slide">
+                  <div class="locations-list" data-aos="fade-up"> 
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Новинка|Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li class="_bg"> <span>Новинка</span></li>
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">пос. Лебяжье, 20 км от Ломоносова</div>
+                          <div class="location-prev__title">Сова «На пляже»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-6.svg" alt="">16 номеров «Стандарт» с отдельным входом</li>
+                          </ul>
                         </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">110 км от С-Пб</div>
-                    <div class="location-prev__title">Сова «Форелевая ферма»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-1.webp"/><img alt="" src="img/l-1.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                            </div>
+                            <div class="location-prev__gallery-nav">
+                              <div class="location-prev__gallery-prev"></div>
+                              <div class="location-prev__gallery-next"></div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">39 км от Петергофа</div>
-                    <div class="location-prev__title">Сова «Сочи»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-4.webp"/><img alt="" src="img/l-4.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">дер. Гостилицы, 20 км от Петергофа</div>
+                          <div class="location-prev__title">Сова «На прудах»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">9 коттеджей «Комфорт» 54 м<sup>2  </sup>до 6 гостей</li>
+                            <li> <img src="img/l-2.svg" alt="">2 коттеджа «Лайт» на 2 гостя</li>
+                            <li> <img src="img/l-3.svg" alt="">2 глэмпинга на 2 гостя</li>
+                            <li> <img src="img/l-4.svg" alt="">2 бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">2 купели «Фурако» на 4–6 гостей</li>
+                          </ul>
                         </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">пос. Лебяжье, 20 км от Ломоносова</div>
-                    <div class="location-prev__title">Сова «На заливе»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-5.webp"/><img alt="" src="img/l-5.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-2.webp"/><img alt="" src="img/l-2.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">48 км от Красного Села</div>
-                    <div class="location-prev__title">Сова «Сказка»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-6.webp"/><img alt="" src="img/l-6.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">110 км от С-Пб</div>
+                          <div class="location-prev__title">Сова «Форелевая ферма»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
                         </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">7 км от Красного села (У горнолыжного курорта «Туутари-парк»)</div>
-                    <div class="location-prev__title">Сова «Лыжный парк»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-7.webp"/><img alt="" src="img/l-7.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-3.webp"/><img alt="" src="img/l-3.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">7 км от Петергофа, 5 км от КАД</div>
-                    <div class="location-prev__title">Сова «Голубое озеро»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-8.webp"/><img alt="" src="img/l-8.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">39 км от Петергофа</div>
+                          <div class="location-prev__title">Сова «Сочи»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
                         </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">дер. Кипень, 11 км от Красного Села</div>
-                    <div class="location-prev__title">Сова «На речке»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-9.webp"/><img alt="" src="img/l-9.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-4.webp"/><img alt="" src="img/l-4.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">48 км от Красного Села</div>
-                    <div class="location-prev__title">Сова «Сказка Вест»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-10.webp"/><img alt="" src="img/l-10.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">пос. Лебяжье, 20 км от Ломоносова</div>
+                          <div class="location-prev__title">Сова «На заливе»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
                         </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Москва" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">пос. Лебяжье, 20 км от Ломоносова</div>
-                    <div class="location-prev__title">Сова «Таменгонт»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-11.webp"/><img alt="" src="img/l-11.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
-                        </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-5.webp"/><img alt="" src="img/l-5.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="location-prev" data-city="Москва" data-status="Готовая локация">
-                <div class="location-prev__row">
-                  <div class="location-prev__content">
-                    <ul class="location-prev__tags">
-                      <li> <span>Готовая локация</span></li>
-                    </ul>
-                    <div class="location-prev__place">г. Ломоносов, 2 км от КАД</div>
-                    <div class="location-prev__title">Сова «Сойкино»</div>
-                    <ul class="location-prev__list">
-                      <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
-                      <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
-                      <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
-                    </ul>
-                  </div>
-                  <div class="location-prev__photo">
-                    <div class="swiper location-prev__gallery"> 
-                      <div class="swiper-wrapper"> 
-                        <div class="swiper-slide"> 
-                          <picture>
-                            <source type="image/webp" srcset="img/l-12.webp"/><img alt="" src="img/l-12.jpg"/>
-                          </picture>
-                          <div class="location-prev__gallery-plus"></div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">48 км от Красного Села</div>
+                          <div class="location-prev__title">Сова «Сказка»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
                         </div>
-                        <div class="location-prev__gallery-nav">
-                          <div class="location-prev__gallery-prev"></div>
-                          <div class="location-prev__gallery-next"></div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-6.webp"/><img alt="" src="img/l-6.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">7 км от Красного села (У горнолыжного курорта «Туутари-парк»)</div>
+                          <div class="location-prev__title">Сова «Лыжный парк»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
+                        </div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-7.webp"/><img alt="" src="img/l-7.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">7 км от Петергофа, 5 км от КАД</div>
+                          <div class="location-prev__title">Сова «Голубое озеро»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
+                        </div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-8.webp"/><img alt="" src="img/l-8.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">дер. Кипень, 11 км от Красного Села</div>
+                          <div class="location-prev__title">Сова «На речке»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
+                        </div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-9.webp"/><img alt="" src="img/l-9.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-prev" data-city="Санкт-Петербург" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">48 км от Красного Села</div>
+                          <div class="location-prev__title">Сова «Сказка Вест»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
+                        </div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-10.webp"/><img alt="" src="img/l-10.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-prev" data-city="Москва" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">пос. Лебяжье, 20 км от Ломоносова</div>
+                          <div class="location-prev__title">Сова «Таменгонт»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
+                        </div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-11.webp"/><img alt="" src="img/l-11.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="location-prev" data-city="Москва" data-status="Готовая локация">
+                      <div class="location-prev__row">
+                        <div class="location-prev__content">
+                          <ul class="location-prev__tags">
+                            <li> <span>Готовая локация</span></li>
+                          </ul>
+                          <div class="location-prev__place">г. Ломоносов, 2 км от КАД</div>
+                          <div class="location-prev__title">Сова «Сойкино»</div>
+                          <ul class="location-prev__list">
+                            <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                            <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                            <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
+                          </ul>
+                        </div>
+                        <div class="location-prev__photo">
+                          <div class="swiper location-prev__gallery"> 
+                            <div class="swiper-wrapper"> 
+                              <div class="swiper-slide"> 
+                                <picture>
+                                  <source type="image/webp" srcset="img/l-12.webp"/><img alt="" src="img/l-12.jpg"/>
+                                </picture>
+                                <div class="location-prev__gallery-plus"></div>
+                              </div>
+                              <div class="location-prev__gallery-nav">
+                                <div class="location-prev__gallery-prev"></div>
+                                <div class="location-prev__gallery-next"></div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1089,6 +1097,18 @@
           </div>
           <div class="h1">Произошла ошибка!!!</div>
           <p>Попробуйте позже</p>
+        </div>
+      </div>
+      <div class="video-popup" id="video-popup">
+        <div class="video-popup__overlay"> </div>
+        <div class="video-popup__close"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999756L13 12.9998M1 12.9998L13 0.999756" stroke="#2F3740" stroke-width="2"/>
+</svg>
+        </div>
+        <div class="video-popup__flex"> 
+          <div class="video-popup__wrap"> 
+            <video src=""> </video>
+          </div>
         </div>
       </div>
     </div><script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>

@@ -1,0 +1,508 @@
+extends ../../layout/layout
+block title
+	title Sova 
+
+
+block content
+
+	.front-page
+		#front-top.front-top.block
+			.front-top__back 
+				.front-top__left
+					.front-top__left-img
+						+picture('ftl','jpg')
+					.front-top__left-content
+						.swiper.front-top__left-swiper 
+							.swiper-wrapper 
+								.swiper-slide
+									.front-top__left-title до 20% годовых
+									p Приносят объекты сети коттеджей «Сова», где все наши локации выбирались самыми тщательным образом и продуманы  до мелочей.
+								.swiper-slide
+									.front-top__left-title 100%
+									p  Все активы инвестора находятся у него  в собственности
+								.swiper-slide
+									.front-top__left-title до 5 лет
+									p Составляет окупаемость инвестиций
+		
+				.front-top__center
+					.front-top__center-content
+						h1 Простые инвестиции в загородную недвижимость с высоким доходом
+						p От благоустройства европейского уровня до фотозон, отопления, оснащения дома мебелью и техникой. Все необходимое и ничего лишнего.
+				.front-top__right
+					+picture('ftr','jpg')
+			.front-top__fw
+				
+
+				.front-top__bbg.front-top__anim-opacity-2 
+					+picture('ftcb','jpg')
+				.front-top__bg.front-top__anim-opacity-2 
+					+picture('ftc','png')
+				.front-top__bg-mask.front-top__anim-opacity.front-top__anim-opacity-2
+				.front-top__fw-text
+					.front-top__fw-str1.front-top__fw-str
+						.front-top__fw-str-back Секрет  успеха
+						.front-top__fw-str-front.front-top__anim-opacity
+							color Секрет 
+							| успеха
+					.front-top__fw-str2.front-top__fw-str
+						.front-top__fw-str-back  в&nbsp;деталях
+						.front-top__fw-str-front.front-top__anim-opacity
+							color в&nbsp;деталях
+					
+		.front-uks.text(data-aos="fade-up")  
+			.front-uks__head 
+				q Управляющая компания «Сова»
+				a(href="about.html").btn-2 Подробнее о компании
+			.front-uks__text
+				.h1 Недвижимость — самый безопасный инструмент инвестирования. Ваша собственность — ваши гарантии.
+				p 
+					big Это отражение высокой надёжности инвестиций. Локации интересные и притягательные не только для жителей Петербурга, но и России. За месяц нас посещают более 6000 гостей, это говорит о многом.
+		.front-numbers.block(data-aos="fade-up") 
+			.front-numbers__row 
+				.front-numbers__items
+					p  Стоимость входа в проект не высока
+					p 
+						big от 4,5 млн 
+						br
+						| в зависимости от выбранного объекта и локации.
+
+				.front-numbers__items
+					p 
+						big 13
+						br
+						| Локаций
+
+				.front-numbers__items
+					p 
+						big 140
+						br
+						| Объектов построено
+
+				.front-numbers__items
+					p 
+						big 131
+						br
+						| Инвестор
+
+				.front-numbers__items
+					p 
+						big 47
+						| Объектов
+						br
+						| на стадии строительства
+			.front-numbers__video-wrap
+				video.video-click-play(src="video/preview.mp4"  playsinline) 
+		.front-structura.block(data-aos="fade-up") 
+			.h1  Структура работы 
+
+			.swiper.front-structura__slider
+				.swiper-wrapper 
+					.swiper-slide.front-structura-item
+						.front-structura-item__front
+							.front-structura-item__bg
+								+picture('st-1','jpg')
+							.front-structura-item__content 
+								.front-structura-item__title Инвестиции
+								.front-structura-item__plus
+								.front-structura-item__link(href="#")
+						.front-structura-item__back
+							.front-structura-item__bg
+							.front-structura-item__content 
+								p Недвижимость — самый безопасный инструмент инвестирования. 
+									br
+									| Ваша собственность — ваши гарантии. 
+									br
+									| Это отражение высокой надёжности инвестиций.
+								.front-structura-item__btn.btn-4 Скачать презентацию
+								.front-structura-item__link(href="#")
+					.swiper-slide.front-structura-item._green
+						.front-structura-item__front
+							.front-structura-item__bg
+								+picture('st-2','jpg')
+							.front-structura-item__content 
+								.front-structura-item__title Индивидуальный 
+									br
+									| проект
+								.front-structura-item__plus
+								.front-structura-item__link(href="#")
+						.front-structura-item__back
+							.front-structura-item__bg
+							.front-structura-item__content 
+								p Недвижимость — самый безопасный инструмент инвестирования. 
+									br
+									| Ваша собственность — ваши гарантии. 
+									br
+									| Это отражение высокой надёжности инвестиций.
+								.front-structura-item__btn.btn-4 Скачать презентацию
+								.front-structura-item__link(href="#")
+					.swiper-slide.front-structura-item
+						.front-structura-item__front
+							.front-structura-item__bg
+								+picture('st-3','jpg')
+							.front-structura-item__content 
+								.front-structura-item__title Управление 
+									br
+									| вашим проектом
+								.front-structura-item__plus
+								.front-structura-item__link(href="#")
+						.front-structura-item__back
+							.front-structura-item__bg
+							.front-structura-item__content 
+								p Недвижимость — самый безопасный инструмент инвестирования. 
+									br
+									| Ваша собственность — ваши гарантии. 
+									br
+									| Это отражение высокой надёжности инвестиций.
+								.front-structura-item__btn.btn-4 Скачать презентацию
+								.front-structura-item__link(href="#")
+		.you-get.block(data-aos="fade-up") 
+			.h1 Что вы получите?
+			.filters 
+				.filters__wrap
+					.filters__flex
+						.filters__btn._active(data-slide="0") Варианты инвестирования
+						.filters__btn(data-slide="1") Гарантии
+						.filters__btn(data-slide="2") Размер инвестиций
+						.filters__btn(data-slide="3") Договор
+			.swiper.you-get__slider
+				.swiper-wrapper 
+					.swiper-slide.you-slide-1 
+						+picture('you-get','jpg').you-slide-1__bg
+						
+						.you-slide-1__grid-1 
+							.you-slide-1__video-wrap
+								.you-slide-1__video
+									video.video-click-play(src="video/preview.mp4"  playsinline) 
+							.you-slide-1__grid-2
+								.you-slide-1__it._square 
+									h3 Выбор объекта
+									p Подписание договора и инвестирование.
+									img(src="img/yg-1-1.svg", alt="").you-slide-1__img
+								.you-slide-1__it._square 
+									h3 Строительство
+									p Строительство или покупка готового объекта.
+									img(src="img/yg-1-2.svg", alt="").you-slide-1__img
+								.you-slide-1__it._square 
+									h3 Документы
+									p Оформление и регистрация собственности объекта и земельного участка.
+									img(src="img/yg-1-3.svg", alt="").you-slide-1__img
+								.you-slide-1__it._square 
+									h3 Управление
+									p Подключение к системе бронирования, клининга, технического обслуживания. 
+										br
+										| И выплата дивидентов.
+									img(src="img/yg-1-4.svg", alt="").you-slide-1__img
+					.swiper-slide.you-slide-2
+						.you-slide-2__grid-1 
+							.you-slide-2__text.text 
+								h3 Объекты сети коттеджей «Сова» приносят до 20% годовых.
+								p
+									big  Все наши локации выбирались самыми тщательным образом и продуманы до мелочей — от благоустройства европейского уровня до фотозон, отопления, оснащения дома мебелью и техникой. Все необходимое и ничего лишнего.
+
+							.you-slide-2__grid-2
+								.you-slide-2__it._square  
+									h3 Дом и земля в вашей собственности 
+									p После регистрации дома и земли в Росреестре объект переходит в вашу собственность.
+								.you-slide-2__it._square  
+									h3 Гарантия защиты объекта
+									p Круглосуточная охрана, видеонаблюдение.
+								.you-slide-2__it._square  
+									h3 Страхование  недвижимости
+									p Ваша недвижимость полностью застрахована.
+								.you-slide-2__it._square  
+									h3 Защита бизнеса от потрясений рынка
+									p Растущий бизнес в России в текущей ситуации.
+					.swiper-slide.you-slide-3
+						.you-slide-3__grid-1 
+							.you-slide-3__img._square  
+								+picture('you-get-3','jpg')
+
+							.you-slide-3__text.text 
+								h3 Мы не ограничиваем вас в размерах инвестиций.
+								p
+									big  Вы может проинвестировать, как в один объект, так и в целую локацию. Готовые или строящиеся объекты для небольших  и средних инвестиций. Локация «Под Ключ» для крупных инвестиций.
+					.swiper-slide.you-slide-4
+						.you-slide-4__grid-1 
+
+							.you-slide-4__text.text 
+								h3 Строительство в Ленинградской и Московской областях
+								p  Вы может проинвестировать, как в один объект, так и в целую локацию. Готовые или строящиеся объекты для небольших и средних инвестиций. Локация «Под Ключ» для крупных инвестиций.
+							.you-slide-4__grid-2 
+								.you-slide-4__it
+									h3 Договор поручения
+									p Срок исполнения 6 месяцев с момента получения денежных средств до сдачи объекта инвестору и запуск его в систему пула.
+								.you-slide-4__it
+									h3  Агентский договор
+									p Управляющая компания действует в рамках данного договора. Запросить агентский договор вы можете у менеджеров.
+		.front-loc(data-aos="fade-up") 
+			.head-row
+				.h1 Локации и объекты
+				a(href="location-list.html").btn-2.v-desc Все локации и объекты
+			.front-loc__filter-row
+				.filters 
+					.filters__wrap
+						.filters__flex
+							button.filters__btn(data-filter="all")._active Все
+							button.filters__btn(data-filter="ready") Готовые
+							button.filters__btn(data-filter="process") Строящиеся
+				button.btn-4 
+					<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 8.99478C8.604 8.99478 9.5 8.09934 9.5 6.99606C9.5 5.89278 8.604 4.99738 7.5 4.99738C6.396 4.99738 5.5 5.89278 5.5 6.99606C5.5 8.09934 6.396 8.99478 7.5 8.99478Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 6.99606C13.5 11.9928 8.5 14.9909 7.5 14.9909C6.5 14.9909 1.5 11.9928 1.5 6.99606C1.5 3.68522 4.187 1 7.5 1C10.813 1 13.5 3.68522 13.5 6.99606Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+					</svg>
+
+					| Локации на карте
+			.front-loc__wrap
+				.front-loc__slider-img.swiper
+					.swiper-wrapper
+						.front-loc__slide-filter.swiper-slide(data-filter="ready")
+							a(href="#") 
+								+picture('front-loc','jpg')
+								span.front-loc__slider-img-plus
+						.front-loc__slide-filter.swiper-slide(data-filter="ready")
+							a(href="#") 
+								+picture('front-loc','jpg')
+								span.front-loc__slider-img-plus
+						.front-loc__slide-filter.swiper-slide(data-filter="ready")
+							a(href="#") 
+								+picture('front-loc','jpg')
+								span.front-loc__slider-img-plus
+						.front-loc__slide-filter.swiper-slide(data-filter="process")
+							a(href="#") 
+								+picture('front-loc','jpg')
+								span.front-loc__slider-img-plus
+						.front-loc__slide-filter.swiper-slide(data-filter="process")
+							a(href="#") 
+								+picture('front-loc','jpg')
+								span.front-loc__slider-img-plus
+				.front-loc__left
+					.front-loc__locations.swiper
+						.swiper-wrapper 
+							.front-loc__slide-filter.swiper-slide.front-loc-content(data-filter="ready")
+								ul.front-loc-content__tags 
+									li Готовая локация
+								.h3.front-loc-content__title Сова «На речке»
+								ul.front-loc-content__list
+									li 
+										img(src="img/l-2.svg", alt="")
+										| 8 коттеджей «Комфорт +» 60 м² до 6 гостей
+						
+									li 
+										img(src="img/l-4.svg", alt="")
+										| 2 Бани «Комфорт» на 4–6 гостей
+						
+									li 
+										img(src="img/l-5.svg", alt="")
+										| Купель на 4–6 гостей
+							.front-loc__slide-filter.swiper-slide.front-loc-content(data-filter="ready")
+								ul.front-loc-content__tags 
+									li Готовая локация
+								.front-loc-content__title Сова «На речке»
+								ul.front-loc-content__list
+									li 
+										img(src="img/l-2.svg", alt="")
+										| 8 коттеджей «Комфорт +» 60 м² до 6 гостей
+						
+									li 
+										img(src="img/l-4.svg", alt="")
+										| 2 Бани «Комфорт» на 4–6 гостей
+						
+									li 
+										img(src="img/l-5.svg", alt="")
+										| Купель на 4–6 гостей
+							.front-loc__slide-filter.swiper-slide.front-loc-content(data-filter="ready")
+								ul.front-loc-content__tags 
+									li Готовая локация
+								.front-loc-content__title Сова «На речке»
+								ul.front-loc-content__list
+									li 
+										img(src="img/l-2.svg", alt="")
+										| 8 коттеджей «Комфорт +» 60 м² до 6 гостей
+						
+									li 
+										img(src="img/l-4.svg", alt="")
+										| 2 Бани «Комфорт» на 4–6 гостей
+						
+									li 
+										img(src="img/l-5.svg", alt="")
+										| Купель на 4–6 гостей
+							.front-loc__slide-filter.swiper-slide.front-loc-content(data-filter="process")
+								ul.front-loc-content__tags 
+									li Строится
+								.front-loc-content__title Сова «На речке»
+								ul.front-loc-content__list
+									li 
+										img(src="img/l-2.svg", alt="")
+										| 8 коттеджей «Комфорт +» 60 м² до 6 гостей
+						
+									li 
+										img(src="img/l-4.svg", alt="")
+										| 2 Бани «Комфорт» на 4–6 гостей
+						
+									li 
+										img(src="img/l-5.svg", alt="")
+										| Купель на 4–6 гостей
+							.front-loc__slide-filter.swiper-slide.front-loc-content(data-filter="process")
+								ul.front-loc-content__tags 
+									li Строится
+								.front-loc-content__title Сова «На речке»
+								ul.front-loc-content__list
+									li 
+										img(src="img/l-2.svg", alt="")
+										| 8 коттеджей «Комфорт +» 60 м² до 6 гостей
+						
+									li 
+										img(src="img/l-4.svg", alt="")
+										| 2 Бани «Комфорт» на 4–6 гостей
+						
+									li 
+										img(src="img/l-5.svg", alt="")
+										| Купель на 4–6 гостей
+						.front-loc__locations-footer
+							.front-loc__locations-nav
+								button.front-loc__locations-prev
+								button.front-loc__locations-next
+							.front-loc__locations-pagi
+					#front-loc-map
+		.black-zone.block
+			.front-cases.block(data-aos="fade-up") 
+				.head-row 
+					.h1  Кейсы наших инвесторов 
+					.front-cases__nav 
+						.front-cases__prev
+						.front-cases__next
+				.front-cases__swiper.swiper 
+					.swiper-wrapper 
+						.swiper-slide.front-case
+							.front-case__video
+								video.video-click-play(src="video/preview.mp4" loop playsinline autoplay muted)
+							.front-case__content 
+								.front-case__title Инвестиция 2,6 млн ₽
+								p Недвижимость — самый безопасный инструмент инвестирования. Ваша собственность — ваши гарантии.
+								.front-case__procents
+									.front-case__procent._brown
+										.front-case__procent-title
+											<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M0 14.5H15M5.5 12V6M9.5 12V3M13.5 12V0M1.5 9V12" stroke="white" stroke-width="1.4"/>
+											</svg>
+											| 20% годовых 
+										.front-case__procent-desc
+											p доходность объекты 
+									.front-case__procent._green
+										.front-case__procent-title
+											<svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M1 0.5V15H15.5M4 10.5L8.5 6L11.5 9L18 2.5M18 2.5V9M18 2.5H11.5" stroke="white" stroke-width="1.4"/>
+											</svg>
+											| 90% 
+										.front-case__procent-desc
+											p рост стоимость объекта
+								.front-case__open-video.open-video( data-video="video/preview.mp4") Видео отзыв инвестора
+						.swiper-slide.front-case
+							.front-case__video
+								video.video-click-play(src="video/preview.mp4" loop playsinline autoplay muted)
+							.front-case__content 
+								.front-case__title Инвестиция 2,6 млн ₽
+								p Недвижимость — самый безопасный инструмент инвестирования. Ваша собственность — ваши гарантии.
+								.front-case__procents
+									.front-case__procent._brown
+										.front-case__procent-title
+											<svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M0 14.5H15M5.5 12V6M9.5 12V3M13.5 12V0M1.5 9V12" stroke="white" stroke-width="1.4"/>
+											</svg>
+											| 20% годовых 
+										.front-case__procent-desc
+											p доходность объекты 
+									.front-case__procent._green
+										.front-case__procent-title
+											<svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M1 0.5V15H15.5M4 10.5L8.5 6L11.5 9L18 2.5M18 2.5V9M18 2.5H11.5" stroke="white" stroke-width="1.4"/>
+											</svg>
+											| 90% 
+										.front-case__procent-desc
+											p рост стоимость объекта
+								.front-case__open-video.open-video( data-video="video/preview.mp4") Видео отзыв инвестора
+			.front-steps.block(data-aos="fade-up") 
+				.head-row 
+					.h1  Этапы запуска локаций
+					button.btn-2 Оставить заявку
+				.front-steps__container 
+					<svg  class="front-steps__container-svg " viewBox="0 0 586 586" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="293" cy="293" r="290" fill="none"   stroke-width="7"  stroke="url(#paint0_linear_470_2717)" /> 
+						<defs>
+						<linearGradient id="paint0_linear_470_2717" x1="0" y1="588" x2="588" y2="32.0198" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#A0BA4F"/>
+						<stop offset="1" stop-color="#7A8E3B"/>
+						</linearGradient>
+						</defs>
+					</svg>
+
+					.front-steps__slider.swiper 
+						.swiper-wrapper 
+							.swiper-slide 
+								.front-steps__number 01
+								.front-steps__title Поиск локации по основным критериям
+								.front-steps__desc
+									p Туристическая привлекательность, наличие леса и воды, транспортная доступность«Инстаграмная» эко-локация, горнолыжные склоны.
+
+							.swiper-slide 
+								.front-steps__number 02
+								.front-steps__title Создание концепции и выбор доходных объектов
+								.front-steps__desc
+									p Коттеджи «Комфорт», «Смарт», «Глэмпинг», Ресторан.Баня «Комфорт», Бочка, Банный чан, Купель Фурако.
+
+							.swiper-slide 
+								.front-steps__number 03
+								.front-steps__title Привлечение инвестиций и строительство
+								.front-steps__desc
+									p Привлечение инвестиций и строительство
+
+							.swiper-slide 
+								.front-steps__number 04
+								.front-steps__title Упаковка продукта профессиональным продакшеном
+								.front-steps__desc
+									p Создаём профессиональные фото и видео. 
+										br 
+										| Наполняем сайт и соцсети.
+
+							.swiper-slide 
+								.front-steps__number 05
+								.front-steps__title Подключение к системе бронирования
+								.front-steps__desc
+									p Сдаём ваш объект в аренду.Производим клининг  техническое обслуживание.
+
+							.swiper-slide 
+								.front-steps__number 06
+								.front-steps__title Выплата 
+									br 
+									| дивидендов
+								.front-steps__desc
+									p Туристическая привлекательность, наличие леса и воды, транспортная доступность «Инстаграмная» эко-локация, горнолыжные склоны.
+				.front-steps__input-wrap
+					input.front-steps__input(type="range",min="1",max="6",step="1",value="1")
+					.front-steps__input-grid 
+						span._active 01
+						span 02
+						span 03
+						span 04
+						span 05
+						span 06
+		.front-news.block(data-aos="fade-up") 
+			
+			.head-row
+				.h1.v-mob Новости и публикации
+				.front-news__tabs.v-desc
+					.h1.front-news__tab._active(data-filter="news") Новости
+					.h1.front-news__tab(data-filter="publication") Публикации
+				a.btn-2(href="#").v-desc Все материалы
+			.front-news__slider.swiper 
+				.swiper-wrapper
+					.swiper-slide
+						.news-row 
+							+newsPreview("«Сеть загородных коттеджей „Сова“ в финале престижной петербургской премии Фонтанка.ру „Признание и влияние“","nd-1","6 февраля 2023")
+							+newsPreview("Сеть коттеджей «Сова» стала участником SPA Business Forum","nd-2","6 февраля 2023")
+							+newsPreview("Сеть коттеджей «Сова» — партнёры фестиваля «Стереолето» 2022","nd-3","12 июля 2022")
+					.swiper-slide
+						.news-row 
+							+newsPreview("«Сеть загородных коттеджей „Сова“ в финале престижной петербургской премии Фонтанка.ру „Признание и влияние“","nd-1","6 февраля 2023")
+							+newsPreview("Сеть коттеджей «Сова» стала участником SPA Business Forum","nd-2","6 февраля 2023")
+							+newsPreview("Сеть коттеджей «Сова» — партнёры фестиваля «Стереолето» 2022","nd-3","12 июля 2022")

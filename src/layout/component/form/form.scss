@@ -19,6 +19,7 @@
 	text-decoration: none;
 	margin-top: 30px;
 	white-space: nowrap;
+	display: inline-block;
 
 	&::before {
 		display: block;
@@ -78,6 +79,7 @@
 
 .btn-1 {
 	background: #fff;
+	color: #2F3740;
 
 	.button-content {
 		span {
@@ -129,6 +131,7 @@
 	background: #fff;
 	border: 2px solid #2F3740;
 	padding: 8px 18px;
+	color: #2F3740;
 
 	&::before {
 		background: #2F3740;
