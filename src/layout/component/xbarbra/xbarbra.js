@@ -2,6 +2,7 @@ $(function () {
 	header();
 	form();
 	aosInit();
+	hoverCursor();
 	paginator();
 	bigslider();
 	locationlist();

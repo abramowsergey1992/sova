@@ -36,7 +36,9 @@ function popup() {
 			});
 	});
 	$(".popup__overlay ,.popup__close").click(function () {
-		console.log("#" + $(this).closest(".popup").attr("id"));
 		popupClose("#" + $(this).closest(".popup").attr("id"));
+	});
+	$(".popup-location__overlay ,.popup-location__close").click(function () {
+		$(this).closest(".popup-location").fadeOut();
 	});
 }

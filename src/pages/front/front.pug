@@ -48,7 +48,21 @@ block content
 						.front-top__fw-str-back  в&nbsp;деталях
 						.front-top__fw-str-front.front-top__anim-opacity
 							color в&nbsp;деталях
-					
+			.download-presentation(data-popup="#feedback-popup")
+				img(src="img/download-text.svg", alt="").download-presentation__text
+				.download-presentation__circle
+					<svg  class="download-presentation__img" width="52" height="62" viewBox="0 0 52 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9.75151 50.4529C13.1033 56.2432 19.2682 59.808 25.9799 59.808C34.6327 59.808 41.9131 53.9549 44.0619 46.0017H7.22266"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M25.9805 45.1318C25.9805 37.8386 30.5597 34.3448 34.8301 32.3865"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M50.2426 27.5698C44.5533 24.1332 36.1794 26.4433 34.5391 32.5201C40.581 36.1694 48.512 33.982 50.2426 27.5698Z"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M25.9805 46.0016V11.6851"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M25.979 41.8505C25.5635 38.1467 22.291 36.2593 19.8906 35.3374"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M19.8148 35.3103C13.1906 40.686 4.6991 36.554 1.79297 29.2635C8.46094 25.1697 17.8491 26.8716 19.8148 35.3103Z"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M35.8711 38.6294C39.0315 40.2686 42.8152 40.4268 46.238 39.4258"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M25.9791 26.0341C27.6414 26.0341 29.227 25.6987 30.6678 25.0904C32.1085 24.4822 33.4071 23.6013 34.498 22.5158C35.5888 21.4275 36.4691 20.1347 37.0788 18.6946C37.6884 17.2573 38.0247 15.6754 38.0247 14.0171C38.0247 12.3588 37.6884 10.7769 37.0788 9.33952C36.4691 7.90216 35.5861 6.60664 34.498 5.51839C33.4099 4.43014 32.1113 3.55191 30.6678 2.94369C29.227 2.33547 27.6414 2 25.9791 2C24.3169 2 22.7313 2.33547 21.2905 2.94369C19.8497 3.55191 18.5511 4.43287 17.4603 5.51839C16.3695 6.60391 15.4892 7.89944 14.8795 9.33952C14.2699 10.7769 13.9336 12.3588 13.9336 14.0171C13.9336 15.6754 14.2699 17.2573 14.8795 18.6946C15.4892 20.132 16.3722 21.4275 17.4603 22.5158C18.5511 23.604 19.847 24.4822 21.2905 25.0904"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M20.3691 15.539L25.9791 10.5696L31.5891 15.539"stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+
 		.front-uks.text(data-aos="fade-up")  
 			.front-uks__head 
 				q Управляющая компания «Сова»
@@ -91,7 +105,7 @@ block content
 						br
 						| на стадии строительства
 			.front-numbers__video-wrap
-				video.video-click-play(src="video/preview.mp4"  playsinline) 
+				video.front-numbers__video.video-click-play(src="video/preview.mp4"  playsinline) 
 		.front-structura.block(data-aos="fade-up") 
 			.h1  Структура работы 
 
@@ -103,8 +117,7 @@ block content
 								+picture('st-1','jpg')
 							.front-structura-item__content 
 								.front-structura-item__title Инвестиции
-								.front-structura-item__plus
-								.front-structura-item__link(href="#")
+								.front-structura-item__plus.hoverCursor
 						.front-structura-item__back
 							.front-structura-item__bg
 							.front-structura-item__content 
@@ -113,8 +126,8 @@ block content
 									| Ваша собственность — ваши гарантии. 
 									br
 									| Это отражение высокой надёжности инвестиций.
-								.front-structura-item__btn.btn-4 Скачать презентацию
-								.front-structura-item__link(href="#")
+								.front-structura-item__btn.btn-4(data-popup="#feedback-popup") Скачать презентацию
+							
 					.swiper-slide.front-structura-item._green
 						.front-structura-item__front
 							.front-structura-item__bg
@@ -123,8 +136,8 @@ block content
 								.front-structura-item__title Индивидуальный 
 									br
 									| проект
-								.front-structura-item__plus
-								.front-structura-item__link(href="#")
+								.front-structura-item__plus.hoverCursor
+						
 						.front-structura-item__back
 							.front-structura-item__bg
 							.front-structura-item__content 
@@ -133,8 +146,8 @@ block content
 									| Ваша собственность — ваши гарантии. 
 									br
 									| Это отражение высокой надёжности инвестиций.
-								.front-structura-item__btn.btn-4 Скачать презентацию
-								.front-structura-item__link(href="#")
+								.front-structura-item__btn.btn-4(data-popup="#feedback-popup") Скачать презентацию
+							
 					.swiper-slide.front-structura-item
 						.front-structura-item__front
 							.front-structura-item__bg
@@ -143,8 +156,8 @@ block content
 								.front-structura-item__title Управление 
 									br
 									| вашим проектом
-								.front-structura-item__plus
-								.front-structura-item__link(href="#")
+								.front-structura-item__plus.hoverCursor
+							
 						.front-structura-item__back
 							.front-structura-item__bg
 							.front-structura-item__content 
@@ -153,8 +166,8 @@ block content
 									| Ваша собственность — ваши гарантии. 
 									br
 									| Это отражение высокой надёжности инвестиций.
-								.front-structura-item__btn.btn-4 Скачать презентацию
-								.front-structura-item__link(href="#")
+								.front-structura-item__btn.btn-4(data-popup="#feedback-popup") Скачать презентацию
+							
 		.you-get.block(data-aos="fade-up") 
 			.h1 Что вы получите?
 			.filters 
@@ -258,23 +271,23 @@ block content
 						.front-loc__slide-filter.swiper-slide(data-filter="ready")
 							a(href="#") 
 								+picture('front-loc','jpg')
-								span.front-loc__slider-img-plus
+								span.front-loc__slider-img-plus.hoverCursor
 						.front-loc__slide-filter.swiper-slide(data-filter="ready")
 							a(href="#") 
 								+picture('front-loc','jpg')
-								span.front-loc__slider-img-plus
+								span.front-loc__slider-img-plus.hoverCursor
 						.front-loc__slide-filter.swiper-slide(data-filter="ready")
 							a(href="#") 
 								+picture('front-loc','jpg')
-								span.front-loc__slider-img-plus
+								span.front-loc__slider-img-plus.hoverCursor
 						.front-loc__slide-filter.swiper-slide(data-filter="process")
 							a(href="#") 
 								+picture('front-loc','jpg')
-								span.front-loc__slider-img-plus
+								span.front-loc__slider-img-plus.hoverCursor
 						.front-loc__slide-filter.swiper-slide(data-filter="process")
 							a(href="#") 
 								+picture('front-loc','jpg')
-								span.front-loc__slider-img-plus
+								span.front-loc__slider-img-plus.hoverCursor
 				.front-loc__left
 					.front-loc__locations.swiper
 						.swiper-wrapper 
@@ -373,7 +386,7 @@ block content
 						.front-cases__next
 				.front-cases__swiper.swiper 
 					.swiper-wrapper 
-						.swiper-slide.front-case
+						.swiper-slide.front-case.open-video(data-video="video/preview.mp4")
 							.front-case__video
 								video.video-click-play(src="video/preview.mp4" loop playsinline autoplay muted)
 							.front-case__content 
@@ -397,7 +410,7 @@ block content
 										.front-case__procent-desc
 											p рост стоимость объекта
 								.front-case__open-video.open-video( data-video="video/preview.mp4") Видео отзыв инвестора
-						.swiper-slide.front-case
+						.swiper-slide.front-case.open-video(data-video="video/preview.mp4")
 							.front-case__video
 								video.video-click-play(src="video/preview.mp4" loop playsinline autoplay muted)
 							.front-case__content 
@@ -424,10 +437,10 @@ block content
 			.front-steps.block(data-aos="fade-up") 
 				.head-row 
 					.h1  Этапы запуска локаций
-					button.btn-2 Оставить заявку
+					button.btn-2(data-popup="#feedback-popup") Оставить заявку
 				.front-steps__container 
 					<svg  class="front-steps__container-svg " viewBox="0 0 586 586" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<circle cx="293" cy="293" r="290" fill="none"   stroke-width="7"  stroke="url(#paint0_linear_470_2717)" /> 
+						<circle cx="293" cy="293" r="290" fill="none"  procent="1"  stroke-width="7"  stroke="url(#paint0_linear_470_2717)" /> 
 						<defs>
 						<linearGradient id="paint0_linear_470_2717" x1="0" y1="588" x2="588" y2="32.0198" gradientUnits="userSpaceOnUse">
 						<stop stop-color="#A0BA4F"/>

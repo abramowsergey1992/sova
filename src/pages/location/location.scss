@@ -178,6 +178,17 @@
 	background: #AF9162;
 	border-radius: 50%;
 	filter: drop-shadow(-6px 25px 60px rgba(0, 0, 0, 0.3));
+	transition: background 0.3s;
+
+	&:hover {
+		background: #7A8E3B;
+
+		.download-presentation__circle {
+			path {
+				stroke: #7A8E3B;
+			}
+		}
+	}
 
 	@media(max-width:992px) {
 		width: 87px;
@@ -207,6 +218,19 @@
 		.download-presentation:hover & {
 			transform: scale(1.2);
 		}
+
+		path {
+			transition: stroke 0.3s;
+			stroke: #AF9162;
+		}
+
+		@media(max-width:992px) {
+
+			width: 28px;
+			height: 28px;
+
+		}
+
 	}
 
 	&__circle {
@@ -311,10 +335,26 @@
 		width: 100%;
 	}
 
+	&__link {
+		position: absolute;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+
+	}
+
 	&__img-wrap {
 		position: relative;
 		margin-bottom: 30px;
 		overflow: hidden;
+		z-index: 2;
+		cursor: none;
+
+		* {
+			cursor: none;
+		}
 
 		@media(max-width:992px) {
 			margin-bottom: 20px;
@@ -376,14 +416,16 @@
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		transform: translateX(-50%) translateY(-50%);
 		width: 50px;
+		opacity: 0;
+		transition: opacity 0.3s;
 		height: 50px;
 		background: $grandient;
 		border-radius: 50%;
 
-		.location-mini:hover & {
-			background: #fff;
+		.location-mini__img-wrap:hover & {
+
+			opacity: 1;
 		}
 
 		&::after {
@@ -406,9 +448,7 @@
 			position: absolute;
 			background: #fff;
 
-			.location-mini:hover & {
-				background: $grandient;
-			}
+
 		}
 	}
 

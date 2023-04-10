@@ -2,6 +2,16 @@
 	margin-top: -20px;
 	height: calc(var(--vh, 1vh)*100);
 
+	.download-presentation {
+		position: absolute;
+		right: 20px;
+
+		@media(max-width:992px) {
+			top: initial;
+			bottom: 138px;
+		}
+	}
+
 	&__fw {
 		position: absolute;
 		left: 50%;
@@ -158,6 +168,31 @@
 			min-width: 0;
 		}
 
+		.swiper-slide {
+			position: initial;
+			background: #fff;
+			padding: 30px 20px;
+			border-bottom: 4px solid #D3D6DB;
+			position: relative;
+			height: auto;
+
+			&.swiper-slide-active::after {
+				width: 100%;
+			}
+
+			&::after {
+				display: block;
+				transition: linear width 5s;
+				width: 0;
+				content: '';
+				height: 4px;
+				position: absolute;
+				bottom: -4px;
+				left: 0;
+				background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+			}
+		}
+
 		&-title {
 			font-family: 'Unbounded' !important;
 			font-weight: 600 !important;
@@ -185,23 +220,7 @@
 			}
 		}
 
-		&-content {
-			background: #fff;
-			padding: 30px 20px;
-			border-bottom: 4px solid #D3D6DB;
-			position: relative;
-
-			&::after {
-				display: block;
-				width: 42px;
-				content: '';
-				height: 4px;
-				position: absolute;
-				bottom: -4px;
-				left: 0;
-				background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
-			}
-		}
+		&-content {}
 	}
 }
 
@@ -267,6 +286,11 @@
 		border-radius: 14px;
 		position: absolute;
 		overflow: hidden;
+		transition: width 0.5s;
+
+		&:has(._play) {
+			width: 378px;
+		}
 
 		@media(max-width:600px) {
 			display: none;
@@ -365,7 +389,13 @@
 	}
 
 	&__front {
-		.front-structura-item:hover & {
+		cursor: none;
+
+		&:hover .front-structura-item__plus {
+			opacity: 1;
+		}
+
+		.front-structura-item._rotate & {
 			@media(min-width:992px) {
 				transform: rotateY(180deg);
 			}
@@ -378,7 +408,7 @@
 
 		transform: rotateY(180deg);
 
-		.front-structura-item:hover & {
+		.front-structura-item._rotate & {
 			@media(min-width:992px) {
 				transform: rotateY(0deg);
 			}
@@ -453,10 +483,11 @@
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
-		transform: translateX(-50%) translateY(-50%);
+		transition: opacity 0.3s;
 		position: absolute;
 		left: 50%;
 		top: 50%;
+		opacity: 0;
 
 		.front-structura-item._green & {
 			background: #fff;
@@ -562,6 +593,12 @@
 	padding-left: 20%;
 	position: relative;
 
+	.front-loc__slider-img .swiper-slide {
+		img {
+			width: 100%;
+		}
+	}
+
 	&__wrap {
 		._hidden {
 			display: none !important;
@@ -639,7 +676,6 @@
 
 	&__video-wrap {
 
-
 		@media(max-width:800px) {
 			position: relative;
 
@@ -657,13 +693,24 @@
 		}
 
 		width: 126px;
-		height: 168px;
+
+		&::after {
+			display: block;
+			content: '';
+			padding-bottom: 140%;
+		}
+
 		border: 4px solid #FFFFFF;
 		border-radius: 14px;
 		overflow: hidden;
 		position: absolute;
 		left: 20px;
 		bottom: 62px;
+		transition: width 0.5s;
+
+		&:has(._play) {
+			width: 378px;
+		}
 
 		video {
 			position: absolute;
@@ -833,6 +880,12 @@
 }
 
 .front-loc {
+	a:hover {
+		.front-loc__slider-img-plus {
+			opacity: 1;
+		}
+	}
+
 	&__filter-row {
 		display: flex;
 		flex-direction: row;
@@ -974,8 +1027,17 @@
 			margin-right: -20px;
 		}
 
+		a {
+			display: block;
+		}
+
 		.swiper-slide {
+			cursor: none;
 			line-height: 0;
+
+			a {
+				cursor: none;
+			}
 		}
 	}
 
@@ -983,11 +1045,12 @@
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		transform: translateX(-50%) translateY(-50%);
+		opacity: 0;
 		width: 50px;
 		height: 50px;
 		background: $grandient;
 		border-radius: 50%;
+		transition: opacity 0.3s;
 
 		.location-mini:hover & {
 			background: #fff;
@@ -1236,7 +1299,7 @@
 
 .front-case {
 	display: grid;
-
+	cursor: pointer;
 	grid-template-columns: 30% auto;
 	background: #fff;
 	color: #2F3740;
@@ -1321,8 +1384,15 @@
 
 	}
 
+	&:hover {
+		video {
+			transform: scale(1.1);
+		}
+	}
+
 	&__video {
 		position: relative;
+		overflow: hidden;
 
 		@media(max-width:800px) {
 			display: none;
@@ -1335,6 +1405,8 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			transition: transform 0.5s;
+
 		}
 
 		&::after {
@@ -1567,6 +1639,11 @@
 			font-size: 16px;
 			line-height: 20px;
 			color: #5E6E80;
+			cursor: pointer;
+
+			&:hover {
+				color: #729454
+			}
 
 			&._active {
 				/* green */
