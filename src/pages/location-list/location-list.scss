@@ -4,6 +4,26 @@
 	}
 }
 
+.locations-page {
+	@media(max-width:550px) {
+		.select2.select2-container {
+			min-width: 100% !important;
+		}
+
+		.selects-filters {
+			width: 100%;
+		}
+	}
+
+	.selects-filters {
+
+
+		@media(max-width:992px) {
+			margin-bottom: 15px;
+		}
+	}
+}
+
 .location-prev {
 	margin-bottom: 73px;
 
@@ -145,7 +165,7 @@
 		font-style: normal;
 		font-weight: 300;
 		font-size: 36px;
-		font-size: clamp(24px, calc(24px + (36 - 24)*((100vw - 375px)/(1920 - 375))), 36px);
+		font-size: clamp(24px, calc(24px + (36 - 24)*((100vw - 375px)/(1440 - 375))), 36px);
 		@include lh(36, 45);
 		letter-spacing: -1px;
 	}

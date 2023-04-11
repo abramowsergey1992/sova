@@ -20,6 +20,7 @@
 	margin-top: 30px;
 	white-space: nowrap;
 	display: inline-block;
+	transition: background 0.4s;
 
 	&::before {
 		display: block;
@@ -69,7 +70,7 @@
 
 			&:last-child {
 				position: absolute;
-				color: #Fff;
+
 				top: -43px;
 				transform: skew(0deg, 8deg);
 			}
@@ -81,19 +82,25 @@
 	background: #fff;
 	color: #2F3740;
 
+
+	&:hover {
+		background: #2F3740;
+	}
+
 	.button-content {
 		span {
 			transition: top 0.3s;
+			color: #2F3740;
 
 			&:last-child {
-				color: #Fff
+				color: #fff;
 			}
 		}
 	}
 
-	&::before {
-		background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
-	}
+	// &::before {
+	// 	background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+	// }
 
 
 
@@ -101,7 +108,24 @@
 }
 
 .btn-3 {
-	background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+	background: #fff;
+
+	&::before {
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+		transition: opacity 0.3s;
+	}
+
+	&:hover {
+		&::before {
+			opacity: 0;
+		}
+	}
 
 	.button-content {
 		span {
@@ -133,7 +157,7 @@
 	padding: 8px 18px;
 	color: #2F3740;
 
-	&::before {
+	&:hover {
 		background: #2F3740;
 	}
 
@@ -149,6 +173,17 @@
 
 	background: $grandient;
 	padding: 8px 18px;
+
+	&::after {
+
+		transition: opacity 0.3s;
+	}
+
+	&:hover {
+		&::after {
+			opacity: 0;
+		}
+	}
 
 	&::before {
 		z-index: 2;
@@ -189,11 +224,7 @@
 		height: calc(100% - 4px);
 	}
 
-
-
-	&:hover {
-		color: #fff
-	}
+	color: #fff
 }
 
 .input {

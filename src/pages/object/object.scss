@@ -119,7 +119,7 @@
 		margin-left: auto;
 		max-width: 780px;
 		font-size: 18px;
-		font-size: clamp(14px, calc(14px + (18 - 14)*((100vw - 375px)/(1920 - 375))), 18px);
+		font-size: clamp(14px, calc(14px + (18 - 14)*((100vw - 375px)/(1440 - 375))), 18px);
 		@include lh(18, 32);
 	}
 }

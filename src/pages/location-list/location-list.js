@@ -15,7 +15,7 @@ function locationlist() {
 		speed: 400,
 		autoHeight: true,
 		allowTouchMove: false,
-		spaceBetween: 30,
+		spaceBetween: 100,
 	});
 	$(".locations-page  .filters__btn").click(function () {
 		$(".locations-page  .filters__btn").removeClass("_active");
@@ -74,12 +74,24 @@ function locationlist() {
 						console.log(e.get("target").options.get("id"));
 						myMap.panTo(e.get("target").geometry.getCoordinates());
 						$(".location-map-prev").stop().slideUp();
-						$(
-							"#location-map-prev-" +
-								e.get("target").options.get("id")
-						)
-							.stop()
-							.slideDown();
+						var smallScreen =
+							window.matchMedia("(max-width: 992px)");
+						if (smallScreen.matches) {
+							console.log("sss");
+							$(
+								"#popup-location-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.fadeIn();
+						} else {
+							$(
+								"#location-map-prev-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.slideDown();
+						}
 					});
 					myPlacemark.events.add(["balloonclose"], function (e) {
 						e.get("target").options.set(

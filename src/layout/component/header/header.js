@@ -14,4 +14,12 @@ function header() {
 			menu.stop().slideUp();
 		}
 	});
+	$(window).scroll(() => {
+		let currentScroll = $(window).scrollTop();
+		if (currentScroll > 30) {
+			$(".header").addClass("_bg");
+		} else {
+			$(".header").removeClass("_bg");
+		}
+	});
 }

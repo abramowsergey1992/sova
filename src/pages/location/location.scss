@@ -208,7 +208,7 @@
 		}
 
 		.download-presentation:hover & {
-			animation-play-state: paused;
+			// animation-play-state: paused;
 		}
 	}
 
@@ -216,7 +216,7 @@
 		transition: transform 0.4s;
 
 		.download-presentation:hover & {
-			transform: scale(1.2);
+			// transform: scale(1.2);
 		}
 
 		path {
@@ -464,7 +464,7 @@
 		letter-spacing: -1px;
 		text-decoration: none;
 		color: #2F3740;
-		font-size: clamp(24px, calc(24px + (36 - 24)*((100vw - 375px)/(1920 - 375))), 36px);
+		font-size: clamp(24px, calc(24px + (36 - 24)*((100vw - 375px)/(1440 - 375))), 36px);
 
 		&::after {
 			position: absolute;

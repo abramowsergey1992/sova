@@ -10,7 +10,7 @@ div {
 		letter-spacing: -1px;
 		text-transform: none;
 		margin-bottom: 20px;
-		font-size: clamp(24px, calc(24px + (42 - 24)*((100vw - 375px)/(1920 - 375))), 42px);
+		font-size: clamp(24px, calc(24px + (42 - 24)*((100vw - 375px)/(1440 - 375))), 42px);
 	}
 
 	h2,
@@ -22,7 +22,7 @@ div {
 		@include lh(48, 56);
 		letter-spacing: -0.02em;
 
-		font-size: clamp(24px, calc(24px + (48 - 24)*((100vw - 375px)/(1920 - 375))), 48px);
+		font-size: clamp(24px, calc(24px + (48 - 24)*((100vw - 375px)/(1440 - 375))), 48px);
 	}
 
 	h3,
@@ -34,7 +34,7 @@ div {
 		@include lh(24, 36);
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
-		font-size: clamp(18px, calc(18px + (24 - 18)*((100vw - 375px)/(1920 - 375))), 24px);
+		font-size: clamp(18px, calc(18px + (24 - 18)*((100vw - 375px)/(1440 - 375))), 24px);
 
 	}
 
@@ -47,7 +47,7 @@ div {
 		@include lh(20, 27);
 		letter-spacing: -0.03em;
 		margin-bottom: 13px;
-		font-size: clamp(16px, calc(16px + (20 - 16)*((100vw - 375px)/(1920 - 375))), 20px);
+		font-size: clamp(16px, calc(16px + (20 - 16)*((100vw - 375px)/(1440 - 375))), 20px);
 
 	}
 }
@@ -134,7 +134,7 @@ p {
 		letter-spacing: -1px;
 		@include lh(32, 44);
 		margin-bottom: 20px;
-		font-size: clamp(24px, calc(24px + (32 - 24)*((100vw - 375px)/(1920 - 375))), 32px);
+		font-size: clamp(24px, calc(24px + (32 - 24)*((100vw - 375px)/(1440 - 375))), 32px);
 	}
 
 	ul {

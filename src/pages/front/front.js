@@ -37,6 +37,17 @@ function frontPage() {
 		)
 		.addTo(controller);
 	new ScrollMagic.Scene({
+		offset: procent(3, smScroll),
+		duration: procent(3, smScroll),
+	})
+		.setTween(
+			TweenMax.to(".front-top  .download-presentation", 1, {
+				opacity: 0,
+				ease: Linear.easeNone,
+			})
+		)
+		.addTo(controller);
+	new ScrollMagic.Scene({
 		offset: procent(30, smScroll),
 		duration: procent(15, smScroll),
 	})
@@ -105,12 +116,12 @@ function frontPage() {
 		)
 		.addTo(controller);
 	new ScrollMagic.Scene({
-		offset: procent(80, smScroll),
-		duration: procent(15, smScroll),
+		offset: procent(90, smScroll),
+		duration: procent(55, smScroll),
 	})
 		.setTween(
 			TweenMax.to(".front-top__anim-opacity-2 ", 1, {
-				opacity: 0.1,
+				opacity: 0,
 				ease: Linear.easeNone,
 			})
 		)
@@ -123,6 +134,7 @@ function frontPage() {
 	});
 	const youGet = new Swiper(".you-get__slider", {
 		slidesPerView: 1,
+		spaceBetween: 35,
 		autoHeight: $(window).width() > 900 ? false : true,
 		allowTouchMove: false,
 	});
