@@ -4,6 +4,15 @@
 
 .object-top {
 	min-height: calc(var(--vh, 1vh)*100 - 80px);
+
+	@media(min-width:700px) {
+		min-height: calc(100vw * 0.48);
+	}
+
+	@media(min-width:1440px) {
+		min-height: 700px;
+	}
+
 	position: relative;
 	display: flex;
 	flex-direction: column;

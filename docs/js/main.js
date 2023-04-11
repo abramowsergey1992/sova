@@ -1,168 +1,5 @@
 $(function(){})
-function locationlist() {
-	let $map = $("#locations-map");
-	$(".location-prev__gallery").each(function () {
-		const lpb = new Swiper(this, {
-			speed: 400,
-			navigation: {
-				nextEl: $(this).find(".location-prev__gallery-next")[0],
-				prevEl: $(this).find(".location-prev__gallery-prev")[0],
-			},
-			spaceBetween: 10,
-		});
-	});
-
-	const locationlist = new Swiper(".locationlist-slide", {
-		speed: 400,
-		autoHeight: true,
-		allowTouchMove: false,
-		spaceBetween: 100,
-	});
-	$(".locations-page  .filters__btn").click(function () {
-		$(".locations-page  .filters__btn").removeClass("_active");
-		$(this).addClass("_active");
-		locationlist.slideTo($(this).data("slide"));
-	});
-	$(".location-map-prev__slider").each(function () {
-		const lpm = new Swiper(this, {
-			speed: 400,
-			pagination: {
-				el: $(this).find(".location-map-prev__slider-pagi")[0],
-				type: "bullets",
-				clickable: true,
-			},
-			spaceBetween: 10,
-		});
-	});
-	let dataloc;
-	$.getJSON($map.data("json"), function (data) {
-		dataloc = data.locations;
-		setTimeout(function () {
-			var myMap = new ymaps.Map(
-				"locations-map",
-				{
-					center: [55.30954, 37.721587],
-					zoom: 8,
-					controls: [],
-				},
-				{
-					searchControlProvider: "yandex#search",
-				}
-			);
-			function locationRender(locations) {
-				locations.forEach((loc) => {
-					myPlacemark = new ymaps.Placemark(
-						loc.coord,
-						{
-							balloonContent: loc.title,
-						},
-						{
-							id: loc.id,
-							balloonCloseButton: false,
-							hideIconOnBalloonOpen: false,
-							iconLayout: "default#image",
-							iconImageHref: $map.data("icon"),
-							iconImageSize: [50, 50],
-							iconImageOffset: [-25, -25],
-						}
-					);
-					myPlacemark.events.add(["balloonopen"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("activeicon")
-						);
-						console.log(e.get("target").geometry.getCoordinates());
-						console.log(e.get("target").options.get("id"));
-						myMap.panTo(e.get("target").geometry.getCoordinates());
-						$(".location-map-prev").stop().slideUp();
-						var smallScreen =
-							window.matchMedia("(max-width: 992px)");
-						if (smallScreen.matches) {
-							console.log("sss");
-							$(
-								"#popup-location-" +
-									e.get("target").options.get("id")
-							)
-								.stop()
-								.fadeIn();
-						} else {
-							$(
-								"#location-map-prev-" +
-									e.get("target").options.get("id")
-							)
-								.stop()
-								.slideDown();
-						}
-					});
-					myPlacemark.events.add(["balloonclose"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("icon")
-						);
-					});
-					myMap.geoObjects.add(myPlacemark);
-				});
-			}
-			$("#filter-city").change(function () {
-				let coord = $("#filter-city option:selected").data("coord");
-				console.log(coord);
-				if (coord.length && coord != undefined) {
-					console.log(coord.split(","));
-					myMap.panTo([
-						parseFloat(coord.split(",")[0]),
-						parseFloat(coord.split(",")[1]),
-					]);
-				}
-			});
-			$("#filter-status, #filter-city").change(function () {
-				let location = [];
-				myMap.geoObjects.removeAll();
-				$(".location-map-prev").stop().slideUp();
-				location = Array.from(dataloc);
-				console.log("s", location);
-				let city = $("#filter-city option:selected").attr("value");
-				let status = $("#filter-status option:selected").attr("value");
-
-				if (city == "all" || city == undefined) {
-					$(".location-prev").removeClass("_city-hidden");
-				} else {
-					location = location.filter(function (l) {
-						return l.city == city;
-					});
-					$(".location-prev").each(function () {
-						if (city == $(this).data("city")) {
-							$(this).removeClass("_city-hidden");
-						} else {
-							$(this).addClass("_city-hidden");
-						}
-					});
-				}
-
-				if (status == "all" || status == undefined) {
-					$(".location-prev").removeClass("_status-hidden");
-				} else {
-					location = location.filter(function (l) {
-						return l.tags.indexOf(status) >= 0;
-					});
-					$(".location-prev").each(function () {
-						if (
-							$(this).data("status").split("|").indexOf(status) >=
-							0
-						) {
-							$(this).removeClass("_status-hidden");
-						} else {
-							$(this).addClass("_status-hidden");
-						}
-					});
-				}
-				console.log("location", location);
-				locationRender(location);
-			});
-			locationRender(data.locations);
-		}, 2000);
-	});
-}
-
+$(function(){})
 function locationPage() {
 	$(".location-top__down").click(function () {
 		var body = $("html, body");
@@ -175,11 +12,6 @@ function locationPage() {
 	});
 }
 
-$(function(){})
-$(function(){})
-
-$(function(){})
-$(function(){})
 function frontPage() {
 	$("._square").each(function () {
 		$(this).css("min-height", $(this).outerWidth());
@@ -469,31 +301,304 @@ function frontPage() {
 		frontLocContent.updateProgress();
 		// frontLocContent.slideTo($(this).data("slide"));
 	});
-}
+	let $map = $("#front-loc-map");
+	let dataloc;
+	$.getJSON($map.data("json"), function (data) {
+		dataloc = data.locations;
+		setTimeout(function () {
+			var myMap = new ymaps.Map(
+				"front-loc-map",
+				{
+					center: [55.30954, 37.721587],
+					zoom: 8,
+					controls: [],
+				},
+				{
+					searchControlProvider: "yandex#search",
+				}
+			);
+			function locationRender(locations) {
+				locations.forEach((loc) => {
+					myPlacemark = new ymaps.Placemark(
+						loc.coord,
+						{
+							balloonContent: loc.title,
+						},
+						{
+							id: loc.id,
+							balloonCloseButton: false,
+							hideIconOnBalloonOpen: false,
+							iconLayout: "default#image",
+							iconImageHref: $map.data("icon"),
+							iconImageSize: [50, 50],
+							iconImageOffset: [-25, -25],
+						}
+					);
+					myPlacemark.events.add(["balloonopen"], function (e) {
+						e.get("target").options.set(
+							"iconImageHref",
+							$map.data("activeicon")
+						);
+						console.log(e.get("target").geometry.getCoordinates());
+						console.log(e.get("target").options.get("id"));
+						myMap.panTo(e.get("target").geometry.getCoordinates());
+						$(".location-map-prev").stop().slideUp();
+						var smallScreen =
+							window.matchMedia("(max-width: 992px)");
+						if (smallScreen.matches) {
+							console.log("sss");
+							$(
+								"#popup-location-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.fadeIn();
+						} else {
+							$(
+								"#location-map-prev-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.slideDown();
+						}
+					});
+					myPlacemark.events.add(["balloonclose"], function (e) {
+						e.get("target").options.set(
+							"iconImageHref",
+							$map.data("icon")
+						);
+					});
+					myMap.geoObjects.add(myPlacemark);
+				});
+			}
+			$("#filter-city").change(function () {
+				let coord = $("#filter-city option:selected").data("coord");
+				console.log(coord);
+				if (coord.length && coord != undefined) {
+					console.log(coord.split(","));
+					myMap.panTo([
+						parseFloat(coord.split(",")[0]),
+						parseFloat(coord.split(",")[1]),
+					]);
+				}
+			});
+			$("#filter-status, #filter-city").change(function () {
+				let location = [];
+				myMap.geoObjects.removeAll();
+				$(".location-map-prev").stop().slideUp();
+				location = Array.from(dataloc);
+				console.log("s", location);
+				let city = $("#filter-city option:selected").attr("value");
+				let status = $("#filter-status option:selected").attr("value");
 
-function aosInit() {
-	AOS.init({
-		// Global settings:
-		disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-		startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-		initClassName: "aos-init", // class applied after initialization
-		animatedClassName: "aos-animate", // class applied on animation
-		useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-		disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-		debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-		throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+				if (city == "all" || city == undefined) {
+					$(".location-prev").removeClass("_city-hidden");
+				} else {
+					location = location.filter(function (l) {
+						return l.city == city;
+					});
+					$(".location-prev").each(function () {
+						if (city == $(this).data("city")) {
+							$(this).removeClass("_city-hidden");
+						} else {
+							$(this).addClass("_city-hidden");
+						}
+					});
+				}
 
-		// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-		offset: 120, // offset (in px) from the original trigger point
-		delay: 0, // values from 0 to 3000, with step 50ms
-		duration: 600, // values from 0 to 3000, with step 50ms
-		easing: "ease", // default easing for AOS animations
-		once: true, // whether animation should happen only once - while scrolling down
-		mirror: false, // whether elements should animate out while scrolling past them
-		anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+				if (status == "all" || status == undefined) {
+					$(".location-prev").removeClass("_status-hidden");
+				} else {
+					location = location.filter(function (l) {
+						return l.tags.indexOf(status) >= 0;
+					});
+					$(".location-prev").each(function () {
+						if (
+							$(this).data("status").split("|").indexOf(status) >=
+							0
+						) {
+							$(this).removeClass("_status-hidden");
+						} else {
+							$(this).addClass("_status-hidden");
+						}
+					});
+				}
+				console.log("location", location);
+				locationRender(location);
+			});
+			locationRender(data.locations);
+		}, 2000);
 	});
 }
 
+$(function(){})
+function locationlist() {
+	let $map = $("#locations-map");
+	$(".location-prev__gallery").each(function () {
+		const lpb = new Swiper(this, {
+			speed: 400,
+			navigation: {
+				nextEl: $(this).find(".location-prev__gallery-next")[0],
+				prevEl: $(this).find(".location-prev__gallery-prev")[0],
+			},
+			spaceBetween: 10,
+		});
+	});
+
+	const locationlist = new Swiper(".locationlist-slide", {
+		speed: 400,
+		autoHeight: true,
+		allowTouchMove: false,
+		spaceBetween: 100,
+	});
+	$(".locations-page  .filters__btn").click(function () {
+		$(".locations-page  .filters__btn").removeClass("_active");
+		$(this).addClass("_active");
+		locationlist.slideTo($(this).data("slide"));
+	});
+	$(".location-map-prev__slider").each(function () {
+		const lpm = new Swiper(this, {
+			speed: 400,
+			pagination: {
+				el: $(this).find(".location-map-prev__slider-pagi")[0],
+				type: "bullets",
+				clickable: true,
+			},
+			spaceBetween: 10,
+		});
+	});
+	let dataloc;
+	$.getJSON($map.data("json"), function (data) {
+		dataloc = data.locations;
+		setTimeout(function () {
+			var myMap = new ymaps.Map(
+				"locations-map",
+				{
+					center: [55.30954, 37.721587],
+					zoom: 8,
+					controls: [],
+				},
+				{
+					searchControlProvider: "yandex#search",
+				}
+			);
+			function locationRender(locations) {
+				locations.forEach((loc) => {
+					myPlacemark = new ymaps.Placemark(
+						loc.coord,
+						{
+							balloonContent: loc.title,
+						},
+						{
+							id: loc.id,
+							balloonCloseButton: false,
+							hideIconOnBalloonOpen: false,
+							iconLayout: "default#image",
+							iconImageHref: $map.data("icon"),
+							iconImageSize: [50, 50],
+							iconImageOffset: [-25, -25],
+						}
+					);
+					myPlacemark.events.add(["balloonopen"], function (e) {
+						e.get("target").options.set(
+							"iconImageHref",
+							$map.data("activeicon")
+						);
+						console.log(e.get("target").geometry.getCoordinates());
+						console.log(e.get("target").options.get("id"));
+						myMap.panTo(e.get("target").geometry.getCoordinates());
+						$(".location-map-prev").stop().slideUp();
+						var smallScreen =
+							window.matchMedia("(max-width: 992px)");
+						if (smallScreen.matches) {
+							console.log("sss");
+							$(
+								"#popup-location-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.fadeIn();
+						} else {
+							$(
+								"#location-map-prev-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.slideDown();
+						}
+					});
+					myPlacemark.events.add(["balloonclose"], function (e) {
+						e.get("target").options.set(
+							"iconImageHref",
+							$map.data("icon")
+						);
+					});
+					myMap.geoObjects.add(myPlacemark);
+				});
+			}
+			$("#filter-city").change(function () {
+				let coord = $("#filter-city option:selected").data("coord");
+				console.log(coord);
+				if (coord.length && coord != undefined) {
+					console.log(coord.split(","));
+					myMap.panTo([
+						parseFloat(coord.split(",")[0]),
+						parseFloat(coord.split(",")[1]),
+					]);
+				}
+			});
+			$("#filter-status, #filter-city").change(function () {
+				let location = [];
+				myMap.geoObjects.removeAll();
+				$(".location-map-prev").stop().slideUp();
+				location = Array.from(dataloc);
+				console.log("s", location);
+				let city = $("#filter-city option:selected").attr("value");
+				let status = $("#filter-status option:selected").attr("value");
+
+				if (city == "all" || city == undefined) {
+					$(".location-prev").removeClass("_city-hidden");
+				} else {
+					location = location.filter(function (l) {
+						return l.city == city;
+					});
+					$(".location-prev").each(function () {
+						if (city == $(this).data("city")) {
+							$(this).removeClass("_city-hidden");
+						} else {
+							$(this).addClass("_city-hidden");
+						}
+					});
+				}
+
+				if (status == "all" || status == undefined) {
+					$(".location-prev").removeClass("_status-hidden");
+				} else {
+					location = location.filter(function (l) {
+						return l.tags.indexOf(status) >= 0;
+					});
+					$(".location-prev").each(function () {
+						if (
+							$(this).data("status").split("|").indexOf(status) >=
+							0
+						) {
+							$(this).removeClass("_status-hidden");
+						} else {
+							$(this).addClass("_status-hidden");
+						}
+					});
+				}
+				console.log("location", location);
+				locationRender(location);
+			});
+			locationRender(data.locations);
+		}, 2000);
+	});
+}
+
+
+$(function(){})
+$(function(){})
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
@@ -620,39 +725,6 @@ function feedbackForm() {
 }
 
 $(function(){})
-function form() {
-	$("._mask-int").each(function () {
-		Inputmask("9{1,5}").mask(this);
-	});
-	$("._mask-oneint").each(function () {
-		Inputmask({ mask: "9", placeholder: "" }).mask(this);
-	});
-	$("._mask-phone").each(function () {
-		Inputmask("+7 (999) 999-99-99").mask(this);
-	});
-	$("._mask-time").each(function () {
-		Inputmask("9{1,2}:9{1,2}").mask(this);
-	});
-	$("._mask-date,._mask-calendar").each(function () {
-		Inputmask("99.99.9999").mask(this);
-	});
-
-	// $(".filters__btn[data-filter]").click(function () {
-	// 	let wrap = $(this).closest(".block");
-	// });
-	// wrap.find(".filters__btn").removeClass("_active");
-	// $(this).addClass("_active");
-
-	$(".select2").select2({ minimumResultsForSearch: -1 });
-	$(".btn-1,.btn-2,.btn-3, .btn-4").each(function () {
-		$(this).html(
-			`<span class='button-content'><span>${$(
-				this
-			).html()}</span><span>${$(this).html()}</span></span>`
-		);
-	});
-}
-
 function header() {
 	let menu = $(".header__hidden-menu");
 	$(".header__menu-btn").click(function () {
@@ -719,6 +791,124 @@ function paginator() {
 	});
 }
 
+function aosInit() {
+	AOS.init({
+		// Global settings:
+		disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+		startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+		initClassName: "aos-init", // class applied after initialization
+		animatedClassName: "aos-animate", // class applied on animation
+		useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+		disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+		debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+		throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+		// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+		offset: 120, // offset (in px) from the original trigger point
+		delay: 0, // values from 0 to 3000, with step 50ms
+		duration: 600, // values from 0 to 3000, with step 50ms
+		easing: "ease", // default easing for AOS animations
+		once: true, // whether animation should happen only once - while scrolling down
+		mirror: false, // whether elements should animate out while scrolling past them
+		anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+	});
+}
+
+function form() {
+	$("._mask-int").each(function () {
+		Inputmask("9{1,5}").mask(this);
+	});
+	$("._mask-oneint").each(function () {
+		Inputmask({ mask: "9", placeholder: "" }).mask(this);
+	});
+	$("._mask-phone").each(function () {
+		Inputmask("+7 (999) 999-99-99").mask(this);
+	});
+	$("._mask-time").each(function () {
+		Inputmask("9{1,2}:9{1,2}").mask(this);
+	});
+	$("._mask-date,._mask-calendar").each(function () {
+		Inputmask("99.99.9999").mask(this);
+	});
+	$(".filters").each(function () {
+		$(this)
+			.find(".filters__flex")
+			.append('<div class="filters__bg"></div>');
+	});
+	function filtersBg() {
+		$(".filters").each(function () {
+			filterBg = $(this).find(".filters__bg");
+
+			filterActive = $(this)
+				.find(".mixitup-control-active,._active")
+				.first();
+
+			filterBg.css({
+				width: filterActive.outerWidth(),
+				height: filterActive.outerHeight(),
+				top: filterActive.position().top,
+				left: filterActive.position().left,
+			});
+		});
+	}
+	$(".filters__btn").click(function () {
+		setTimeout(function () {
+			filtersBg();
+		}, 50);
+	});
+	filtersBg();
+	window.addEventListener(
+		"resize",
+		function (event) {
+			filtersBg();
+		},
+		true
+	);
+	// $(".filters__btn[data-filter]").click(function () {
+	// 	let wrap = $(this).closest(".block");
+	// });
+	// wrap.find(".filters__btn").removeClass("_active");
+	// $(this).addClass("_active");
+
+	$(".select2").select2({ minimumResultsForSearch: -1 });
+	$(".btn-1,.btn-2,.btn-3, .btn-4").each(function () {
+		$(this).html(
+			`<span class='button-content'><span>${$(
+				this
+			).html()}</span><span>${$(this).html()}</span></span>`
+		);
+	});
+}
+
+function video() {
+	$(".video-click-play").click(function () {
+		this.play();
+		let th = this;
+		$(this).addClass("_play");
+		console.log($(this), "ssssx");
+		this.onended = function () {
+			th.currentTime = 0;
+			th.classList.remove("_play");
+		};
+	});
+}
+
+$(function () {
+	header();
+	form();
+	aosInit();
+	hoverCursor();
+	paginator();
+	bigslider();
+	locationlist();
+	mixiltup();
+	popup();
+	video();
+	feedbackForm();
+	locationPage();
+	frontPage();
+});
+
 function popupClose(popup) {
 	let $popup = $(popup);
 	$popup.removeClass("_animate");
@@ -773,33 +963,4 @@ window.addEventListener("resize", () => {
 		document.documentElement.style.setProperty("--vh", `${vh}px`);
 		width = window.innerWidth;
 	}
-});
-
-function video() {
-	$(".video-click-play").click(function () {
-		this.play();
-		let th = this;
-		$(this).addClass("_play");
-		console.log($(this), "ssssx");
-		this.onended = function () {
-			th.currentTime = 0;
-			th.classList.remove("_play");
-		};
-	});
-}
-
-$(function () {
-	header();
-	form();
-	aosInit();
-	hoverCursor();
-	paginator();
-	bigslider();
-	locationlist();
-	mixiltup();
-	popup();
-	video();
-	feedbackForm();
-	locationPage();
-	frontPage();
 });

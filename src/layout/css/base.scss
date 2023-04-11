@@ -132,6 +132,7 @@ img {
 		display: flex;
 		flex-direction: row;
 		gap: 10px;
+		position: relative;
 	}
 
 	&__wrap {
@@ -139,6 +140,14 @@ img {
 		background: #FFFFFF;
 		border-radius: 30px;
 		padding: 4px;
+	}
+
+	&__bg {
+		background: $grandient;
+		transition: width 0.3s, left 0.3s, top 0.3s, height 0.3s, ;
+		border-radius: 30px;
+		position: absolute;
+		z-index: 1;
 	}
 
 	&__btn {
@@ -150,13 +159,16 @@ img {
 		line-height: 22px;
 		letter-spacing: -0.02em;
 		cursor: pointer;
-		color: #2F3740;
+		position: relative;
+		z-index: 2;
+		color: rgba(94, 110, 128, 1);
 		border-radius: 30px;
 		border: 0 solid;
 		background: transparent;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+		transition: color 0.3s;
 
 		@media(max-width:768px) {
 			padding: 6px 10px;
@@ -165,7 +177,7 @@ img {
 		}
 
 		&:hover {
-			box-shadow: inset 0 0 0 2px $green;
+			color: #2F3740;
 		}
 
 		svg {
@@ -175,7 +187,7 @@ img {
 		&.mixitup-control-active,
 		&._active {
 			color: #fff;
-			background: $grandient;
+
 		}
 	}
 }
@@ -191,4 +203,8 @@ img {
 	@media(min-width:993px) {
 		display: none !important;
 	}
+}
+
+.irs-hidden-input {
+	opacity: 0;
 }

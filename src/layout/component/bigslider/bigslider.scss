@@ -154,13 +154,6 @@
 			right: 15px;
 		}
 
-		&-prev {
-			margin-left: auto;
-
-			svg {
-				transform: scale(-1);
-			}
-		}
 
 		button {
 			width: 50px;
@@ -203,6 +196,34 @@
 
 			svg {
 				position: relative;
+			}
+		}
+
+		&-prev {
+
+			margin-left: auto;
+
+			&::before {
+				transform: scale(1) !important;
+			}
+
+			&:hover {
+				&::before {
+					transform: scale(0) !important;
+				}
+
+				svg path {
+					fill: #fff !important;
+				}
+			}
+
+			svg {
+				transform: scale(-1);
+
+				path {
+					fill: $green;
+				}
+
 			}
 		}
 	}

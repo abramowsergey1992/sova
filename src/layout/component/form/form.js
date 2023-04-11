@@ -14,7 +14,40 @@ function form() {
 	$("._mask-date,._mask-calendar").each(function () {
 		Inputmask("99.99.9999").mask(this);
 	});
+	$(".filters").each(function () {
+		$(this)
+			.find(".filters__flex")
+			.append('<div class="filters__bg"></div>');
+	});
+	function filtersBg() {
+		$(".filters").each(function () {
+			filterBg = $(this).find(".filters__bg");
 
+			filterActive = $(this)
+				.find(".mixitup-control-active,._active")
+				.first();
+
+			filterBg.css({
+				width: filterActive.outerWidth(),
+				height: filterActive.outerHeight(),
+				top: filterActive.position().top,
+				left: filterActive.position().left,
+			});
+		});
+	}
+	$(".filters__btn").click(function () {
+		setTimeout(function () {
+			filtersBg();
+		}, 50);
+	});
+	filtersBg();
+	window.addEventListener(
+		"resize",
+		function (event) {
+			filtersBg();
+		},
+		true
+	);
 	// $(".filters__btn[data-filter]").click(function () {
 	// 	let wrap = $(this).closest(".block");
 	// });

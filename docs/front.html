@@ -381,11 +381,6 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 6.99606C13.5 11.9928 8.5 14.9909 7.5 14.9909C6.5 14.9909 1.5 11.9928 1.5 6.99606C1.5 3.68522 4.187 1 7.5 1C10.813 1 13.5 3.68522 13.5 6.99606Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
 </svg>	Локации на карте
                 </button>
-                <button class="btn-4 front-loc__btn-toogle-list">
-                  <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.5 3H15.5M7.5 11H15.5M2 1H4C4.55228 1 5 1.44772 5 2V4C5 4.55228 4.55228 5 4 5H2C1.44772 5 1 4.55228 1 4V2C1 1.44772 1.44772 1 2 1ZM2 9H4C4.55228 9 5 9.44772 5 10V12C5 12.5523 4.55228 13 4 13H2C1.44772 13 1 12.5523 1 12V10C1 9.44772 1.44772 9 2 9Z" stroke="currentColor"/>
-</svg>Локации спиcком
-                </button>
               </div>
               <div class="front-loc__wrap">
                 <div class="front-loc__slider-img swiper">
@@ -411,6 +406,7 @@
                           <source type="image/webp" srcset="img/front-loc.webp"/><img alt="" src="img/front-loc.jpg"/>
                         </picture><span class="front-loc__slider-img-plus hoverCursor"></span></a></div>
                   </div>
+                  <div id="front-loc-map" data-json="json/locations.json" data-icon="img/map-icon.svg" data-activeicon="img/map-icon-active.svg"></div>
                 </div>
                 <div class="front-loc__left">
                   <div class="front-loc__locations swiper">
@@ -421,8 +417,12 @@
                         </ul>
                         <div class="h3 front-loc-content__title">Сова «На речке»</div>
                         <ul class="front-loc-content__list">
-                          <li> <img src="img/l-2.svg" alt="">8 коттеджей «Комфорт +» 60 м² до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">Ресторан/Банкетный зал до 100 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Комфорт» 54 м² до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">1 коттедж «№ 1» (2 этажа) 130 м² до 6 гостей</li>
+                          <li> <img src="img/l-2.svg" alt="">2 коттеджа «Дуплекс» 141 м² до 10 гостей</li>
                           <li> <img src="img/l-4.svg" alt="">2 Бани «Комфорт» на 4–6 гостей</li>
+                          <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
                           <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
                         </ul>
                       </div>
@@ -479,7 +479,6 @@
                       <div class="front-loc__locations-pagi"></div>
                     </div>
                   </div>
-                  <div id="front-loc-map"></div>
                 </div>
               </div>
             </div>
@@ -731,8 +730,8 @@
           </div>
         </div>
       </div>
-      <div class="feedback inner" data-aos="fade-up">
-        <div class="feedback__wrapper">
+      <div class="feedback inner">
+        <div class="feedback__wrapper" data-aos="fade-up">
           <div class="feedback__video-wrap"> 
             <video class="video-click-play" src="video/preview.mp4" playsinline> </video>
           </div>

@@ -187,7 +187,7 @@
 
 	&::before {
 		z-index: 2;
-		background: $grandient;
+
 	}
 
 	span {
@@ -196,6 +196,10 @@
 
 	.button-content {
 		span {
+			&:last-child {
+				color: #fff;
+			}
+
 			&:first-child {
 				background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
 			}
@@ -335,6 +339,8 @@ body .select2-dropdown {
 	border-radius: 10px;
 	padding: 10px 20px;
 	top: 10px;
+	box-shadow: -6px 25px 60px rgba(0, 0, 0, 0.1);
+	border-radius: 10px !important;
 }
 
 body .select2-dropdown .select2-results__option {
@@ -357,13 +363,13 @@ body .select2-container .select2-selection--single .select2-selection__rendered 
 }
 
 body .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow {
-	transform: scale(-1filters);
+	transform: scale(-1);
 }
 
 body .select2-container--default .select2-selection--single .select2-selection__arrow {
 	background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.59961 1.53333L5.99961 5.93333L10.3996 1.53333' stroke='%232F3740' stroke-linecap='square'/%3E%3C/svg%3E%0A");
 	position: absolute;
-	right: 0;
+	right: 20px;
 	top: 0;
 	width: 30px;
 	background-repeat: no-repeat;
