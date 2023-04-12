@@ -381,6 +381,11 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 6.99606C13.5 11.9928 8.5 14.9909 7.5 14.9909C6.5 14.9909 1.5 11.9928 1.5 6.99606C1.5 3.68522 4.187 1 7.5 1C10.813 1 13.5 3.68522 13.5 6.99606Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
 </svg>	Локации на карте
                 </button>
+                <button class="btn-4 front-loc__btn-toogle-list" style="display:none">
+                  <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.5 3H15.5M7.5 11H15.5M2 1H4C4.55228 1 5 1.44772 5 2V4C5 4.55228 4.55228 5 4 5H2C1.44772 5 1 4.55228 1 4V2C1 1.44772 1.44772 1 2 1ZM2 9H4C4.55228 9 5 9.44772 5 10V12C5 12.5523 4.55228 13 4 13H2C1.44772 13 1 12.5523 1 12V10C1 9.44772 1.44772 9 2 9Z" stroke="currentColor"/>
+</svg>Локации спиcком
+                </button>
               </div>
               <div class="front-loc__wrap">
                 <div class="front-loc__slider-img swiper">
@@ -406,12 +411,14 @@
                           <source type="image/webp" srcset="img/front-loc.webp"/><img alt="" src="img/front-loc.jpg"/>
                         </picture><span class="front-loc__slider-img-plus hoverCursor"></span></a></div>
                   </div>
-                  <div id="front-loc-map" data-json="json/locations.json" data-icon="img/map-icon.svg" data-activeicon="img/map-icon-active.svg"></div>
+                  <div class="front-loc__map">
+                    <div id="front-loc-map" data-json="json/locations.json" data-icon="img/map-icon-front.png" data-activeicon="img/map-icon-active-front.svg"></div>
+                  </div>
                 </div>
                 <div class="front-loc__left">
                   <div class="front-loc__locations swiper">
                     <div class="swiper-wrapper"> 
-                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-filter="ready">
+                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-id="1" data-coord="[59.70599945972907, 29.997627729491587]" data-filter="ready">
                         <ul class="front-loc-content__tags"> 
                           <li>Готовая локация</li>
                         </ul>
@@ -426,7 +433,7 @@
                           <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
                         </ul>
                       </div>
-                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-filter="ready">
+                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-id="2" data-coord="[59.684672, 29.851008]" data-filter="ready">
                         <ul class="front-loc-content__tags"> 
                           <li>Готовая локация</li>
                         </ul>
@@ -437,7 +444,7 @@
                           <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
                         </ul>
                       </div>
-                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-filter="ready">
+                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-id="3" data-coord="[59.73714343247889, 30.272672027632538]" data-filter="ready">
                         <ul class="front-loc-content__tags"> 
                           <li>Готовая локация</li>
                         </ul>
@@ -448,7 +455,7 @@
                           <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
                         </ul>
                       </div>
-                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-filter="process">
+                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-id="4" data-coord="[55.585115845987275, 35.810447023436616]" data-filter="process">
                         <ul class="front-loc-content__tags"> 
                           <li>Строится</li>
                         </ul>
@@ -459,7 +466,7 @@
                           <li> <img src="img/l-5.svg" alt="">Купель на 4–6 гостей</li>
                         </ul>
                       </div>
-                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-filter="process">
+                      <div class="front-loc__slide-filter swiper-slide front-loc-content" data-id="5" data-coord="[55.90735547407116, 34.99745874218629]" data-filter="process">
                         <ul class="front-loc-content__tags"> 
                           <li>Строится</li>
                         </ul>
