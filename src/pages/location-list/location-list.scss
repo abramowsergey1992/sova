@@ -241,6 +241,7 @@
 
 		.swiper-slide {
 			position: relative;
+			overflow: hidden;
 
 			&::before {
 				padding-bottom: 77.12%;
