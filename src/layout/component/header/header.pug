@@ -2,10 +2,13 @@ header.header
 	.inner 
 		.header__row 
 			.header__left 
+				
 				.header__logo
 					a(href="/")
 						img(src="img/logo.svg", alt="")  
+				.header__hidden-menu-overlay
 				.header__hidden-menu(style="display:none;")
+		
 					.header__logo-mob
 						a(href="/")
 							img(src="img/logo-white.svg", alt="")  
@@ -24,6 +27,12 @@ header.header
 							a(href="#") Этапы зака локаций
 						li 
 							a(href="#") Новости и публикации
+					.header__hidden-menu-address 
+						p г. Санкт-Петербург,
+							br
+							| Ломоносов,
+							br._h1440
+							| ул. Костылева, 18 
 					.header__hidden-menu-row 
 						.header__telegramm-mob
 							span Телефон:

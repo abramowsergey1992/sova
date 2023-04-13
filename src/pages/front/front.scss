@@ -138,6 +138,10 @@
 		grid-template-columns: 25% auto 17%;
 
 		@media(min-width:992px) {
+			grid-template-columns: 300px auto 17%;
+		}
+
+		@media(min-width:1440px) {
 			grid-template-columns: 340px auto 17%;
 		}
 

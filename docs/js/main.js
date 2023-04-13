@@ -1,3 +1,4 @@
+$(function(){})
 function frontPage() {
 	if ($("#front-top").length) {
 		$("._square").each(function () {
@@ -414,6 +415,18 @@ function frontPage() {
 	}
 }
 
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
+	});
+}
+
 function locationlist() {
 	let $map = $("#locations-map");
 	$(".location-prev__gallery").each(function () {
@@ -578,24 +591,54 @@ function locationlist() {
 	});
 }
 
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
-		);
+
+$(function(){})
+$(function(){})
+$(function(){})
+$(function(){})
+function aosInit() {
+	$(".t-animate").each(function () {
+		var words = $(this).text().split(" ");
+		$(this).empty();
+		let delay = 0;
+		let text = $(this);
+		$.each(words, function (i, v) {
+			text.append(
+				$("<span>").html(
+					'<span style="transition-delay:' +
+						delay +
+						'ms">' +
+						v +
+						"&ensp;</span>"
+				)
+			);
+			delay += 100;
+		});
 	});
+	setTimeout(function () {
+		AOS.init({
+			// Global settings:
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: "aos-init", // class applied after initialization
+			animatedClassName: "aos-animate", // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 120, // offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 600, // values from 0 to 3000, with step 50ms
+			easing: "ease", // default easing for AOS animations
+			once: true, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+		});
+	}, 100);
 }
 
-$(function(){})
-$(function(){})
-$(function(){})
-
-$(function(){})
-$(function(){})
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
@@ -668,49 +711,6 @@ function bigslider() {
 	});
 }
 
-function aosInit() {
-	$(".t-animate").each(function () {
-		var words = $(this).text().split(" ");
-		$(this).empty();
-		let delay = 0;
-		let text = $(this);
-		$.each(words, function (i, v) {
-			text.append(
-				$("<span>").html(
-					'<span style="transition-delay:' +
-						delay +
-						'ms">' +
-						v +
-						"&ensp;</span>"
-				)
-			);
-			delay += 100;
-		});
-	});
-	setTimeout(function () {
-		AOS.init({
-			// Global settings:
-			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-			initClassName: "aos-init", // class applied after initialization
-			animatedClassName: "aos-animate", // class applied on animation
-			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			offset: 120, // offset (in px) from the original trigger point
-			delay: 0, // values from 0 to 3000, with step 50ms
-			duration: 600, // values from 0 to 3000, with step 50ms
-			easing: "ease", // default easing for AOS animations
-			once: true, // whether animation should happen only once - while scrolling down
-			mirror: false, // whether elements should animate out while scrolling past them
-			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-		});
-	}, 100);
-}
-
 function feedbackForm() {
 	let valid = $("#feedback-form").validate({
 		errorPlacement: function (error, element) {},
@@ -765,38 +765,6 @@ function feedbackForm() {
 }
 
 $(function(){})
-function header() {
-	let menu = $(".header__hidden-menu");
-	$(".header__menu-btn").click(function () {
-		$(this).toggleClass("_open");
-		if ($(this).hasClass("_open")) {
-			menu.stop().slideDown({
-				start: function () {
-					$(this).css({
-						display: "flex",
-					});
-				},
-			});
-		} else {
-			menu.stop().slideUp();
-		}
-	});
-	let currentScroll = $(window).scrollTop();
-	if (currentScroll > 5) {
-		$(".header").addClass("_bg");
-	} else {
-		$(".header").removeClass("_bg");
-	}
-	$(window).scroll(() => {
-		let currentScroll = $(window).scrollTop();
-		if (currentScroll > 5) {
-			$(".header").addClass("_bg");
-		} else {
-			$(".header").removeClass("_bg");
-		}
-	});
-}
-
 function form() {
 	$("._mask-int").each(function () {
 		Inputmask("9{1,5}").mask(this);
@@ -863,13 +831,92 @@ function form() {
 	});
 }
 
-$(function(){})
-function paginator() {
-	$(".paginator__more").click(function () {
-		$(this).closest(".paginator").addClass("_view-hidden");
+function header() {
+	let menu = $(".header__hidden-menu");
+	let btnMenu = $(".header__menu-btn");
+	let overlay = $(".header__hidden-menu-overlay");
+	function headerOpen() {
+		$("body").addClass("_open-menu");
+		overlay.stop().fadeIn();
+		menu.stop().slideDown({
+			start: function () {
+				$(this).css({
+					display: "flex",
+				});
+			},
+		});
+		btnMenu.addClass("_open");
+	}
+	function headerClose() {
+		overlay.stop().fadeOut();
+		$("body").removeClass("_open-menu");
+		btnMenu.removeClass("_open");
+		menu.stop().slideUp();
+	}
+	btnMenu.click(function () {
+		if ($(this).hasClass("_open")) {
+			headerClose();
+		} else {
+			headerOpen();
+		}
+	});
+	overlay.click(function () {
+		headerClose();
+	});
+
+	let currentScroll = $(window).scrollTop();
+	if (currentScroll > 5) {
+		$(".header").addClass("_bg");
+	} else {
+		$(".header").removeClass("_bg");
+	}
+	$(window).scroll(() => {
+		if (btnMenu.hasClass("_open")) {
+			headerClose();
+		}
+		let currentScroll = $(window).scrollTop();
+		if (currentScroll > 5) {
+			$(".header").addClass("_bg");
+		} else {
+			$(".header").removeClass("_bg");
+		}
 	});
 }
 
+function hoverCursor() {
+	if ($(".hoverCursor").length) {
+		$(".hoverCursor").each(function () {
+			let wrapper = $(this).parent();
+			let cursor = $(this);
+			wrapper.on("mousemove", function (e) {
+				let position = $(this).offset();
+				let left = e.pageX - position.left - 70 / 2;
+				let top = e.pageY - position.top - 70 / 2;
+				// cursor.css({
+				// 	left: left,
+				// 	top: top,
+				// });
+				gsap.to(cursor, 0.03, {
+					left: left,
+					top: top,
+					ease: Power4.easOut,
+				});
+			});
+		});
+	}
+}
+
+function mixiltup() {
+	if ($(".mixiltup").length) {
+		var mixer = mixitup(".mixiltup", {
+			selectors: {
+				target: ".mix",
+			},
+		});
+	}
+}
+
+$(function(){})
 function popupClose(popup) {
 	let $popup = $(popup);
 	$popup.removeClass("_animate");
@@ -917,38 +964,22 @@ function popup() {
 	});
 }
 
-function hoverCursor() {
-	if ($(".hoverCursor").length) {
-		$(".hoverCursor").each(function () {
-			let wrapper = $(this).parent();
-			let cursor = $(this);
-			wrapper.on("mousemove", function (e) {
-				let position = $(this).offset();
-				let left = e.pageX - position.left - 70 / 2;
-				let top = e.pageY - position.top - 70 / 2;
-				// cursor.css({
-				// 	left: left,
-				// 	top: top,
-				// });
-				gsap.to(cursor, 0.03, {
-					left: left,
-					top: top,
-					ease: Power4.easOut,
-				});
-			});
-		});
-	}
+function paginator() {
+	$(".paginator__more").click(function () {
+		$(this).closest(".paginator").addClass("_view-hidden");
+	});
 }
 
-function mixiltup() {
-	if ($(".mixiltup").length) {
-		var mixer = mixitup(".mixiltup", {
-			selectors: {
-				target: ".mix",
-			},
-		});
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
 	}
-}
+});
 
 function video() {
 	$(document).click(function (e) {
@@ -986,15 +1017,4 @@ $(function () {
 	feedbackForm();
 	locationPage();
 	frontPage();
-});
-
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
 });

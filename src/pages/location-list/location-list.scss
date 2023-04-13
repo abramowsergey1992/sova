@@ -31,6 +31,10 @@
 .location-prev {
 	margin-bottom: 73px;
 
+	@media(max-width:992px) {
+		position: relative;
+	}
+
 	&._city-hidden,
 	&._status-hidden {
 		display: none;
@@ -64,6 +68,7 @@
 		flex-direction: column;
 
 		@media(max-width:800px) {
+			z-index: 4;
 			padding: 20px 16px;
 		}
 	}
@@ -276,6 +281,10 @@
 
 		.location-prev__link:hover & {
 			opacity: 1;
+		}
+
+		@media(max-width:992px) {
+			display: none !important;
 		}
 
 		// .location-prev:hover & {
