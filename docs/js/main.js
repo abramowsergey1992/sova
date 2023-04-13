@@ -1,5 +1,4 @@
 $(function(){})
-$(function(){})
 function frontPage() {
 	$("._square").each(function () {
 		$(this).css("min-height", $(this).outerWidth());
@@ -136,7 +135,7 @@ function frontPage() {
 	});
 	const youGet = new Swiper(".you-get__slider", {
 		slidesPerView: 1,
-		spaceBetween: 50,
+		spaceBetween: 100,
 		autoHeight: $(window).width() > 900 ? false : true,
 		allowTouchMove: false,
 	});
@@ -408,6 +407,7 @@ function frontPage() {
 	});
 }
 
+$(function(){})
 function locationPage() {
 	$(".location-top__down").click(function () {
 		var body = $("html, body");
@@ -586,7 +586,50 @@ function locationlist() {
 
 $(function(){})
 $(function(){})
+
 $(function(){})
+function aosInit() {
+	$(".t-animate").each(function () {
+		var words = $(this).text().split(" ");
+		$(this).empty();
+		let delay = 0;
+		let text = $(this);
+		$.each(words, function (i, v) {
+			text.append(
+				$("<span>").html(
+					'<span style="transition-delay:' +
+						delay +
+						'ms">' +
+						v +
+						"&ensp;</span>"
+				)
+			);
+			delay += 100;
+		});
+	});
+	setTimeout(function () {
+		AOS.init({
+			// Global settings:
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: "aos-init", // class applied after initialization
+			animatedClassName: "aos-animate", // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 120, // offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 600, // values from 0 to 3000, with step 50ms
+			easing: "ease", // default easing for AOS animations
+			once: true, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+		});
+	}, 100);
+}
 
 function bigslider() {
 	$(".big-slider").each(function () {
@@ -806,6 +849,17 @@ function header() {
 	});
 }
 
+function mixiltup() {
+	if ($(".mixiltup").length) {
+		var mixer = mixitup(".mixiltup", {
+			selectors: {
+				target: ".mix",
+			},
+		});
+	}
+}
+
+$(function(){})
 function hoverCursor() {
 	if ($(".hoverCursor").length) {
 		$(".hoverCursor").each(function () {
@@ -829,17 +883,6 @@ function hoverCursor() {
 	}
 }
 
-function mixiltup() {
-	if ($(".mixiltup").length) {
-		var mixer = mixitup(".mixiltup", {
-			selectors: {
-				target: ".mix",
-			},
-		});
-	}
-}
-
-$(function(){})
 function paginator() {
 	$(".paginator__more").click(function () {
 		$(this).closest(".paginator").addClass("_view-hidden");
@@ -924,49 +967,6 @@ function video() {
 			th.classList.remove("_play");
 		};
 	});
-}
-
-function aosInit() {
-	$(".t-animate").each(function () {
-		var words = $(this).text().split(" ");
-		$(this).empty();
-		let delay = 0;
-		let text = $(this);
-		$.each(words, function (i, v) {
-			text.append(
-				$("<span>").html(
-					'<span style="transition-delay:' +
-						delay +
-						'ms">' +
-						v +
-						"&ensp;</span>"
-				)
-			);
-			delay += 100;
-		});
-	});
-	setTimeout(function () {
-		AOS.init({
-			// Global settings:
-			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-			initClassName: "aos-init", // class applied after initialization
-			animatedClassName: "aos-animate", // class applied on animation
-			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			offset: 120, // offset (in px) from the original trigger point
-			delay: 0, // values from 0 to 3000, with step 50ms
-			duration: 600, // values from 0 to 3000, with step 50ms
-			easing: "ease", // default easing for AOS animations
-			once: true, // whether animation should happen only once - while scrolling down
-			mirror: false, // whether elements should animate out while scrolling past them
-			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-		});
-	}, 100);
 }
 
 $(function () {
