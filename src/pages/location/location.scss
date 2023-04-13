@@ -423,6 +423,10 @@
 		background: $grandient;
 		border-radius: 50%;
 
+		@media(max-width:600px) {
+			display: none;
+		}
+
 		.location-mini__img-wrap:hover & {
 
 			opacity: 1;

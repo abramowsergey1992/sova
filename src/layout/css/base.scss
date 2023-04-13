@@ -8,6 +8,7 @@ body {
 
 	letter-spacing: -0.02em;
 
+	&._popup-open,
 	&._no-scroll {
 		overflow: hidden;
 	}
@@ -46,7 +47,7 @@ img {
 .page {
 	overflow: hidden;
 	position: relative;
-	padding-top: 80px;
+	padding-top: 81px;
 }
 
 .block {
@@ -58,7 +59,6 @@ img {
 }
 
 .inner {
-	max-width: 1440px;
 	padding-left: 48px;
 	padding-right: 48px;
 	margin-left: auto;
@@ -208,3 +208,5 @@ img {
 .irs-hidden-input {
 	opacity: 0;
 }
+
+.text {}
