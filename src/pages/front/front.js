@@ -134,7 +134,7 @@ function frontPage() {
 	});
 	const youGet = new Swiper(".you-get__slider", {
 		slidesPerView: 1,
-		spaceBetween: 35,
+		spaceBetween: 50,
 		autoHeight: $(window).width() > 900 ? false : true,
 		allowTouchMove: false,
 	});

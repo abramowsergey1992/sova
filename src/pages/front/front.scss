@@ -676,7 +676,7 @@
 		}
 
 		@media(min-width:1440px) {
-			max-height: clamp(500px, calc(100vh - 250px), calc(100vh - 250px));
+			max-height: clamp(580px, calc(100vh - 250px), calc(100vh - 250px));
 		}
 
 		img {
@@ -718,9 +718,9 @@
 
 
 .you-get__slider {
-	@media(max-width:800px) {
-		overflow: visible !important;
-	}
+
+	overflow: visible !important;
+
 }
 
 .you-slide-1,
@@ -758,6 +758,8 @@
 
 .you-slide-1 {
 	position: relative;
+	margin-left: -48px;
+	margin-right: -48px;
 
 	@media(max-width:800px) {
 		background-color: transparent !important;

@@ -1,4 +1,5 @@
 $(function(){})
+$(function(){})
 function frontPage() {
 	$("._square").each(function () {
 		$(this).css("min-height", $(this).outerWidth());
@@ -135,7 +136,7 @@ function frontPage() {
 	});
 	const youGet = new Swiper(".you-get__slider", {
 		slidesPerView: 1,
-		spaceBetween: 35,
+		spaceBetween: 50,
 		autoHeight: $(window).width() > 900 ? false : true,
 		allowTouchMove: false,
 	});
@@ -407,7 +408,18 @@ function frontPage() {
 	});
 }
 
-$(function(){})
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
+	});
+}
+
 function locationlist() {
 	let $map = $("#locations-map");
 	$(".location-prev__gallery").each(function () {
@@ -573,73 +585,8 @@ function locationlist() {
 }
 
 $(function(){})
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
-		);
-	});
-}
-
 $(function(){})
-
 $(function(){})
-function feedbackForm() {
-	let valid = $("#feedback-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#feedback-form .btn-1").attr("disabled", "disabled");
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					popupOpen("#feedback-popup-thanks");
-					$("#feedback-form .btn-1").removeAttr("disabled");
-				},
-				error: function () {
-					popupOpen("#feedback-popup-error");
-					$("#feedback-form btn-1").removeAttr("disabled");
-				},
-			});
-		},
-	});
-	let valid2 = $("#feedback-popup-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#feedback-popup-form .btn-1").attr("disabled", "disabled");
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					popupOpen("#feedback-popup-thanks");
-					$("#feedback-popup-form .btn-1").removeAttr("disabled");
-				},
-				error: function () {
-					popupOpen("#feedback-popup-error");
-					$("#feedback-popup-form btn-1").removeAttr("disabled");
-				},
-			});
-		},
-	});
-}
 
 function bigslider() {
 	$(".big-slider").each(function () {
@@ -710,6 +657,59 @@ function bigslider() {
 			},
 		});
 		// const
+	});
+}
+
+function feedbackForm() {
+	let valid = $("#feedback-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#feedback-form .btn-1").attr("disabled", "disabled");
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					popupOpen("#feedback-popup-thanks");
+					$("#feedback-form .btn-1").removeAttr("disabled");
+				},
+				error: function () {
+					popupOpen("#feedback-popup-error");
+					$("#feedback-form btn-1").removeAttr("disabled");
+				},
+			});
+		},
+	});
+	let valid2 = $("#feedback-popup-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#feedback-popup-form .btn-1").attr("disabled", "disabled");
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					popupOpen("#feedback-popup-thanks");
+					$("#feedback-popup-form .btn-1").removeAttr("disabled");
+				},
+				error: function () {
+					popupOpen("#feedback-popup-error");
+					$("#feedback-popup-form btn-1").removeAttr("disabled");
+				},
+			});
+		},
 	});
 }
 
@@ -926,22 +926,6 @@ function video() {
 	});
 }
 
-$(function () {
-	header();
-	form();
-	aosInit();
-	hoverCursor();
-	paginator();
-	bigslider();
-	locationlist();
-	mixiltup();
-	popup();
-	video();
-	feedbackForm();
-	locationPage();
-	frontPage();
-});
-
 function aosInit() {
 	$(".t-animate").each(function () {
 		var words = $(this).text().split(" ");
@@ -984,3 +968,19 @@ function aosInit() {
 		});
 	}, 100);
 }
+
+$(function () {
+	header();
+	form();
+	aosInit();
+	hoverCursor();
+	paginator();
+	bigslider();
+	locationlist();
+	mixiltup();
+	popup();
+	video();
+	feedbackForm();
+	locationPage();
+	frontPage();
+});
