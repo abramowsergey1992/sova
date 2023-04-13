@@ -1,4 +1,179 @@
-$(function(){})
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
+	});
+}
+
+function locationlist() {
+	let $map = $("#locations-map");
+	$(".location-prev__gallery").each(function () {
+		const lpb = new Swiper(this, {
+			speed: 400,
+			navigation: {
+				nextEl: $(this).find(".location-prev__gallery-next")[0],
+				prevEl: $(this).find(".location-prev__gallery-prev")[0],
+			},
+			spaceBetween: 10,
+		});
+	});
+
+	const locationlist = new Swiper(".locationlist-slide", {
+		speed: 400,
+		autoHeight: true,
+		allowTouchMove: false,
+		spaceBetween: 100,
+	});
+	$(".locations-page  .filters__btn").click(function () {
+		$(".locations-page  .filters__btn").removeClass("_active");
+		$(this).addClass("_active");
+		locationlist.slideTo($(this).data("slide"));
+	});
+	$(".location-map-prev__slider").each(function () {
+		const lpm = new Swiper(this, {
+			speed: 400,
+			pagination: {
+				el: $(this).find(".location-map-prev__slider-pagi")[0],
+				type: "bullets",
+				clickable: true,
+			},
+			spaceBetween: 10,
+		});
+	});
+	let dataloc;
+	$.getJSON($map.data("json"), function (data) {
+		dataloc = data.locations;
+		setTimeout(function () {
+			var myMap = new ymaps.Map(
+				"locations-map",
+				{
+					center: [55.30954, 37.721587],
+					zoom: 8,
+					controls: [],
+				},
+				{
+					searchControlProvider: "yandex#search",
+				}
+			);
+			function locationRender(locations) {
+				locations.forEach((loc) => {
+					myPlacemark = new ymaps.Placemark(
+						loc.coord,
+						{
+							balloonContent: loc.title,
+						},
+						{
+							id: loc.id,
+							balloonCloseButton: false,
+							hideIconOnBalloonOpen: false,
+							iconLayout: "default#image",
+							iconImageHref: $map.data("icon"),
+							iconImageSize: [50, 50],
+							iconImageOffset: [-25, -25],
+						}
+					);
+					myPlacemark.events.add(["balloonopen"], function (e) {
+						e.get("target").options.set(
+							"iconImageHref",
+							$map.data("activeicon")
+						);
+						console.log(e.get("target").geometry.getCoordinates());
+						console.log(e.get("target").options.get("id"));
+						myMap.panTo(e.get("target").geometry.getCoordinates());
+						$(".location-map-prev").stop().slideUp();
+						var smallScreen =
+							window.matchMedia("(max-width: 992px)");
+						if (smallScreen.matches) {
+							console.log("sss");
+							$(
+								"#popup-location-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.fadeIn();
+						} else {
+							$(
+								"#location-map-prev-" +
+									e.get("target").options.get("id")
+							)
+								.stop()
+								.slideDown();
+						}
+					});
+					myPlacemark.events.add(["balloonclose"], function (e) {
+						e.get("target").options.set(
+							"iconImageHref",
+							$map.data("icon")
+						);
+					});
+					myMap.geoObjects.add(myPlacemark);
+				});
+			}
+			$("#filter-city").change(function () {
+				let coord = $("#filter-city option:selected").data("coord");
+				console.log(coord);
+				if (coord.length && coord != undefined) {
+					console.log(coord.split(","));
+					myMap.panTo([
+						parseFloat(coord.split(",")[0]),
+						parseFloat(coord.split(",")[1]),
+					]);
+				}
+			});
+			$("#filter-status, #filter-city").change(function () {
+				let location = [];
+				myMap.geoObjects.removeAll();
+				$(".location-map-prev").stop().slideUp();
+				location = Array.from(dataloc);
+				console.log("s", location);
+				let city = $("#filter-city option:selected").attr("value");
+				let status = $("#filter-status option:selected").attr("value");
+
+				if (city == "all" || city == undefined) {
+					$(".location-prev").removeClass("_city-hidden");
+				} else {
+					location = location.filter(function (l) {
+						return l.city == city;
+					});
+					$(".location-prev").each(function () {
+						if (city == $(this).data("city")) {
+							$(this).removeClass("_city-hidden");
+						} else {
+							$(this).addClass("_city-hidden");
+						}
+					});
+				}
+
+				if (status == "all" || status == undefined) {
+					$(".location-prev").removeClass("_status-hidden");
+				} else {
+					location = location.filter(function (l) {
+						return l.tags.indexOf(status) >= 0;
+					});
+					$(".location-prev").each(function () {
+						if (
+							$(this).data("status").split("|").indexOf(status) >=
+							0
+						) {
+							$(this).removeClass("_status-hidden");
+						} else {
+							$(this).addClass("_status-hidden");
+						}
+					});
+				}
+				console.log("location", location);
+				locationRender(location);
+			});
+			locationRender(data.locations);
+		}, 2000);
+	});
+}
+
 function frontPage() {
 	$("._square").each(function () {
 		$(this).css("min-height", $(this).outerWidth());
@@ -408,186 +583,130 @@ function frontPage() {
 }
 
 $(function(){})
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
+$(function(){})
+$(function(){})
+$(function(){})
+
+$(function(){})
+function feedbackForm() {
+	let valid = $("#feedback-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#feedback-form .btn-1").attr("disabled", "disabled");
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					popupOpen("#feedback-popup-thanks");
+					$("#feedback-form .btn-1").removeAttr("disabled");
+				},
+				error: function () {
+					popupOpen("#feedback-popup-error");
+					$("#feedback-form btn-1").removeAttr("disabled");
+				},
+			});
+		},
+	});
+	let valid2 = $("#feedback-popup-form").validate({
+		errorPlacement: function (error, element) {},
+		submitHandler: function (form) {
+			$("#feedback-popup-form .btn-1").attr("disabled", "disabled");
+			$.ajax({
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				method: "POST",
+				headers: {
+					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+						"content"
+					),
+				},
+				context: document.body,
+				success: function () {
+					popupOpen("#feedback-popup-thanks");
+					$("#feedback-popup-form .btn-1").removeAttr("disabled");
+				},
+				error: function () {
+					popupOpen("#feedback-popup-error");
+					$("#feedback-popup-form btn-1").removeAttr("disabled");
+				},
+			});
+		},
+	});
+}
+
+function form() {
+	$("._mask-int").each(function () {
+		Inputmask("9{1,5}").mask(this);
+	});
+	$("._mask-oneint").each(function () {
+		Inputmask({ mask: "9", placeholder: "" }).mask(this);
+	});
+	$("._mask-phone").each(function () {
+		Inputmask("+7 (999) 999-99-99").mask(this);
+	});
+	$("._mask-time").each(function () {
+		Inputmask("9{1,2}:9{1,2}").mask(this);
+	});
+	$("._mask-date,._mask-calendar").each(function () {
+		Inputmask("99.99.9999").mask(this);
+	});
+	$(".filters").each(function () {
+		$(this)
+			.find(".filters__flex")
+			.append('<div class="filters__bg"></div>');
+	});
+	function filtersBg() {
+		$(".filters").each(function () {
+			filterBg = $(this).find(".filters__bg");
+
+			filterActive = $(this)
+				.find(".mixitup-control-active,._active")
+				.first();
+
+			filterBg.css({
+				width: filterActive.outerWidth(),
+				height: filterActive.outerHeight(),
+				top: filterActive.position().top,
+				left: filterActive.position().left,
+			});
+		});
+	}
+	$(".filters__btn").click(function () {
+		setTimeout(function () {
+			filtersBg();
+		}, 50);
+	});
+	filtersBg();
+	window.addEventListener(
+		"resize",
+		function (event) {
+			filtersBg();
+		},
+		true
+	);
+	// $(".filters__btn[data-filter]").click(function () {
+	// 	let wrap = $(this).closest(".block");
+	// });
+	// wrap.find(".filters__btn").removeClass("_active");
+	// $(this).addClass("_active");
+
+	$(".select2").select2({ minimumResultsForSearch: -1 });
+	$(".btn-1,.btn-2,.btn-3, .btn-4, .btn-5").each(function () {
+		$(this).html(
+			`<span class='button-content'><span>${$(
+				this
+			).html()}</span><span>${$(this).html()}</span></span>`
 		);
 	});
 }
 
-function locationlist() {
-	let $map = $("#locations-map");
-	$(".location-prev__gallery").each(function () {
-		const lpb = new Swiper(this, {
-			speed: 400,
-			navigation: {
-				nextEl: $(this).find(".location-prev__gallery-next")[0],
-				prevEl: $(this).find(".location-prev__gallery-prev")[0],
-			},
-			spaceBetween: 10,
-		});
-	});
-
-	const locationlist = new Swiper(".locationlist-slide", {
-		speed: 400,
-		autoHeight: true,
-		allowTouchMove: false,
-		spaceBetween: 100,
-	});
-	$(".locations-page  .filters__btn").click(function () {
-		$(".locations-page  .filters__btn").removeClass("_active");
-		$(this).addClass("_active");
-		locationlist.slideTo($(this).data("slide"));
-	});
-	$(".location-map-prev__slider").each(function () {
-		const lpm = new Swiper(this, {
-			speed: 400,
-			pagination: {
-				el: $(this).find(".location-map-prev__slider-pagi")[0],
-				type: "bullets",
-				clickable: true,
-			},
-			spaceBetween: 10,
-		});
-	});
-	let dataloc;
-	$.getJSON($map.data("json"), function (data) {
-		dataloc = data.locations;
-		setTimeout(function () {
-			var myMap = new ymaps.Map(
-				"locations-map",
-				{
-					center: [55.30954, 37.721587],
-					zoom: 8,
-					controls: [],
-				},
-				{
-					searchControlProvider: "yandex#search",
-				}
-			);
-			function locationRender(locations) {
-				locations.forEach((loc) => {
-					myPlacemark = new ymaps.Placemark(
-						loc.coord,
-						{
-							balloonContent: loc.title,
-						},
-						{
-							id: loc.id,
-							balloonCloseButton: false,
-							hideIconOnBalloonOpen: false,
-							iconLayout: "default#image",
-							iconImageHref: $map.data("icon"),
-							iconImageSize: [50, 50],
-							iconImageOffset: [-25, -25],
-						}
-					);
-					myPlacemark.events.add(["balloonopen"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("activeicon")
-						);
-						console.log(e.get("target").geometry.getCoordinates());
-						console.log(e.get("target").options.get("id"));
-						myMap.panTo(e.get("target").geometry.getCoordinates());
-						$(".location-map-prev").stop().slideUp();
-						var smallScreen =
-							window.matchMedia("(max-width: 992px)");
-						if (smallScreen.matches) {
-							console.log("sss");
-							$(
-								"#popup-location-" +
-									e.get("target").options.get("id")
-							)
-								.stop()
-								.fadeIn();
-						} else {
-							$(
-								"#location-map-prev-" +
-									e.get("target").options.get("id")
-							)
-								.stop()
-								.slideDown();
-						}
-					});
-					myPlacemark.events.add(["balloonclose"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("icon")
-						);
-					});
-					myMap.geoObjects.add(myPlacemark);
-				});
-			}
-			$("#filter-city").change(function () {
-				let coord = $("#filter-city option:selected").data("coord");
-				console.log(coord);
-				if (coord.length && coord != undefined) {
-					console.log(coord.split(","));
-					myMap.panTo([
-						parseFloat(coord.split(",")[0]),
-						parseFloat(coord.split(",")[1]),
-					]);
-				}
-			});
-			$("#filter-status, #filter-city").change(function () {
-				let location = [];
-				myMap.geoObjects.removeAll();
-				$(".location-map-prev").stop().slideUp();
-				location = Array.from(dataloc);
-				console.log("s", location);
-				let city = $("#filter-city option:selected").attr("value");
-				let status = $("#filter-status option:selected").attr("value");
-
-				if (city == "all" || city == undefined) {
-					$(".location-prev").removeClass("_city-hidden");
-				} else {
-					location = location.filter(function (l) {
-						return l.city == city;
-					});
-					$(".location-prev").each(function () {
-						if (city == $(this).data("city")) {
-							$(this).removeClass("_city-hidden");
-						} else {
-							$(this).addClass("_city-hidden");
-						}
-					});
-				}
-
-				if (status == "all" || status == undefined) {
-					$(".location-prev").removeClass("_status-hidden");
-				} else {
-					location = location.filter(function (l) {
-						return l.tags.indexOf(status) >= 0;
-					});
-					$(".location-prev").each(function () {
-						if (
-							$(this).data("status").split("|").indexOf(status) >=
-							0
-						) {
-							$(this).removeClass("_status-hidden");
-						} else {
-							$(this).addClass("_status-hidden");
-						}
-					});
-				}
-				console.log("location", location);
-				locationRender(location);
-			});
-			locationRender(data.locations);
-		}, 2000);
-	});
-}
-
-$(function(){})
-$(function(){})
-
-$(function(){})
 function aosInit() {
 	$(".t-animate").each(function () {
 		var words = $(this).text().split(" ");
@@ -703,152 +822,6 @@ function bigslider() {
 	});
 }
 
-function feedbackForm() {
-	let valid = $("#feedback-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#feedback-form .btn-1").attr("disabled", "disabled");
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					popupOpen("#feedback-popup-thanks");
-					$("#feedback-form .btn-1").removeAttr("disabled");
-				},
-				error: function () {
-					popupOpen("#feedback-popup-error");
-					$("#feedback-form btn-1").removeAttr("disabled");
-				},
-			});
-		},
-	});
-	let valid2 = $("#feedback-popup-form").validate({
-		errorPlacement: function (error, element) {},
-		submitHandler: function (form) {
-			$("#feedback-popup-form .btn-1").attr("disabled", "disabled");
-			$.ajax({
-				url: $(form).attr("action"),
-				data: $(form).serialize(),
-				method: "POST",
-				headers: {
-					"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-						"content"
-					),
-				},
-				context: document.body,
-				success: function () {
-					popupOpen("#feedback-popup-thanks");
-					$("#feedback-popup-form .btn-1").removeAttr("disabled");
-				},
-				error: function () {
-					popupOpen("#feedback-popup-error");
-					$("#feedback-popup-form btn-1").removeAttr("disabled");
-				},
-			});
-		},
-	});
-}
-
-$(function(){})
-function form() {
-	$("._mask-int").each(function () {
-		Inputmask("9{1,5}").mask(this);
-	});
-	$("._mask-oneint").each(function () {
-		Inputmask({ mask: "9", placeholder: "" }).mask(this);
-	});
-	$("._mask-phone").each(function () {
-		Inputmask("+7 (999) 999-99-99").mask(this);
-	});
-	$("._mask-time").each(function () {
-		Inputmask("9{1,2}:9{1,2}").mask(this);
-	});
-	$("._mask-date,._mask-calendar").each(function () {
-		Inputmask("99.99.9999").mask(this);
-	});
-	$(".filters").each(function () {
-		$(this)
-			.find(".filters__flex")
-			.append('<div class="filters__bg"></div>');
-	});
-	function filtersBg() {
-		$(".filters").each(function () {
-			filterBg = $(this).find(".filters__bg");
-
-			filterActive = $(this)
-				.find(".mixitup-control-active,._active")
-				.first();
-
-			filterBg.css({
-				width: filterActive.outerWidth(),
-				height: filterActive.outerHeight(),
-				top: filterActive.position().top,
-				left: filterActive.position().left,
-			});
-		});
-	}
-	$(".filters__btn").click(function () {
-		setTimeout(function () {
-			filtersBg();
-		}, 50);
-	});
-	filtersBg();
-	window.addEventListener(
-		"resize",
-		function (event) {
-			filtersBg();
-		},
-		true
-	);
-	// $(".filters__btn[data-filter]").click(function () {
-	// 	let wrap = $(this).closest(".block");
-	// });
-	// wrap.find(".filters__btn").removeClass("_active");
-	// $(this).addClass("_active");
-
-	$(".select2").select2({ minimumResultsForSearch: -1 });
-	$(".btn-1,.btn-2,.btn-3, .btn-4, .btn-5").each(function () {
-		$(this).html(
-			`<span class='button-content'><span>${$(
-				this
-			).html()}</span><span>${$(this).html()}</span></span>`
-		);
-	});
-}
-
-function header() {
-	let menu = $(".header__hidden-menu");
-	$(".header__menu-btn").click(function () {
-		$(this).toggleClass("_open");
-		if ($(this).hasClass("_open")) {
-			menu.stop().slideDown({
-				start: function () {
-					$(this).css({
-						display: "flex",
-					});
-				},
-			});
-		} else {
-			menu.stop().slideUp();
-		}
-	});
-	$(window).scroll(() => {
-		let currentScroll = $(window).scrollTop();
-		if (currentScroll > 5) {
-			$(".header").addClass("_bg");
-		} else {
-			$(".header").removeClass("_bg");
-		}
-	});
-}
-
 function mixiltup() {
 	if ($(".mixiltup").length) {
 		var mixer = mixitup(".mixiltup", {
@@ -883,6 +856,7 @@ function hoverCursor() {
 	}
 }
 
+$(function(){})
 function paginator() {
 	$(".paginator__more").click(function () {
 		$(this).closest(".paginator").addClass("_view-hidden");
@@ -936,16 +910,36 @@ function popup() {
 	});
 }
 
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
+function header() {
+	let menu = $(".header__hidden-menu");
+	$(".header__menu-btn").click(function () {
+		$(this).toggleClass("_open");
+		if ($(this).hasClass("_open")) {
+			menu.stop().slideDown({
+				start: function () {
+					$(this).css({
+						display: "flex",
+					});
+				},
+			});
+		} else {
+			menu.stop().slideUp();
+		}
+	});$(window).scrollTop();
+	if (currentScroll > 5) {
+		$(".header").addClass("_bg");
+	} else {
+		$(".header").removeClass("_bg");
 	}
-});
+	$(window).scroll(() => {
+		let currentScroll = $(window).scrollTop();
+		if (currentScroll > 5) {
+			$(".header").addClass("_bg");
+		} else {
+			$(".header").removeClass("_bg");
+		}
+	});
+}
 
 function video() {
 	$(document).click(function (e) {
@@ -983,4 +977,15 @@ $(function () {
 	feedbackForm();
 	locationPage();
 	frontPage();
+});
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
 });

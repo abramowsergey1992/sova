@@ -10,6 +10,7 @@
 		background-image: url(../img/green-pattern.svg);
 		display: grid;
 		grid-template-columns: 340px auto;
+		opacity: 1 !important;
 
 		@media(max-width:992px) {
 			display: flex;
