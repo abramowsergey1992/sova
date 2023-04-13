@@ -10,7 +10,9 @@
 	}
 
 	@media(min-width:1440px) {
-		min-height: 700px;
+		min-height: initial;
+		height: calc(100vw * 0.48);
+		max-height: calc(100vh - 100px);
 	}
 
 	position: relative;
@@ -122,6 +124,10 @@
 	.h1,
 	h1 {
 		max-width: 900px;
+
+		@media(min-width:1400px) {
+			max-width: 70%;
+		}
 	}
 
 	p {
