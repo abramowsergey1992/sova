@@ -1,7 +1,10 @@
 .news-detail {
-	max-width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
+
+	&__inner {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 	&__date {
 		margin-bottom: 30px;

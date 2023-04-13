@@ -727,12 +727,14 @@ function bigslider() {
 	});
 }
 
-$(function(){})
 function feedbackForm() {
 	let valid = $("#feedback-form").validate({
 		errorPlacement: function (error, element) {},
 		submitHandler: function (form) {
-			$("#feedback-form .btn-1").attr("disabled", "disabled");
+			$("#feedback-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
 			$.ajax({
 				url: $(form).attr("action"),
 				data: $(form).serialize(),
@@ -745,11 +747,15 @@ function feedbackForm() {
 				context: document.body,
 				success: function () {
 					popupOpen("#feedback-popup-thanks");
-					$("#feedback-form .btn-1").removeAttr("disabled");
+					$("#feedback-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 				error: function () {
 					popupOpen("#feedback-popup-error");
-					$("#feedback-form btn-1").removeAttr("disabled");
+					$("#feedback-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 			});
 		},
@@ -757,7 +763,10 @@ function feedbackForm() {
 	let valid2 = $("#feedback-popup-form").validate({
 		errorPlacement: function (error, element) {},
 		submitHandler: function (form) {
-			$("#feedback-popup-form .btn-1").attr("disabled", "disabled");
+			$("#feedback-popup-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
 			$.ajax({
 				url: $(form).attr("action"),
 				data: $(form).serialize(),
@@ -770,17 +779,36 @@ function feedbackForm() {
 				context: document.body,
 				success: function () {
 					popupOpen("#feedback-popup-thanks");
-					$("#feedback-popup-form .btn-1").removeAttr("disabled");
+					$("#feedback-popup-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 				error: function () {
 					popupOpen("#feedback-popup-error");
-					$("#feedback-popup-form btn-1").removeAttr("disabled");
+					$("#feedback-popup-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 			});
 		},
 	});
+
+	$("#feedback-popup-form-agree").change(function () {
+		console.log($(this).prop("checked"));
+		if ($(this).prop("checked")) {
+			$("#feedback-popup-form button[type='submit']").removeAttr(
+				"disabled"
+			);
+		} else {
+			$("#feedback-popup-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
+		}
+	});
 }
 
+$(function(){})
 function form() {
 	$("._mask-int").each(function () {
 		Inputmask("9{1,5}").mask(this);
@@ -925,6 +953,7 @@ function mixiltup() {
 	}
 }
 
+$(function(){})
 function hoverCursor() {
 	if ($(".hoverCursor").length) {
 		$(".hoverCursor").each(function () {
@@ -946,13 +975,6 @@ function hoverCursor() {
 			});
 		});
 	}
-}
-
-$(function(){})
-function paginator() {
-	$(".paginator__more").click(function () {
-		$(this).closest(".paginator").addClass("_view-hidden");
-	});
 }
 
 function popupClose(popup) {
@@ -1002,28 +1024,6 @@ function popup() {
 	});
 }
 
-function video() {
-	$(document).click(function (e) {
-		if ($(e.target).closest(".video-click-play").length) {
-			return;
-		}
-
-		$(".video-click-play").each(function () {
-			$(this).removeClass("_play");
-			this.pause();
-		});
-	});
-	$(".video-click-play").click(function () {
-		this.play();
-		let th = this;
-		$(this).addClass("_play");
-		this.onended = function () {
-			th.currentTime = 0;
-			th.classList.remove("_play");
-		};
-	});
-}
-
 var vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
 var width = window.innerWidth;
@@ -1050,3 +1050,31 @@ $(function () {
 	locationPage();
 	frontPage();
 });
+
+function video() {
+	$(document).click(function (e) {
+		if ($(e.target).closest(".video-click-play").length) {
+			return;
+		}
+
+		$(".video-click-play").each(function () {
+			$(this).removeClass("_play");
+			this.pause();
+		});
+	});
+	$(".video-click-play").click(function () {
+		this.play();
+		let th = this;
+		$(this).addClass("_play");
+		this.onended = function () {
+			th.currentTime = 0;
+			th.classList.remove("_play");
+		};
+	});
+}
+
+function paginator() {
+	$(".paginator__more").click(function () {
+		$(this).closest(".paginator").addClass("_view-hidden");
+	});
+}

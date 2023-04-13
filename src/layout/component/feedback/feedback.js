@@ -2,7 +2,10 @@ function feedbackForm() {
 	let valid = $("#feedback-form").validate({
 		errorPlacement: function (error, element) {},
 		submitHandler: function (form) {
-			$("#feedback-form .btn-1").attr("disabled", "disabled");
+			$("#feedback-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
 			$.ajax({
 				url: $(form).attr("action"),
 				data: $(form).serialize(),
@@ -15,11 +18,15 @@ function feedbackForm() {
 				context: document.body,
 				success: function () {
 					popupOpen("#feedback-popup-thanks");
-					$("#feedback-form .btn-1").removeAttr("disabled");
+					$("#feedback-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 				error: function () {
 					popupOpen("#feedback-popup-error");
-					$("#feedback-form btn-1").removeAttr("disabled");
+					$("#feedback-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 			});
 		},
@@ -27,7 +34,10 @@ function feedbackForm() {
 	let valid2 = $("#feedback-popup-form").validate({
 		errorPlacement: function (error, element) {},
 		submitHandler: function (form) {
-			$("#feedback-popup-form .btn-1").attr("disabled", "disabled");
+			$("#feedback-popup-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
 			$.ajax({
 				url: $(form).attr("action"),
 				data: $(form).serialize(),
@@ -40,13 +50,31 @@ function feedbackForm() {
 				context: document.body,
 				success: function () {
 					popupOpen("#feedback-popup-thanks");
-					$("#feedback-popup-form .btn-1").removeAttr("disabled");
+					$("#feedback-popup-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 				error: function () {
 					popupOpen("#feedback-popup-error");
-					$("#feedback-popup-form btn-1").removeAttr("disabled");
+					$("#feedback-popup-form button[type='submit']").removeAttr(
+						"disabled"
+					);
 				},
 			});
 		},
+	});
+
+	$("#feedback-popup-form-agree").change(function () {
+		console.log($(this).prop("checked"));
+		if ($(this).prop("checked")) {
+			$("#feedback-popup-form button[type='submit']").removeAttr(
+				"disabled"
+			);
+		} else {
+			$("#feedback-popup-form button[type='submit']").attr(
+				"disabled",
+				"disabled"
+			);
+		}
 	});
 }

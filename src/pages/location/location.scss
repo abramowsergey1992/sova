@@ -191,8 +191,8 @@
 	}
 
 	@media(max-width:992px) {
-		width: 87px;
-		height: 87px;
+		width: 110px;
+		height: 110px;
 	}
 
 	&__text {
@@ -202,9 +202,9 @@
 		animation: rotating 8s linear infinite;
 
 		@media(max-width:992px) {
-			left: 6px;
-			top: 6px;
-			width: 74px;
+			left: 9px;
+			top: 9px;
+			width: 92px;
 		}
 
 		.download-presentation:hover & {
@@ -226,8 +226,8 @@
 
 		@media(max-width:992px) {
 
-			width: 28px;
-			height: 28px;
+			width: 40px;
+			height: 40px;
 
 		}
 
@@ -248,12 +248,12 @@
 		transform: translateX(-50%) translateY(-50%);
 
 		@media(max-width:992px) {
-			width: 52px;
-			height: 52px;
+			width: 62px;
+			height: 62px;
 
 			img {
-				width: 28px;
-				height: 28px;
+				width: 40px;
+				height: 40px;
 			}
 		}
 	}

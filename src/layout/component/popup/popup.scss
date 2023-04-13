@@ -135,6 +135,15 @@
 		}
 	}
 
+	.btn-4 {
+		padding: 10px 20px;
+
+		&[disabled] {
+			pointer-events: none;
+			filter: grayscale(100%);
+		}
+	}
+
 	&__form-wrap {
 		padding: 57px;
 		display: flex;
@@ -178,11 +187,23 @@
 
 		input {
 			color: #2F3740;
-			border-color: rgba(167, 184, 115, 1);
+			border: 1px solid #5E6E80;
 			background: #fff;
 
+			&:placeholder-shown {
+				border: 1px solid #D3D6DB;
+			}
+
+			&.valid {
+				border: 1px solid #D3D6DB;
+			}
+
+			&.error {
+				border: 1px solid $red;
+			}
+
 			&::placeholder {
-				color: #2F3740;
+				color: #D3D6DB;
 			}
 		}
 	}
