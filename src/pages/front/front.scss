@@ -126,6 +126,9 @@
 		align-items: center;
 		justify-content: center;
 		line-height: 85.8%;
+		font-family: 'Unbounded';
+		font-style: normal;
+		font-weight: 250;
 		font-size: clamp(64px, calc(64px + (150 - 64)*((100vw - 375px)/(1920 - 375))), 150px);
 	}
 
@@ -258,11 +261,19 @@
 	.h1,
 	h1 {
 		max-width: 1010px;
+
+		@media(min-width:1440px) {
+			max-width: 70%;
+		}
 	}
 
 	p {
 		max-width: 777px;
 		margin-left: auto;
+
+		@media(min-width:1440px) {
+			max-width: 50%;
+		}
 	}
 
 	&__head {
@@ -413,7 +424,13 @@
 	}
 
 	&__front {
-		cursor: none;
+		cursor: pointer;
+
+		&:hover {
+			.front-structura-item__bg {
+				transform: scale(1.05);
+			}
+		}
 
 		&:hover .front-structura-item__plus {
 			opacity: 1;
@@ -511,11 +528,9 @@
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		opacity: 0;
 
-		@media(max-width:600px) {
-			display: none;
-		}
+
+		transform: translate(-50%) translateY(-50%);
 
 		.front-structura-item._green & {
 			background: #fff;
@@ -574,6 +589,7 @@
 		width: 100%;
 		height: 100%;
 		z-index: 1;
+		transition: transform 0.3s;
 
 		.front-structura-item._green .front-structura-item__back & {
 			background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
@@ -1001,11 +1017,7 @@
 	// 	margin-left: calc((100vw - 1440px) / -2);
 	// }
 
-	a:hover {
-		.front-loc__slider-img-plus {
-			opacity: 1;
-		}
-	}
+
 
 	&__filter-row {
 		display: flex;
@@ -1192,11 +1204,10 @@
 		}
 
 		.swiper-slide {
-			cursor: none;
 			line-height: 0;
 
 			a {
-				cursor: none;
+				cursor: pointer;
 			}
 		}
 	}
@@ -1205,13 +1216,13 @@
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		opacity: 0;
 		width: 50px;
 		height: 50px;
 		background: $grandient;
 		border-radius: 50%;
 		transition: opacity 0.3s;
 
+		.front-loc__slide-filter a:hover &,
 		.location-mini:hover & {
 			background: #fff;
 		}
@@ -1236,6 +1247,7 @@
 			position: absolute;
 			background: #fff;
 
+			.front-loc__slide-filter a:hover &,
 			.location-mini:hover & {
 				background: $grandient;
 			}
@@ -1596,6 +1608,14 @@
 
 		&._green {
 			background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+
+			.btn-4 {
+				&::after {
+					opacity: 1;
+					background: $black !important;
+				}
+			}
+
 		}
 
 		&-title {
@@ -1844,7 +1864,7 @@
 		}
 
 		&._active {
-			color: $black;
+			color: rgba(47, 55, 64, 1);
 		}
 
 		&:not(:last-child) {

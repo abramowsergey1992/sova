@@ -141,6 +141,18 @@ function frontPage() {
 		});
 		const frontLocImg = new Swiper(".front-loc__slider-img", {
 			slidesPerView: 1,
+			speed: 1000,
+			effect: "creative",
+			creativeEffect: {
+				prev: {
+					// will set `translateZ(-400px)` on previous slides
+					translate: ["-50%", 0, -400],
+				},
+				next: {
+					// will set `translateX(100%)` on next slides
+					translate: ["100%", 0, 0],
+				},
+			},
 		});
 		const frontLocContent = new Swiper(".front-loc__locations", {
 			slidesPerView: 1,
@@ -202,6 +214,7 @@ function frontPage() {
 		});
 		const frontNews = new Swiper(" .front-news__slider", {
 			slidesPerView: 1,
+			speed: 800,
 			allowTouchMove: false,
 		});
 

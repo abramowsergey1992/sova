@@ -361,11 +361,6 @@
 		margin-bottom: 30px;
 		overflow: hidden;
 		z-index: 2;
-		cursor: none;
-
-		* {
-			cursor: none;
-		}
 
 		@media(max-width:992px) {
 			margin-bottom: 20px;
@@ -428,15 +423,12 @@
 		left: 50%;
 		top: 50%;
 		width: 50px;
-		opacity: 0;
+
 		transition: opacity 0.3s;
 		height: 50px;
 		background: $grandient;
 		border-radius: 50%;
-
-		@media(max-width:600px) {
-			display: none;
-		}
+		transform: translate(-50%) translateY(-50%);
 
 		.location-mini__img-wrap:hover & {
 

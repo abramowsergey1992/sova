@@ -1,17 +1,5 @@
 $(function(){})
 $(function(){})
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
-		);
-	});
-}
-
 function frontPage() {
 	if ($("#front-top").length) {
 		$("._square").each(function () {
@@ -155,6 +143,18 @@ function frontPage() {
 		});
 		const frontLocImg = new Swiper(".front-loc__slider-img", {
 			slidesPerView: 1,
+			speed: 1000,
+			effect: "creative",
+			creativeEffect: {
+				prev: {
+					// will set `translateZ(-400px)` on previous slides
+					translate: ["-50%", 0, -400],
+				},
+				next: {
+					// will set `translateX(100%)` on next slides
+					translate: ["100%", 0, 0],
+				},
+			},
 		});
 		const frontLocContent = new Swiper(".front-loc__locations", {
 			slidesPerView: 1,
@@ -216,6 +216,7 @@ function frontPage() {
 		});
 		const frontNews = new Swiper(" .front-news__slider", {
 			slidesPerView: 1,
+			speed: 800,
 			allowTouchMove: false,
 		});
 
@@ -429,6 +430,18 @@ function frontPage() {
 	}
 }
 
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
+	});
+}
+
 function locationlist() {
 	let $map = $("#locations-map");
 	$(".location-prev__gallery").each(function () {
@@ -594,9 +607,52 @@ function locationlist() {
 }
 
 $(function(){})
+$(function(){})
 
 $(function(){})
-$(function(){})
+function aosInit() {
+	$(".t-animate").each(function () {
+		var words = $(this).text().split(" ");
+		$(this).empty();
+		let delay = 0;
+		let text = $(this);
+		$.each(words, function (i, v) {
+			text.append(
+				$("<span>").html(
+					'<span style="transition-delay:' +
+						delay +
+						'ms">' +
+						v +
+						"&ensp;</span>"
+				)
+			);
+			delay += 100;
+		});
+	});
+	setTimeout(function () {
+		AOS.init({
+			// Global settings:
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: "aos-init", // class applied after initialization
+			animatedClassName: "aos-animate", // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 120, // offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 600, // values from 0 to 3000, with step 50ms
+			easing: "ease", // default easing for AOS animations
+			once: true, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+		});
+	}, 100);
+}
+
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
@@ -613,6 +669,7 @@ function bigslider() {
 			{
 				slidesPerView: 8,
 				loop: true,
+				speed: 800,
 				spaceBetween: 28,
 				watchSlidesProgress: true,
 				setWrapperSize: true,
@@ -648,6 +705,7 @@ function bigslider() {
 			spaceBetween: 10,
 			setWrapperSize: true,
 			loop: true,
+			speed: 800,
 			pagination: {
 				el: $th.find(".big-slider__pagination")[0],
 				type: "fraction",
@@ -669,6 +727,7 @@ function bigslider() {
 	});
 }
 
+$(function(){})
 function feedbackForm() {
 	let valid = $("#feedback-form").validate({
 		errorPlacement: function (error, element) {},
@@ -722,7 +781,6 @@ function feedbackForm() {
 	});
 }
 
-$(function(){})
 function form() {
 	$("._mask-int").each(function () {
 		Inputmask("9{1,5}").mask(this);
@@ -857,6 +915,16 @@ function header() {
 	});
 }
 
+function mixiltup() {
+	if ($(".mixiltup").length) {
+		var mixer = mixitup(".mixiltup", {
+			selectors: {
+				target: ".mix",
+			},
+		});
+	}
+}
+
 function hoverCursor() {
 	if ($(".hoverCursor").length) {
 		$(".hoverCursor").each(function () {
@@ -880,113 +948,11 @@ function hoverCursor() {
 	}
 }
 
-function mixiltup() {
-	if ($(".mixiltup").length) {
-		var mixer = mixitup(".mixiltup", {
-			selectors: {
-				target: ".mix",
-			},
-		});
-	}
-}
-
 $(function(){})
 function paginator() {
 	$(".paginator__more").click(function () {
 		$(this).closest(".paginator").addClass("_view-hidden");
 	});
-}
-
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
-});
-
-$(function () {
-	header();
-	form();
-	aosInit();
-	hoverCursor();
-	paginator();
-	bigslider();
-	locationlist();
-	mixiltup();
-	popup();
-	video();
-	feedbackForm();
-	locationPage();
-	frontPage();
-});
-
-function video() {
-	$(document).click(function (e) {
-		if ($(e.target).closest(".video-click-play").length) {
-			return;
-		}
-
-		$(".video-click-play").each(function () {
-			$(this).removeClass("_play");
-			this.pause();
-		});
-	});
-	$(".video-click-play").click(function () {
-		this.play();
-		let th = this;
-		$(this).addClass("_play");
-		this.onended = function () {
-			th.currentTime = 0;
-			th.classList.remove("_play");
-		};
-	});
-}
-
-function aosInit() {
-	$(".t-animate").each(function () {
-		var words = $(this).text().split(" ");
-		$(this).empty();
-		let delay = 0;
-		let text = $(this);
-		$.each(words, function (i, v) {
-			text.append(
-				$("<span>").html(
-					'<span style="transition-delay:' +
-						delay +
-						'ms">' +
-						v +
-						"&ensp;</span>"
-				)
-			);
-			delay += 100;
-		});
-	});
-	setTimeout(function () {
-		AOS.init({
-			// Global settings:
-			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-			initClassName: "aos-init", // class applied after initialization
-			animatedClassName: "aos-animate", // class applied on animation
-			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			offset: 120, // offset (in px) from the original trigger point
-			delay: 0, // values from 0 to 3000, with step 50ms
-			duration: 600, // values from 0 to 3000, with step 50ms
-			easing: "ease", // default easing for AOS animations
-			once: true, // whether animation should happen only once - while scrolling down
-			mirror: false, // whether elements should animate out while scrolling past them
-			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-		});
-	}, 100);
 }
 
 function popupClose(popup) {
@@ -1035,3 +1001,52 @@ function popup() {
 		$(this).closest(".popup-location").fadeOut();
 	});
 }
+
+function video() {
+	$(document).click(function (e) {
+		if ($(e.target).closest(".video-click-play").length) {
+			return;
+		}
+
+		$(".video-click-play").each(function () {
+			$(this).removeClass("_play");
+			this.pause();
+		});
+	});
+	$(".video-click-play").click(function () {
+		this.play();
+		let th = this;
+		$(this).addClass("_play");
+		this.onended = function () {
+			th.currentTime = 0;
+			th.classList.remove("_play");
+		};
+	});
+}
+
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
+});
+
+$(function () {
+	header();
+	form();
+	aosInit();
+	hoverCursor();
+	paginator();
+	bigslider();
+	locationlist();
+	mixiltup();
+	popup();
+	video();
+	feedbackForm();
+	locationPage();
+	frontPage();
+});

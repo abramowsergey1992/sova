@@ -14,6 +14,7 @@ function bigslider() {
 			{
 				slidesPerView: 8,
 				loop: true,
+				speed: 800,
 				spaceBetween: 28,
 				watchSlidesProgress: true,
 				setWrapperSize: true,
@@ -49,6 +50,7 @@ function bigslider() {
 			spaceBetween: 10,
 			setWrapperSize: true,
 			loop: true,
+			speed: 800,
 			pagination: {
 				el: $th.find(".big-slider__pagination")[0],
 				type: "fraction",

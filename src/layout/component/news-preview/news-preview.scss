@@ -82,9 +82,6 @@
 		border-radius: 50%;
 		position: relative;
 
-		@media(max-width:600px) {
-			display: none;
-		}
 
 		.news-preview:hover & {
 			background: #2F3740;
