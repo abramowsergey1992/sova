@@ -240,6 +240,7 @@ function frontPage() {
 		},
 	});
 	$(".front-structura-item .front-structura-item__front").click(function () {
+		$(".front-structura-item").removeClass("_rotate");
 		$(this).closest(".front-structura-item").addClass("_rotate");
 	});
 	let input = $(".front-steps__input").data("ionRangeSlider");

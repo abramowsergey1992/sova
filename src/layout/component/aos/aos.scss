@@ -1,0 +1,47 @@
+.t-animate {
+	opacity: 0;
+
+	&.aos-init {
+		opacity: 1;
+	}
+
+	&.aos-animate {
+		span {
+			span {
+				transform: translateY(0);
+			}
+		}
+	}
+
+	span {
+		overflow: hidden;
+		position: relative;
+		line-height: inherit;
+		display: inline-block;
+
+		span {
+			position: relative;
+			transform: translateY(100%);
+			transition: transform 0.4s;
+			display: inline-block;
+		}
+	}
+
+}
+
+h1,
+.h1 {
+	&.t-animate {
+		&:has(span) {
+			line-height: 0;
+		}
+
+		span {
+			line-height: 0;
+
+			span {
+				line-height: 129%
+			}
+		}
+	}
+}

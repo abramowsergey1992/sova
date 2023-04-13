@@ -26,8 +26,9 @@ block content
 		
 				.front-top__center
 					.front-top__center-content
-						h1 Простые инвестиции в загородную недвижимость с высоким доходом
-						p От благоустройства европейского уровня до фотозон, отопления, оснащения дома мебелью и техникой. Все необходимое и ничего лишнего.
+						h1.t-animate(data-aos) Простые инвестиции в загородную недвижимость с высоким доходом
+						div(data-aos="fade-up" data-aos-delay="800" )
+							p От благоустройства европейского уровня до фотозон, отопления, оснащения дома мебелью и техникой. Все необходимое и ничего лишнего.
 				.front-top__right
 					+picture('ftr','jpg')
 			.front-top__fw
@@ -68,9 +69,10 @@ block content
 				q Управляющая компания «Сова»
 				a(href="about.html").btn-2 Подробнее о компании
 			.front-uks__text
-				.h1 Недвижимость — самый безопасный инструмент инвестирования. Ваша собственность — ваши гарантии.
-				p 
-					big Это отражение высокой надёжности инвестиций. Локации интересные и притягательные не только для жителей Петербурга, но и России. За месяц нас посещают более 6000 гостей, это говорит о многом.
+				.h1.t-animate(data-aos) Недвижимость — самый безопасный инструмент инвестирования. Ваша собственность — ваши гарантии.
+				div(data-aos="fade-up" data-aos-delay="800" )
+					p 
+						big Это отражение высокой надёжности инвестиций. Локации интересные и притягательные не только для жителей Петербурга, но и России. За месяц нас посещают более 6000 гостей, это говорит о многом.
 		.front-numbers.block(data-aos="fade-up") 
 			.front-numbers__row 
 				.front-numbers__items
@@ -457,7 +459,7 @@ block content
 			.front-steps.block(data-aos="fade-up") 
 				.head-row 
 					.h1  Этапы запуска локаций
-					button.btn-2(data-popup="#feedback-popup") Оставить заявку
+					button.btn-5(data-popup="#feedback-popup") Оставить заявку
 				.front-steps__container 
 					<svg  class="front-steps__container-svg " viewBox="0 0 586 586" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="293" cy="293" r="290" fill="none"  procent="1"  stroke-width="7"  stroke="url(#paint0_linear_470_2717)" /> 

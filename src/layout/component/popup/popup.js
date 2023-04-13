@@ -3,9 +3,11 @@ function popupClose(popup) {
 	$popup.removeClass("_animate");
 	setTimeout(function () {
 		$popup.removeClass("_display");
+		$("body").removeClass("_popup-open");
 	}, 400);
 }
 function popupOpen(popup) {
+	$("body").addClass("_popup-open");
 	if ($(".popup._display").length) {
 		$(".popup._display").each(function () {
 			popupClose("#" + $(this).attr("id"));

@@ -16,7 +16,7 @@ function header() {
 	});
 	$(window).scroll(() => {
 		let currentScroll = $(window).scrollTop();
-		if (currentScroll > 30) {
+		if (currentScroll > 5) {
 			$(".header").addClass("_bg");
 		} else {
 			$(".header").removeClass("_bg");

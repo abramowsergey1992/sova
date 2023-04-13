@@ -55,7 +55,7 @@ function form() {
 	// $(this).addClass("_active");
 
 	$(".select2").select2({ minimumResultsForSearch: -1 });
-	$(".btn-1,.btn-2,.btn-3, .btn-4").each(function () {
+	$(".btn-1,.btn-2,.btn-3, .btn-4, .btn-5").each(function () {
 		$(this).html(
 			`<span class='button-content'><span>${$(
 				this
