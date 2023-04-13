@@ -13,7 +13,8 @@ function header() {
 		} else {
 			menu.stop().slideUp();
 		}
-	});$(window).scrollTop();
+	});
+	let currentScroll = $(window).scrollTop();
 	if (currentScroll > 5) {
 		$(".header").addClass("_bg");
 	} else {
