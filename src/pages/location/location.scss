@@ -282,6 +282,17 @@
 	h1,
 	.h1 {
 		max-width: 1010px;
+
+		@media(max-width:992px) {
+			background: linear-gradient(136.6deg, #A0BA4F 0%, #7A8E3B 97.35%);
+		}
+
+		@media(max-width:992px) {
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			text-fill-color: transparent !important;
+		}
 	}
 
 	p {

@@ -195,6 +195,7 @@ function frontPage() {
 
 		const frontTopLeftContent = new Swiper(".front-top__left-swiper ", {
 			slidesPerView: 1,
+			loop: true,
 			autoplay: {
 				delay: 5000,
 			},
