@@ -630,6 +630,10 @@
 	.swiper-slide {
 		background-color: #fff;
 		height: initial;
+
+		&:first-child {
+			background: transparent;
+		}
 	}
 }
 
