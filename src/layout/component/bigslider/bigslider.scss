@@ -1,6 +1,10 @@
 .big-slider {
 	background: #fff;
 
+	@media(max-width:992px) {
+		overflow: hidden !important;
+	}
+
 	&__full-slider {
 		.swiper-slide {
 			position: relative;
@@ -18,15 +22,15 @@
 				display: block;
 				content: '';
 				padding-bottom: 46.88%;
+
+				@media(max-width:600px) {
+					padding-bottom: 100%;
+				}
 			}
 		}
 	}
 
-	&__bottom {
-		@media(max-width:992px) {
-			overflow: hidden !important;
-		}
-	}
+	&__bottom {}
 
 	&__thumb-slider {
 		@media(max-width:992px) {

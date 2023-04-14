@@ -27,6 +27,7 @@ function form() {
 				.find(".mixitup-control-active,._active")
 				.first();
 
+			console.log(filterActive, filterActive.outerHeight());
 			filterBg.css({
 				width: filterActive.outerWidth(),
 				height: filterActive.outerHeight(),
@@ -41,6 +42,9 @@ function form() {
 		}, 50);
 	});
 	filtersBg();
+	setTimeout(function () {
+		filtersBg();
+	}, 250);
 	window.addEventListener(
 		"resize",
 		function (event) {

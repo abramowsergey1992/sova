@@ -169,6 +169,7 @@ img {
 		flex-direction: row;
 		align-items: center;
 		transition: color 0.3s;
+		margin: 0;
 
 		@media(max-width:768px) {
 			padding: 6px 10px;

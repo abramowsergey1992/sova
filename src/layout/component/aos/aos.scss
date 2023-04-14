@@ -20,6 +20,10 @@
 		display: inline-block;
 
 		span {
+			@media(max-width:600px) {
+				transition-delay: 0s !important;
+			}
+
 			position: relative;
 			transform: translateY(100%);
 			transition: transform 0.4s;

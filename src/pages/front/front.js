@@ -142,7 +142,12 @@ function frontPage() {
 		const frontLocImg = new Swiper(".front-loc__slider-img", {
 			slidesPerView: 1,
 			speed: 1000,
+			watchSlidesProgress: true,
 			effect: "creative",
+			pagination: {
+				el: ".front-loc__pagi",
+				type: "fraction",
+			},
 			creativeEffect: {
 				prev: {
 					// will set `translateZ(-400px)` on previous slides

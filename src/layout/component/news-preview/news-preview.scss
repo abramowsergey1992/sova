@@ -48,6 +48,10 @@
 		text-decoration: none;
 		color: #2F3740;
 
+		@media(max-width:700px) {
+			line-height: 175% !important;
+		}
+
 		&::after {
 			display: block;
 			position: absolute;

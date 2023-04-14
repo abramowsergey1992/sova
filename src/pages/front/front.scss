@@ -637,6 +637,65 @@
 	padding-left: 20%;
 	position: relative;
 
+	.head-row {
+		.h1 {
+			@media(max-width:600px) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__pagi {
+		position: absolute;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: -.02em;
+		top: 31px;
+		color: #fff;
+		right: 16px;
+		z-index: 2;
+		text-align: right;
+		left: initial;
+		bottom: initial;
+
+		@media(min-width:992px) {
+
+			display: none;
+
+		}
+	}
+
+	&__tags {
+		display: flex;
+		flex-direction: row;
+		gap: 15px;
+		margin-bottom: 48px;
+		pointer-events: none;
+		position: absolute;
+		left: 16px;
+		top: 20px;
+
+		@media(min-width:992px) {
+
+			display: none;
+
+		}
+
+		li {
+			background: #FFFFFF;
+			border-radius: 30px;
+			padding: 8px 16px;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 19px;
+			letter-spacing: -0.02em;
+			color: #A0BA4F;
+			border: 2px solid#A0BA4F;
+		}
+	}
+
 	@media(max-width:600px) {
 
 		.front-loc__btn-toogle-map,
@@ -683,6 +742,10 @@
 			display: block;
 			content: '';
 			padding-bottom: 66.88%;
+
+			@media(max-width:500px) {
+				padding-bottom: 100%;
+			}
 
 		}
 
@@ -1011,12 +1074,26 @@
 }
 
 .front-loc {
+
 	// @media(min-width:1440px) {
 	// 	padding-left: calc(((100vw - 1460px)/2) + 350px);
 	// 	width: calc(100vw - 96px);
 	// 	margin-left: calc((100vw - 1440px) / -2);
 	// }
+	&__wrap {
+		position: relative;
 
+		&::before {
+			position: absolute;
+			left: -16px;
+			top: 0;
+			width: calc(32px + 100%);
+			height: 100%;
+			display: block;
+			content: '';
+			background: #2f3740;
+		}
+	}
 
 
 	&__filter-row {
@@ -1221,6 +1298,7 @@
 		background: $grandient;
 		border-radius: 50%;
 		transition: opacity 0.3s;
+		transform: translateX(-50%) translateY(-50%);
 
 		.front-loc__slide-filter a:hover &,
 		.location-mini:hover & {
@@ -1264,7 +1342,10 @@
 		margin-bottom: 48px;
 
 		@media(max-width:992px) {
-			margin-bottom: 25pxpreloader;
+			margin-bottom: 25px;
+			position: absolute;
+			display: none;
+
 		}
 
 		li {
@@ -1651,6 +1732,14 @@
 }
 
 .front-steps {
+	.head-row {
+		.btn-5 {
+			@media(max-width:992px) {
+				display: none;
+			}
+		}
+	}
+
 	&__slider {
 		position: absolute;
 		left: 0;
