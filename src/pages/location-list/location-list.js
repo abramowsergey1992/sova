@@ -51,7 +51,7 @@ function locationlist() {
 			function locationRender(locations) {
 				locations.forEach((loc) => {
 					myPlacemark = new ymaps.Placemark(
-						loc.coord,
+						loc.coord.split(","),
 						{
 							balloonContent: loc.title,
 						},

@@ -1,3 +1,5 @@
+$(function(){})
+$(function(){})
 function frontPage() {
 	if ($("#front-top").length) {
 		$("._square").each(function () {
@@ -433,8 +435,18 @@ function frontPage() {
 	}
 }
 
-$(function(){})
-$(function(){})
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
+	});
+}
+
 function locationlist() {
 	let $map = $("#locations-map");
 	$(".location-prev__gallery").each(function () {
@@ -488,7 +500,7 @@ function locationlist() {
 			function locationRender(locations) {
 				locations.forEach((loc) => {
 					myPlacemark = new ymaps.Placemark(
-						loc.coord,
+						loc.coord.split(","),
 						{
 							balloonContent: loc.title,
 						},
@@ -599,22 +611,53 @@ function locationlist() {
 	});
 }
 
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
-		);
+$(function(){})
+$(function(){})
+
+$(function(){})
+function aosInit() {
+	$(".t-animate").each(function () {
+		var words = $(this).text().split(" ");
+		$(this).empty();
+		let delay = 0;
+		let text = $(this);
+		$.each(words, function (i, v) {
+			text.append(
+				$("<span>").html(
+					'<span style="transition-delay:' +
+						delay +
+						'ms">' +
+						v +
+						"&ensp;</span>"
+				)
+			);
+			delay += 100;
+		});
 	});
+	setTimeout(function () {
+		AOS.init({
+			// Global settings:
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: "aos-init", // class applied after initialization
+			animatedClassName: "aos-animate", // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 120, // offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 600, // values from 0 to 3000, with step 50ms
+			easing: "ease", // default easing for AOS animations
+			once: true, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+		});
+	}, 100);
 }
 
-
-$(function(){})
-$(function(){})
-$(function(){})
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
@@ -909,59 +952,6 @@ function header() {
 	});
 }
 
-function aosInit() {
-	$(".t-animate").each(function () {
-		var words = $(this).text().split(" ");
-		$(this).empty();
-		let delay = 0;
-		let text = $(this);
-		$.each(words, function (i, v) {
-			text.append(
-				$("<span>").html(
-					'<span style="transition-delay:' +
-						delay +
-						'ms">' +
-						v +
-						"&ensp;</span>"
-				)
-			);
-			delay += 100;
-		});
-	});
-	setTimeout(function () {
-		AOS.init({
-			// Global settings:
-			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-			initClassName: "aos-init", // class applied after initialization
-			animatedClassName: "aos-animate", // class applied on animation
-			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			offset: 120, // offset (in px) from the original trigger point
-			delay: 0, // values from 0 to 3000, with step 50ms
-			duration: 600, // values from 0 to 3000, with step 50ms
-			easing: "ease", // default easing for AOS animations
-			once: true, // whether animation should happen only once - while scrolling down
-			mirror: false, // whether elements should animate out while scrolling past them
-			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-		});
-	}, 100);
-}
-
-function mixiltup() {
-	if ($(".mixiltup").length) {
-		var mixer = mixitup(".mixiltup", {
-			selectors: {
-				target: ".mix",
-			},
-		});
-	}
-}
-
 function hoverCursor() {
 	if ($(".hoverCursor").length) {
 		$(".hoverCursor").each(function () {
@@ -985,32 +975,20 @@ function hoverCursor() {
 	}
 }
 
+function mixiltup() {
+	if ($(".mixiltup").length) {
+		var mixer = mixitup(".mixiltup", {
+			selectors: {
+				target: ".mix",
+			},
+		});
+	}
+}
+
 $(function(){})
 function paginator() {
 	$(".paginator__more").click(function () {
 		$(this).closest(".paginator").addClass("_view-hidden");
-	});
-}
-
-function video() {
-	$(document).click(function (e) {
-		if ($(e.target).closest(".video-click-play").length) {
-			return;
-		}
-
-		$(".video-click-play").each(function () {
-			$(this).removeClass("_play");
-			this.pause();
-		});
-	});
-	$(".video-click-play").click(function () {
-		this.play();
-		let th = this;
-		$(this).addClass("_play");
-		this.onended = function () {
-			th.currentTime = 0;
-			th.classList.remove("_play");
-		};
 	});
 }
 
@@ -1061,6 +1039,39 @@ function popup() {
 	});
 }
 
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+var width = window.innerWidth;
+window.addEventListener("resize", () => {
+	if (width != window.innerWidth) {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		width = window.innerWidth;
+	}
+});
+
+function video() {
+	$(document).click(function (e) {
+		if ($(e.target).closest(".video-click-play").length) {
+			return;
+		}
+
+		$(".video-click-play").each(function () {
+			$(this).removeClass("_play");
+			this.pause();
+		});
+	});
+	$(".video-click-play").click(function () {
+		this.play();
+		let th = this;
+		$(this).addClass("_play");
+		this.onended = function () {
+			th.currentTime = 0;
+			th.classList.remove("_play");
+		};
+	});
+}
+
 $(function () {
 	header();
 	form();
@@ -1075,15 +1086,4 @@ $(function () {
 	feedbackForm();
 	locationPage();
 	frontPage();
-});
-
-var vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-var width = window.innerWidth;
-window.addEventListener("resize", () => {
-	if (width != window.innerWidth) {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-		width = window.innerWidth;
-	}
 });
