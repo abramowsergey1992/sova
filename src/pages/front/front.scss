@@ -40,7 +40,16 @@
 		}
 
 		@media(max-width:500px) {
-			transform: scale(1) translateY(355px) translateX(-50%);
+			transform: scale(0.5) translateY(355px) translateX(-50%);
+			left: 50%;
+
+			img {
+				left: 50%;
+				transform: translateX(-50%);
+				width: initial;
+				max-width: initial;
+
+			}
 		}
 
 		img {
@@ -88,6 +97,13 @@
 			width: 100%;
 			object-fit: cover;
 			height: 100%;
+
+			@media(max-width:500px) {
+				left: 50%;
+				transform: translateX(-50%);
+				width: initial;
+				max-width: initial;
+			}
 		}
 
 		img {}

@@ -30,6 +30,7 @@ function frontPage() {
 			.setTween(
 				TweenMax.to(".front-top__bg", 1, {
 					translateY: 0,
+					translateX: 0,
 					right: 0,
 					bottom: 0,
 					scale: 1,
