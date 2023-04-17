@@ -1,5 +1,4 @@
 $(function(){})
-$(function(){})
 function frontPage() {
 	if ($("#front-top").length) {
 		$(".download-presentation").css(
@@ -444,18 +443,6 @@ function frontPage() {
 	}
 }
 
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
-		);
-	});
-}
-
 $(function(){})
 function locationlist() {
 	let $map = $("#locations-map");
@@ -510,7 +497,10 @@ function locationlist() {
 			function locationRender(locations) {
 				locations.forEach((loc) => {
 					myPlacemark = new ymaps.Placemark(
-						loc.coord.split(","),
+						[
+							parseFloat(loc.coord.split(",")[0].trim()),
+							parseFloat(loc.coord.split(",")[1].trim()),
+						],
 						{
 							balloonContent: loc.title,
 						},
@@ -529,10 +519,13 @@ function locationlist() {
 							"iconImageHref",
 							$map.data("activeicon")
 						);
-						console.log(e.get("target").geometry.getCoordinates());
+						console.log(
+							"111",
+							e.get("target").geometry.getCoordinates()
+						);
 						console.log(e.get("target").options.get("id"));
 						myMap.panTo(e.get("target").geometry.getCoordinates());
-						$(".location-map-prev").stop().slideUp();
+						// $(".location-map-prev").stop().slideUp();
 						var smallScreen =
 							window.matchMedia("(max-width: 992px)");
 						if (smallScreen.matches) {
@@ -544,12 +537,25 @@ function locationlist() {
 								.stop()
 								.fadeIn();
 						} else {
-							$(
+							let duration = 0;
+							let $block = $(
 								"#location-map-prev-" +
 									e.get("target").options.get("id")
-							)
-								.stop()
-								.slideDown();
+							);
+							if ($(".location-map-prev._display").length) {
+								duration = 1;
+							}
+							$(".location-map-prev").removeClass("_display");
+							$(".location-map-prev").removeClass("_animate");
+							$(".location-map-prev").removeClass("_duration");
+
+							$block.addClass("_display");
+							setTimeout(function () {
+								if (duration) {
+									$block.addClass("_duration");
+								}
+								$block.addClass("_animate");
+							}, 10);
 						}
 					});
 					myPlacemark.events.add(["balloonclose"], function (e) {
@@ -561,6 +567,16 @@ function locationlist() {
 					myMap.geoObjects.add(myPlacemark);
 				});
 			}
+			$(".location-map-prev__close").click(function () {
+				let th = $(this).closest(".location-map-prev");
+				th.removeClass("_duration");
+				setTimeout(function () {
+					th.removeClass("_animate");
+					setTimeout(function () {
+						th.removeClass("_display");
+					}, 500);
+				}, 100);
+			});
 			$("#filter-city").change(function () {
 				let coord = $("#filter-city option:selected").data("coord");
 				console.log(coord);
@@ -621,6 +637,19 @@ function locationlist() {
 	});
 }
 
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
+	});
+}
+
+$(function(){})
 $(function(){})
 
 $(function(){})
@@ -822,7 +851,6 @@ function feedbackForm() {
 	});
 }
 
-$(function(){})
 function form() {
 	$("._mask-int").each(function () {
 		Inputmask("9{1,5}").mask(this);
@@ -893,6 +921,7 @@ function form() {
 	});
 }
 
+$(function(){})
 function header() {
 	let menu = $(".header__hidden-menu");
 	let btnMenu = $(".header__menu-btn");
@@ -994,13 +1023,13 @@ function mixiltup() {
 	}
 }
 
-$(function(){})
 function paginator() {
 	$(".paginator__more").click(function () {
 		$(this).closest(".paginator").addClass("_view-hidden");
 	});
 }
 
+$(function(){})
 function popupClose(popup) {
 	let $popup = $(popup);
 	$popup.removeClass("_animate");

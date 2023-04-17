@@ -51,7 +51,10 @@ function locationlist() {
 			function locationRender(locations) {
 				locations.forEach((loc) => {
 					myPlacemark = new ymaps.Placemark(
-						loc.coord.split(","),
+						[
+							parseFloat(loc.coord.split(",")[0].trim()),
+							parseFloat(loc.coord.split(",")[1].trim()),
+						],
 						{
 							balloonContent: loc.title,
 						},
@@ -70,10 +73,13 @@ function locationlist() {
 							"iconImageHref",
 							$map.data("activeicon")
 						);
-						console.log(e.get("target").geometry.getCoordinates());
+						console.log(
+							"111",
+							e.get("target").geometry.getCoordinates()
+						);
 						console.log(e.get("target").options.get("id"));
 						myMap.panTo(e.get("target").geometry.getCoordinates());
-						$(".location-map-prev").stop().slideUp();
+						// $(".location-map-prev").stop().slideUp();
 						var smallScreen =
 							window.matchMedia("(max-width: 992px)");
 						if (smallScreen.matches) {
@@ -85,12 +91,25 @@ function locationlist() {
 								.stop()
 								.fadeIn();
 						} else {
-							$(
+							let duration = 0;
+							let $block = $(
 								"#location-map-prev-" +
 									e.get("target").options.get("id")
-							)
-								.stop()
-								.slideDown();
+							);
+							if ($(".location-map-prev._display").length) {
+								duration = 1;
+							}
+							$(".location-map-prev").removeClass("_display");
+							$(".location-map-prev").removeClass("_animate");
+							$(".location-map-prev").removeClass("_duration");
+
+							$block.addClass("_display");
+							setTimeout(function () {
+								if (duration) {
+									$block.addClass("_duration");
+								}
+								$block.addClass("_animate");
+							}, 10);
 						}
 					});
 					myPlacemark.events.add(["balloonclose"], function (e) {
@@ -102,6 +121,16 @@ function locationlist() {
 					myMap.geoObjects.add(myPlacemark);
 				});
 			}
+			$(".location-map-prev__close").click(function () {
+				let th = $(this).closest(".location-map-prev");
+				th.removeClass("_duration");
+				setTimeout(function () {
+					th.removeClass("_animate");
+					setTimeout(function () {
+						th.removeClass("_display");
+					}, 500);
+				}, 100);
+			});
 			$("#filter-city").change(function () {
 				let coord = $("#filter-city option:selected").data("coord");
 				console.log(coord);
