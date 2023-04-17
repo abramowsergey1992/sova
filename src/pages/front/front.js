@@ -268,10 +268,13 @@ function frontPage() {
 				});
 			},
 		});
-		$(".front-structura-item .front-structura-item__front").click(
+		$(".front-structura-item ").hover(
 			function () {
 				$(".front-structura-item").removeClass("_rotate");
-				$(this).closest(".front-structura-item").addClass("_rotate");
+				$(this).addClass("_rotate");
+			},
+			function () {
+				$(".front-structura-item").removeClass("_rotate");
 			}
 		);
 		let input = $(".front-steps__input").data("ionRangeSlider");
