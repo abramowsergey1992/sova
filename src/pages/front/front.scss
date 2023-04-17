@@ -414,8 +414,7 @@
 
 .front-structura-item {
 	position: relative;
-	transform-style: preserve-3d;
-	perspective: 1000px;
+
 
 	&::before {
 		display: block;
@@ -438,20 +437,41 @@
 
 		.front-structura-item._rotate & {
 			@media(min-width:992px) {
-				transform: rotateY(180deg);
+				// transform: rotateY(180deg);
 			}
 
 		}
 	}
 
 	&__back {
+		opacity: 0;
+		pointer-events: none;
 
+		.front-structura-item__bg {
+			transform: scale(0);
+			border-radius: 100%;
+			transition: transform 1.2s;
+			transition-delay: 0.1s;
+		}
 
-		transform: rotateY(-180deg);
+		.front-structura-item__content {
+			opacity: 0;
+
+			transition: opacity 0.5s linear;
+			transition-delay: 0.4s;
+		}
 
 		.front-structura-item._rotate & {
-			@media(min-width:992px) {
-				transform: rotateY(0deg);
+			opacity: 1;
+			pointer-events: initial;
+
+			.front-structura-item__bg {
+				transform: scale(2);
+			}
+
+
+			.front-structura-item__content {
+				opacity: 1;
 			}
 
 		}
@@ -465,10 +485,9 @@
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
-		transition: transform 0.8s;
-		transform-style: preserve-3d;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
+		transition: transform 0.3s linear, border-radius 0.5s;
+
+
 	}
 
 	&:hover {}
@@ -531,6 +550,10 @@
 
 
 		transform: translate(-50%) translateY(-50%);
+
+		.front-structura-item._rotate & {
+			opacity: 0;
+		}
 
 		.front-structura-item._green & {
 			background: #fff;
