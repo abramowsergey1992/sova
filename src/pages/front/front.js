@@ -1,5 +1,9 @@
 function frontPage() {
 	if ($("#front-top").length) {
+		$(".download-presentation").css(
+			"top",
+			$(".front-top__right img").height() + 110
+		);
 		$("._square").each(function () {
 			$(this).css("min-height", $(this).outerWidth());
 		});
@@ -130,6 +134,10 @@ function frontPage() {
 			.addTo(controller);
 
 		$(window).on("resize", function () {
+			$(".download-presentation").css(
+				"top",
+				$(".front-top__right img").height() + 110
+			);
 			$("._square").each(function () {
 				$(this).css("min-height", $(this).outerWidth());
 			});

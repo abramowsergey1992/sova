@@ -68,6 +68,12 @@
 
 	&__right,
 	&__left-img {
+		img {
+			width: 100%;
+			object-fit: cover;
+			max-height: calc(100vh - 300px);
+		}
+
 		@media(max-width:992px) {
 			display: none !important;
 		}
