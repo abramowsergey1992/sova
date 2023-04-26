@@ -472,7 +472,7 @@
 		}
 
 		&:hover .front-structura-item__plus {
-			opacity: 1;
+			// opacity: 1;
 		}
 
 		.front-structura-item._rotate & {
@@ -484,7 +484,7 @@
 	}
 
 	&__back {
-		transition: opacity 0.35s;
+		transition: opacity 0.3s;
 		pointer-events: none;
 		opacity: 0;
 
@@ -505,7 +505,6 @@
 			.front-structura-item__content {
 				opacity: 1;
 				transition: opacity 0.3s;
-				transition-delay: 0.4s;
 			}
 
 		}
