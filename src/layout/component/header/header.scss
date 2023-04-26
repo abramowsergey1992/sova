@@ -169,12 +169,26 @@
 			gap: 30px;
 			display: flex;
 			flex-direction: column;
-			margin-bottom: 87px;
+			margin: auto 0 0;
 
 			@media(max-width:992px) {
 
 				margin-bottom: auto;
 
+			}
+
+			li._mob {
+				display: none;
+
+				@media(max-width:992px) {
+					display: block;
+				}
+			}
+
+			li:not(._mob) {
+				@media(max-width:992px) {
+					display: none;
+				}
 			}
 
 			a {
@@ -190,12 +204,9 @@
 					font-size: 20px;
 				}
 
-				@media(max-width:992px) {
-					font-size: 24px;
-					line-height: 29px;
-				}
 
-				@media(min-width:1440px) {
+
+				@media(min-width:1540px) {
 					font-size: 24px;
 					line-height: 29px;
 				}

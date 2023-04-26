@@ -1,21 +1,22 @@
 function aosInit() {
 	$(".t-animate").each(function () {
-		var words = $(this).text().split(" ");
-		$(this).empty();
-		let delay = 0;
-		let text = $(this);
-		$.each(words, function (i, v) {
-			text.append(
-				$("<span>").html(
-					'<span style="transition-delay:' +
-						delay +
-						'ms">' +
-						v +
-						"&ensp;</span>"
-				)
-			);
-			delay += 100;
-		});
+		$(this).attr("data-aos", "fade-up");
+		// var words = $(this).text().split(" ");
+		// $(this).empty();
+		// let delay = 0;
+		// let text = $(this);
+		// $.each(words, function (i, v) {
+		// 	text.append(
+		// 		$("<span>").html(
+		// 			'<span style="transition-delay:' +
+		// 				delay +
+		// 				'ms">' +
+		// 				v +
+		// 				"&ensp;</span>"
+		// 		)
+		// 	);
+		// 	delay += 100;
+		// });
 	});
 	setTimeout(function () {
 		AOS.init({

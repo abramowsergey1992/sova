@@ -7,8 +7,12 @@
 		right: 20px;
 
 		@media(max-width:992px) {
-			top: initial;
+			top: initial !important;
 			bottom: 138px;
+
+			@media(max-height:720px) {
+				bottom: 75px;
+			}
 		}
 	}
 
@@ -42,6 +46,10 @@
 		@media(max-width:500px) {
 			transform: scale(0.5) translateY(355px) translateX(-50%);
 			left: 50%;
+
+			@media(max-height:720px) {
+				transform: scale(0.5) translateY(405px) translateX(-50%);
+			}
 
 			img {
 				left: 50%;
@@ -225,13 +233,23 @@
 			position: relative;
 			height: auto;
 
+			@keyframes widtha {
+				0% {
+					width: 0;
+				}
+
+				to {
+					width: 100%;
+				}
+			}
+
 			&.swiper-slide-active::after {
-				width: 100%;
+				animation: widtha 5s linear
 			}
 
 			&::after {
 				display: block;
-				transition: linear width 5s;
+
 				width: 0;
 				content: '';
 				height: 4px;
@@ -466,34 +484,28 @@
 	}
 
 	&__back {
-
+		transition: opacity 0.35s;
 		pointer-events: none;
+		opacity: 0;
 
-		.front-structura-item__bg {
-			transform: scale(0);
-			border-radius: 100%;
-			transition: transform 0.9s;
-			transition-delay: 0.1s;
-		}
+
 
 		.front-structura-item__content {
 			opacity: 0;
-
-			transition: opacity 0.4s linear;
-			transition-delay: 0.3s;
+			transition: opcity 0.3s;
 		}
 
 		.front-structura-item._rotate & {
 			opacity: 1;
 			pointer-events: initial;
 
-			.front-structura-item__bg {
-				transform: scale(2);
-			}
+
 
 
 			.front-structura-item__content {
 				opacity: 1;
+				transition: opacity 0.3s;
+				transition-delay: 0.4s;
 			}
 
 		}
@@ -524,6 +536,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+
 
 		p {
 			color: #fff;
@@ -650,6 +663,7 @@
 				content: '';
 				height: 100%;
 				background: url(../img/gray-pattern.svg);
+				background-size: 1400px;
 			}
 
 			background: #2f3740;
@@ -1100,7 +1114,7 @@
 		height: 100%;
 
 		@media(max-width:992px) {
-			grid-template-columns: 30% auto;
+			grid-template-columns: 1fr;
 		}
 	}
 
@@ -1347,43 +1361,62 @@
 		left: 50%;
 		top: 50%;
 		width: 50px;
+		overflow: hidden;
+		transition: opacity 0.3s;
 		height: 50px;
 		background: $grandient;
 		border-radius: 50%;
-		transition: opacity 0.3s;
-		transform: translateX(-50%) translateY(-50%);
+		transform: translate(-50%) translateY(-50%);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 
-		.front-loc__slide-filter a:hover &,
-		.location-mini:hover & {
-			background: #fff;
-		}
 
-		&::after {
-			height: 1px;
-			width: 14px;
-		}
 
 		&::before {
-			width: 1px;
-			height: 14px;
-		}
-
-		&::after,
-		&::before {
-			content: '';
 			display: block;
-			transform: translateX(-50%) translateY(-50%);
+			content: "";
+			background: $black;
+			width: 100%;
+			height: 100%;
+			background: #fff;
 			left: 50%;
 			top: 50%;
 			position: absolute;
-			background: #fff;
+			margin-left: -25px;
+			margin-top: -25px;
+			border-radius: 50%;
 
 			.front-loc__slide-filter a:hover &,
 			.location-mini:hover & {
-				background: $grandient;
+				transform: scale(1.06);
 			}
+
+			transition: transform 0.3s;
+			transform:scale(0);
 		}
+
+		&::after {
+
+			.front-loc__slide-filter a:hover &,
+			.location-mini:hover & {
+
+				background-image: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.15396 0.606262V16.0737M0.467651 8.34H15.8403' stroke='%23a0ba4f'/%3E%3C/svg%3E%0A");
+			}
+
+			background-image: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.15396 0.606262V16.0737M0.467651 8.34H15.8403' stroke='white'/%3E%3C/svg%3E%0A");
+			width: 16px;
+			height: 17px;
+			display: block;
+			content: '';
+			z-index: 6;
+			position: relative;
+		}
+
 	}
+
+
 
 }
 
@@ -1551,7 +1584,7 @@
 		border-radius: 50%;
 		position: relative;
 		border: 0 solid;
-		box-shadow: inset 0 0 0 1px #fff;
+		box-shadow: inset 0 0 0 1px #fff !important;
 		width: 50px;
 		height: 50px;
 		cursor: pointer;
@@ -1566,7 +1599,7 @@
 			box-shadow: inset 0 0 0 0px #fff;
 
 			&::before {
-				opacity: 1;
+				transform: scale(1.01);
 			}
 
 			&::after {
@@ -1577,11 +1610,12 @@
 		&::before {
 			position: absolute;
 			left: 0;
-			transition: opacity 0.3s;
+			transform: scale(0);
+			transition: transform 0.3s;
 			top: 0;
 			width: 100%;
 			height: 100%;
-			opacity: 0;
+			border-radius: 50%;
 			display: block;
 			content: '';
 			background: $grandient;

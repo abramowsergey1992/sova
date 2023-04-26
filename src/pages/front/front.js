@@ -253,7 +253,6 @@ function frontPage() {
 		let mr = 1822;
 
 		$(".front-steps__input").ionRangeSlider({
-			to: 1,
 			min: 1,
 			max: 6,
 			onChange: function (data) {
@@ -281,13 +280,20 @@ function frontPage() {
 		frontSteps.on("slideChange", function () {
 			console.log("sss");
 			let from = frontSteps.activeIndex + 1;
-			$(".front-steps__input").val(from);
-			$circle.attr("procent", from);
-			$(".front-steps__input").attr("value", from);
-			input.update({
-				from: from,
-				to: from,
-			});
+			console.log(
+				from,
+				$(".front-steps__input").val(),
+				from != $(".front-steps__input").val()
+			);
+			if (from != $(".front-steps__input").val()) {
+				$(".front-steps__input").val(from);
+				$circle.attr("procent", from);
+				$(".front-steps__input").attr("value", from);
+				input.update({
+					from: from,
+					to: from,
+				});
+			}
 			$(".front-steps__input-grid span").each(function () {
 				if (parseInt($(this).text()) <= from) {
 					$(this).addClass("_active");

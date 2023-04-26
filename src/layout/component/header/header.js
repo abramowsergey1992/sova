@@ -4,6 +4,28 @@ function header() {
 	let overlay = $(".header__hidden-menu-overlay");
 	let isFront = $(".front-page").length;
 	let header = $(".header");
+	var $page = $("html, body");
+	if (window.location.hash) {
+		if ($(window.location.hash).length) {
+			$page.animate(
+				{
+					scrollTop: $(window.location.hash).offset().top - 80,
+				},
+				400
+			);
+		}
+	}
+	$('a[href*="#"]').click(function () {
+		if ($($.attr(this, "href")).length) {
+			$page.animate(
+				{
+					scrollTop: $($.attr(this, "href")).offset().top - 80,
+				},
+				400
+			);
+		}
+		return false;
+	});
 	function headerOpen() {
 		$("body").addClass("_open-menu");
 		overlay.stop().fadeIn();
@@ -58,7 +80,9 @@ function header() {
 		} else {
 			header.removeClass("_header-hidden");
 		}
-
+		if (currentScroll <= 10) {
+			header.removeClass("_header-hidden");
+		}
 		prevscroll = currentScroll;
 		if (isFront && prevscroll <= window.innerHeight * 2) {
 			prevscroll = window.innerHeight * 2;

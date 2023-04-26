@@ -5,15 +5,22 @@ function bigslider() {
 			"big-slider__full-slider",
 			$th.find(".big-slider__full-slider")[0]
 		);
+		let loop = true;
+		let count = $th.find(".big-slider__full-slider").find(".swiper-slide");
 		$th.find(".big-slider__thumb-slider").html(
 			$th.find(".big-slider__full-slider").html()
 		);
-
+		if (window.innerWidth > 1300 && loop < 8) {
+			loop = false;
+		}
+		if (window.innerWidth > 992 && loop < 7) {
+			loop = false;
+		}
 		const sliderThumb = new Swiper(
 			$th.find(".big-slider__thumb-slider")[0],
 			{
 				slidesPerView: 8,
-				loop: true,
+				loop: loop,
 				speed: 800,
 				spaceBetween: 28,
 				watchSlidesProgress: true,

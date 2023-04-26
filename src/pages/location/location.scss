@@ -129,8 +129,24 @@
 		bottom: 40px;
 		cursor: pointer;
 
-		&:hover {
+		&::before {
+			border-radius: 50%;
+			transform: scale(0);
+			transition: transform 0.3s;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			content: '';
+			position: absolute;
 			background: #fff;
+		}
+
+		&:hover {
+			&::before {
+				transform: scale(1.01);
+			}
 
 			svg {
 				path {
@@ -426,40 +442,68 @@
 		left: 50%;
 		top: 50%;
 		width: 50px;
-
+		overflow: hidden;
 		transition: opacity 0.3s;
 		height: 50px;
 		background: $grandient;
 		border-radius: 50%;
 		transform: translate(-50%) translateY(-50%);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 
-		.location-mini__img-wrap:hover & {
 
-			opacity: 1;
-		}
-
-		&::after {
-			height: 1px;
-			width: 14px;
-		}
 
 		&::before {
-			width: 1px;
-			height: 14px;
-		}
-
-		&::after,
-		&::before {
-			content: '';
 			display: block;
-			transform: translateX(-50%) translateY(-50%);
+			content: "";
+			background: $black;
+			width: 100%;
+			height: 100%;
+			background: #2F3740;
 			left: 50%;
 			top: 50%;
 			position: absolute;
-			background: #fff;
+			margin-left: -25px;
+			margin-top: -25px;
+			border-radius: 50%;
 
+			.location-mini__img-wrap:hover & {
+				transform: scale(1.06);
+			}
 
+			transition: transform 0.3s;
+			transform:scale(0);
 		}
+
+		&::after {
+			background-image: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.15396 0.606262V16.0737M0.467651 8.34H15.8403' stroke='white'/%3E%3C/svg%3E%0A");
+			width: 16px;
+			height: 17px;
+			display: block;
+			content: '';
+			z-index: 6;
+			position: relative;
+		}
+
+		// &::before {
+		// 	width: 1px;
+		// 	height: 14px;
+		// }
+
+		// &::after,
+		// &::before {
+		// 	content: '';
+		// 	display: block;
+		// 	transform: translateX(-50%) translateY(-50%);
+		// 	left: 50%;
+		// 	top: 50%;
+		// 	position: absolute;
+		// 	background: #fff;
+
+
+		// }
 	}
 
 
