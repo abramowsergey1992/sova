@@ -50,77 +50,84 @@ function locationlist() {
 			);
 			function locationRender(locations) {
 				locations.forEach((loc) => {
-					myPlacemark = new ymaps.Placemark(
-						[
-							parseFloat(loc.coord.split(",")[0].trim()),
-							parseFloat(loc.coord.split(",")[1].trim()),
-						],
-						{
-							balloonContent: loc.title,
-						},
-						{
-							id: loc.id,
-							balloonCloseButton: false,
-							hideIconOnBalloonOpen: false,
-							iconLayout: "default#image",
-							iconImageHref: $map.data("icon"),
-							iconImageSize: [50, 50],
-							iconImageOffset: [-25, -25],
-						}
-					);
-					myPlacemark.events.add(["balloonopen"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("activeicon")
-						);
-						console.log(
-							"111",
-							e.get("target").geometry.getCoordinates()
-						);
-						console.log(e.get("target").options.get("id"));
-						myMap.panTo(e.get("target").geometry.getCoordinates());
-						// $(".location-map-prev").stop().slideUp();
-						var smallScreen =
-							window.matchMedia("(max-width: 992px)");
-						if (smallScreen.matches) {
-							console.log("sss");
-							$(
-								"#popup-location-" +
-									e.get("target").options.get("id")
-							)
-								.stop()
-								.fadeIn();
-						} else {
-							let duration = 0;
-							let $block = $(
-								"#location-map-prev-" +
-									e.get("target").options.get("id")
-							);
-							if ($(".location-map-prev._display").length) {
-								duration = 1;
+					if (loc.coord != null) {
+						myPlacemark = new ymaps.Placemark(
+							[
+								parseFloat(loc.coord.split(",")[0].trim()),
+								parseFloat(loc.coord.split(",")[1].trim()),
+							],
+							{
+								balloonContent: loc.title,
+							},
+							{
+								id: loc.id,
+								balloonCloseButton: false,
+								hideIconOnBalloonOpen: false,
+								iconLayout: "default#image",
+								iconImageHref: $map.data("icon"),
+								iconImageSize: [50, 50],
+								iconImageOffset: [-25, -25],
 							}
-							$(".location-map-prev").removeClass("_display");
-							$(".location-map-prev").removeClass("_animate");
-							$(".location-map-prev").removeClass("_duration");
-
-							$block.addClass("_display");
-							setTimeout(function () {
-								if (duration) {
-									$block.addClass("_duration");
-								}
-								$block.addClass("_animate");
-							}, 10);
-						}
-					});
-					myPlacemark.events.add(["balloonclose"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("icon")
 						);
-					});
-					myMap.geoObjects.add(myPlacemark);
+						myPlacemark.events.add(["balloonopen"], function (e) {
+							e.get("target").options.set(
+								"iconImageHref",
+								$map.data("activeicon")
+							);
+							console.log(
+								"111",
+								e.get("target").geometry.getCoordinates()
+							);
+							console.log(e.get("target").options.get("id"));
+							myMap.panTo(
+								e.get("target").geometry.getCoordinates()
+							);
+							// $(".location-map-prev").stop().slideUp();
+							var smallScreen =
+								window.matchMedia("(max-width: 992px)");
+							if (smallScreen.matches) {
+								console.log("sss");
+								$(
+									"#popup-location-" +
+										e.get("target").options.get("id")
+								)
+									.stop()
+									.fadeIn();
+							} else {
+								let duration = 0;
+								let $block = $(
+									"#location-map-prev-" +
+										e.get("target").options.get("id")
+								);
+								if ($(".location-map-prev._display").length) {
+									duration = 1;
+								}
+								$(".location-map-prev").removeClass("_display");
+								$(".location-map-prev").removeClass("_animate");
+								$(".location-map-prev").removeClass(
+									"_duration"
+								);
+
+								$block.addClass("_display");
+								setTimeout(function () {
+									if (duration) {
+										$block.addClass("_duration");
+									}
+									$block.addClass("_animate");
+								}, 10);
+							}
+						});
+						myPlacemark.events.add(["balloonclose"], function (e) {
+							e.get("target").options.set(
+								"iconImageHref",
+								$map.data("icon")
+							);
+						});
+						myMap.geoObjects.add(myPlacemark);
+					}
 				});
 			}
+
 			$(".location-map-prev__close").click(function () {
 				let th = $(this).closest(".location-map-prev");
 				th.removeClass("_duration");

@@ -6,9 +6,9 @@ function frontPage() {
 			"top",
 			$(".front-top__right img").height() + 110
 		);
-		$("._square").each(function () {
-			$(this).css("min-height", $(this).outerWidth());
-		});
+		// $("._square").each(function () {
+		// 	$(this).css("min-height", $(this).outerWidth());
+		// });
 		smScroll = window.innerHeight * 2;
 		function procent(number1, number2) {
 			return (number2 / 100) * number1;
@@ -141,7 +141,10 @@ function frontPage() {
 				$(".front-top__right img").height() + 110
 			);
 			$("._square").each(function () {
-				$(this).css("min-height", $(this).outerWidth());
+				$(this).css("min-height", "initial");
+				setTimeout(function () {
+					$(this).css("min-height", $(this).outerWidth());
+				}, 100);
 			});
 		});
 		const youGet = new Swiper(".you-get__slider", {
@@ -173,6 +176,7 @@ function frontPage() {
 		const frontLocContent = new Swiper(".front-loc__locations", {
 			slidesPerView: 1,
 			loop: false,
+			autoHeight: true,
 			thumbs: {
 				swiper: frontLocImg,
 			},
@@ -343,6 +347,7 @@ function frontPage() {
 				myMap.geoObjects.removeAll();
 				$(".front-loc__slide-filter").each(function () {
 					if (!$(this).hasClass("_hidden")) {
+						console.log($(this));
 						myPlacemark = new ymaps.Placemark(
 							$(this).data("coord"),
 							{
@@ -408,6 +413,35 @@ function frontPage() {
 				});
 			}
 			locationRender();
+			$("#front-status").change(function () {
+				let filter = $("#front-status option:selected").data("filter");
+				console.log("filter", filter);
+				if (filter != "all") {
+					$(".front-loc__slide-filter").each(function () {
+						if (filter != $(this).data("filter")) {
+							$(this).addClass("_hidden");
+							$(this).removeClass("swiper-slide");
+						} else {
+							$(this).removeClass("_hidden");
+							$(this).addClass("swiper-slide");
+						}
+					});
+				} else {
+					$(".front-loc__wrap  .swiper-wrapper > div").removeClass(
+						"_hidden"
+					);
+					$(".front-loc__wrap  .swiper-wrapper > div").addClass(
+						"swiper-slide"
+					);
+				}
+				frontLocContent.update();
+				frontLocContent.updateProgress();
+				locationRender();
+				setInterval(() => {
+					frontLocImg.update();
+					frontLocContent.update();
+				}, 300);
+			});
 			$(".front-loc .filters__btn").click(function () {
 				$(".front-loc .filters__btn").removeClass("_active");
 				$(this).addClass("_active");
@@ -517,77 +551,84 @@ function locationlist() {
 			);
 			function locationRender(locations) {
 				locations.forEach((loc) => {
-					myPlacemark = new ymaps.Placemark(
-						[
-							parseFloat(loc.coord.split(",")[0].trim()),
-							parseFloat(loc.coord.split(",")[1].trim()),
-						],
-						{
-							balloonContent: loc.title,
-						},
-						{
-							id: loc.id,
-							balloonCloseButton: false,
-							hideIconOnBalloonOpen: false,
-							iconLayout: "default#image",
-							iconImageHref: $map.data("icon"),
-							iconImageSize: [50, 50],
-							iconImageOffset: [-25, -25],
-						}
-					);
-					myPlacemark.events.add(["balloonopen"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("activeicon")
-						);
-						console.log(
-							"111",
-							e.get("target").geometry.getCoordinates()
-						);
-						console.log(e.get("target").options.get("id"));
-						myMap.panTo(e.get("target").geometry.getCoordinates());
-						// $(".location-map-prev").stop().slideUp();
-						var smallScreen =
-							window.matchMedia("(max-width: 992px)");
-						if (smallScreen.matches) {
-							console.log("sss");
-							$(
-								"#popup-location-" +
-									e.get("target").options.get("id")
-							)
-								.stop()
-								.fadeIn();
-						} else {
-							let duration = 0;
-							let $block = $(
-								"#location-map-prev-" +
-									e.get("target").options.get("id")
-							);
-							if ($(".location-map-prev._display").length) {
-								duration = 1;
+					if (loc.coord != null) {
+						myPlacemark = new ymaps.Placemark(
+							[
+								parseFloat(loc.coord.split(",")[0].trim()),
+								parseFloat(loc.coord.split(",")[1].trim()),
+							],
+							{
+								balloonContent: loc.title,
+							},
+							{
+								id: loc.id,
+								balloonCloseButton: false,
+								hideIconOnBalloonOpen: false,
+								iconLayout: "default#image",
+								iconImageHref: $map.data("icon"),
+								iconImageSize: [50, 50],
+								iconImageOffset: [-25, -25],
 							}
-							$(".location-map-prev").removeClass("_display");
-							$(".location-map-prev").removeClass("_animate");
-							$(".location-map-prev").removeClass("_duration");
-
-							$block.addClass("_display");
-							setTimeout(function () {
-								if (duration) {
-									$block.addClass("_duration");
-								}
-								$block.addClass("_animate");
-							}, 10);
-						}
-					});
-					myPlacemark.events.add(["balloonclose"], function (e) {
-						e.get("target").options.set(
-							"iconImageHref",
-							$map.data("icon")
 						);
-					});
-					myMap.geoObjects.add(myPlacemark);
+						myPlacemark.events.add(["balloonopen"], function (e) {
+							e.get("target").options.set(
+								"iconImageHref",
+								$map.data("activeicon")
+							);
+							console.log(
+								"111",
+								e.get("target").geometry.getCoordinates()
+							);
+							console.log(e.get("target").options.get("id"));
+							myMap.panTo(
+								e.get("target").geometry.getCoordinates()
+							);
+							// $(".location-map-prev").stop().slideUp();
+							var smallScreen =
+								window.matchMedia("(max-width: 992px)");
+							if (smallScreen.matches) {
+								console.log("sss");
+								$(
+									"#popup-location-" +
+										e.get("target").options.get("id")
+								)
+									.stop()
+									.fadeIn();
+							} else {
+								let duration = 0;
+								let $block = $(
+									"#location-map-prev-" +
+										e.get("target").options.get("id")
+								);
+								if ($(".location-map-prev._display").length) {
+									duration = 1;
+								}
+								$(".location-map-prev").removeClass("_display");
+								$(".location-map-prev").removeClass("_animate");
+								$(".location-map-prev").removeClass(
+									"_duration"
+								);
+
+								$block.addClass("_display");
+								setTimeout(function () {
+									if (duration) {
+										$block.addClass("_duration");
+									}
+									$block.addClass("_animate");
+								}, 10);
+							}
+						});
+						myPlacemark.events.add(["balloonclose"], function (e) {
+							e.get("target").options.set(
+								"iconImageHref",
+								$map.data("icon")
+							);
+						});
+						myMap.geoObjects.add(myPlacemark);
+					}
 				});
 			}
+
 			$(".location-map-prev__close").click(function () {
 				let th = $(this).closest(".location-map-prev");
 				th.removeClass("_duration");
@@ -659,8 +700,8 @@ function locationlist() {
 }
 
 $(function(){})
-$(function(){})
 
+$(function(){})
 $(function(){})
 function aosInit() {
 	$(".t-animate").each(function () {
@@ -956,16 +997,24 @@ function header() {
 			);
 		}
 	}
-	$('a[href*="#"]').click(function () {
-		if ($($.attr(this, "href")).length) {
-			$page.animate(
-				{
-					scrollTop: $($.attr(this, "href")).offset().top - 80,
-				},
-				400
-			);
+	$('a[href*="#"]').click(function (e) {
+		if (window.location.pathname == "/") {
+			e.preventDefault();
+			let ank = $.attr(this, "href");
+			ank = ank.replace("/", "");
+			console.log(ank, $(ank).length);
+			if ($(ank).length) {
+				console.log($(ank).offset().top - 80);
+				$page.animate(
+					{
+						scrollTop: $(ank).offset().top - 80,
+					},
+					400
+				);
+			}
+			return false;
+		} else {
 		}
-		return false;
 	});
 	function headerOpen() {
 		$("body").addClass("_open-menu");

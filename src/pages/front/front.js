@@ -4,9 +4,9 @@ function frontPage() {
 			"top",
 			$(".front-top__right img").height() + 110
 		);
-		$("._square").each(function () {
-			$(this).css("min-height", $(this).outerWidth());
-		});
+		// $("._square").each(function () {
+		// 	$(this).css("min-height", $(this).outerWidth());
+		// });
 		smScroll = window.innerHeight * 2;
 		function procent(number1, number2) {
 			return (number2 / 100) * number1;
@@ -139,7 +139,10 @@ function frontPage() {
 				$(".front-top__right img").height() + 110
 			);
 			$("._square").each(function () {
-				$(this).css("min-height", $(this).outerWidth());
+				$(this).css("min-height", "initial");
+				setTimeout(function () {
+					$(this).css("min-height", $(this).outerWidth());
+				}, 100);
 			});
 		});
 		const youGet = new Swiper(".you-get__slider", {
@@ -171,6 +174,7 @@ function frontPage() {
 		const frontLocContent = new Swiper(".front-loc__locations", {
 			slidesPerView: 1,
 			loop: false,
+			autoHeight: true,
 			thumbs: {
 				swiper: frontLocImg,
 			},
@@ -341,6 +345,7 @@ function frontPage() {
 				myMap.geoObjects.removeAll();
 				$(".front-loc__slide-filter").each(function () {
 					if (!$(this).hasClass("_hidden")) {
+						console.log($(this));
 						myPlacemark = new ymaps.Placemark(
 							$(this).data("coord"),
 							{
@@ -406,6 +411,35 @@ function frontPage() {
 				});
 			}
 			locationRender();
+			$("#front-status").change(function () {
+				let filter = $("#front-status option:selected").data("filter");
+				console.log("filter", filter);
+				if (filter != "all") {
+					$(".front-loc__slide-filter").each(function () {
+						if (filter != $(this).data("filter")) {
+							$(this).addClass("_hidden");
+							$(this).removeClass("swiper-slide");
+						} else {
+							$(this).removeClass("_hidden");
+							$(this).addClass("swiper-slide");
+						}
+					});
+				} else {
+					$(".front-loc__wrap  .swiper-wrapper > div").removeClass(
+						"_hidden"
+					);
+					$(".front-loc__wrap  .swiper-wrapper > div").addClass(
+						"swiper-slide"
+					);
+				}
+				frontLocContent.update();
+				frontLocContent.updateProgress();
+				locationRender();
+				setInterval(() => {
+					frontLocImg.update();
+					frontLocContent.update();
+				}, 300);
+			});
 			$(".front-loc .filters__btn").click(function () {
 				$(".front-loc .filters__btn").removeClass("_active");
 				$(this).addClass("_active");

@@ -15,16 +15,24 @@ function header() {
 			);
 		}
 	}
-	$('a[href*="#"]').click(function () {
-		if ($($.attr(this, "href")).length) {
-			$page.animate(
-				{
-					scrollTop: $($.attr(this, "href")).offset().top - 80,
-				},
-				400
-			);
+	$('a[href*="#"]').click(function (e) {
+		if (window.location.pathname == "/") {
+			e.preventDefault();
+			let ank = $.attr(this, "href");
+			ank = ank.replace("/", "");
+			console.log(ank, $(ank).length);
+			if ($(ank).length) {
+				console.log($(ank).offset().top - 80);
+				$page.animate(
+					{
+						scrollTop: $(ank).offset().top - 80,
+					},
+					400
+				);
+			}
+			return false;
+		} else {
 		}
-		return false;
 	});
 	function headerOpen() {
 		$("body").addClass("_open-menu");
