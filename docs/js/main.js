@@ -9,7 +9,7 @@ function frontPage() {
 		// $("._square").each(function () {
 		// 	$(this).css("min-height", $(this).outerWidth());
 		// });
-		smScroll = window.innerHeight * 2;
+		smScroll = window.innerHeight * 1.5;
 		function procent(number1, number2) {
 			return (number2 / 100) * number1;
 		}
@@ -487,18 +487,6 @@ function frontPage() {
 	}
 }
 
-function locationPage() {
-	$(".location-top__down").click(function () {
-		var body = $("html, body");
-		body.stop().animate(
-			{ scrollTop: window.innerHeight },
-			500,
-			"swing",
-			function () {}
-		);
-	});
-}
-
 function locationlist() {
 	let $map = $("#locations-map");
 	$(".location-prev__gallery").each(function () {
@@ -700,53 +688,21 @@ function locationlist() {
 }
 
 $(function(){})
-
 $(function(){})
-$(function(){})
-function aosInit() {
-	$(".t-animate").each(function () {
-		$(this).attr("data-aos", "fade-up");
-		// var words = $(this).text().split(" ");
-		// $(this).empty();
-		// let delay = 0;
-		// let text = $(this);
-		// $.each(words, function (i, v) {
-		// 	text.append(
-		// 		$("<span>").html(
-		// 			'<span style="transition-delay:' +
-		// 				delay +
-		// 				'ms">' +
-		// 				v +
-		// 				"&ensp;</span>"
-		// 		)
-		// 	);
-		// 	delay += 100;
-		// });
+function locationPage() {
+	$(".location-top__down").click(function () {
+		var body = $("html, body");
+		body.stop().animate(
+			{ scrollTop: window.innerHeight },
+			500,
+			"swing",
+			function () {}
+		);
 	});
-	setTimeout(function () {
-		AOS.init({
-			// Global settings:
-			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-			initClassName: "aos-init", // class applied after initialization
-			animatedClassName: "aos-animate", // class applied on animation
-			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-			offset: 120, // offset (in px) from the original trigger point
-			delay: 0, // values from 0 to 3000, with step 50ms
-			duration: 600, // values from 0 to 3000, with step 50ms
-			easing: "ease", // default easing for AOS animations
-			once: true, // whether animation should happen only once - while scrolling down
-			mirror: false, // whether elements should animate out while scrolling past them
-			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
-		});
-	}, 100);
 }
 
+
+$(function(){})
 function bigslider() {
 	$(".big-slider").each(function () {
 		let $th = $(this);
@@ -826,6 +782,50 @@ function bigslider() {
 		});
 		// const
 	});
+}
+
+function aosInit() {
+	$(".t-animate").each(function () {
+		$(this).attr("data-aos", "fade-up");
+		// var words = $(this).text().split(" ");
+		// $(this).empty();
+		// let delay = 0;
+		// let text = $(this);
+		// $.each(words, function (i, v) {
+		// 	text.append(
+		// 		$("<span>").html(
+		// 			'<span style="transition-delay:' +
+		// 				delay +
+		// 				'ms">' +
+		// 				v +
+		// 				"&ensp;</span>"
+		// 		)
+		// 	);
+		// 	delay += 100;
+		// });
+	});
+	setTimeout(function () {
+		AOS.init({
+			// Global settings:
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+			startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: "aos-init", // class applied after initialization
+			animatedClassName: "aos-animate", // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 120, // offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 600, // values from 0 to 3000, with step 50ms
+			easing: "ease", // default easing for AOS animations
+			once: true, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+		});
+	}, 100);
 }
 
 function feedbackForm() {
@@ -910,76 +910,6 @@ function feedbackForm() {
 }
 
 $(function(){})
-function form() {
-	$("._mask-int").each(function () {
-		Inputmask("9{1,5}").mask(this);
-	});
-	$("._mask-oneint").each(function () {
-		Inputmask({ mask: "9", placeholder: "" }).mask(this);
-	});
-	$("._mask-phone").each(function () {
-		Inputmask("+7 (999) 999-99-99").mask(this);
-	});
-	$("._mask-time").each(function () {
-		Inputmask("9{1,2}:9{1,2}").mask(this);
-	});
-	$("._mask-date,._mask-calendar").each(function () {
-		Inputmask("99.99.9999").mask(this);
-	});
-	$(".filters").each(function () {
-		$(this)
-			.find(".filters__flex")
-			.append('<div class="filters__bg"></div>');
-	});
-	function filtersBg() {
-		$(".filters").each(function () {
-			filterBg = $(this).find(".filters__bg");
-
-			filterActive = $(this)
-				.find(".mixitup-control-active,._active")
-				.first();
-
-			console.log(filterActive, filterActive.outerHeight());
-			filterBg.css({
-				width: filterActive.outerWidth(),
-				height: filterActive.outerHeight(),
-				top: filterActive.position().top,
-				left: filterActive.position().left,
-			});
-		});
-	}
-	$(".filters__btn").click(function () {
-		setTimeout(function () {
-			filtersBg();
-		}, 50);
-	});
-	filtersBg();
-	setTimeout(function () {
-		filtersBg();
-	}, 250);
-	window.addEventListener(
-		"resize",
-		function (event) {
-			filtersBg();
-		},
-		true
-	);
-	// $(".filters__btn[data-filter]").click(function () {
-	// 	let wrap = $(this).closest(".block");
-	// });
-	// wrap.find(".filters__btn").removeClass("_active");
-	// $(this).addClass("_active");
-
-	$(".select2").select2({ minimumResultsForSearch: -1 });
-	$(".btn-1,.btn-2,.btn-3, .btn-4, .btn-5").each(function () {
-		$(this).html(
-			`<span class='button-content'><span>${$(
-				this
-			).html()}</span><span>${$(this).html()}</span></span>`
-		);
-	});
-}
-
 function header() {
 	let menu = $(".header__hidden-menu");
 	let btnMenu = $(".header__menu-btn");
@@ -1065,14 +995,14 @@ function header() {
 		} else {
 			header.removeClass("_bg");
 		}
-		if (currentScroll > prevscroll) {
-			header.addClass("_header-hidden");
-		} else {
-			header.removeClass("_header-hidden");
-		}
-		if (currentScroll <= 10) {
-			header.removeClass("_header-hidden");
-		}
+		// if (currentScroll > prevscroll) {
+		// 	header.addClass("_header-hidden");
+		// } else {
+		// 	header.removeClass("_header-hidden");
+		// }
+		// if (currentScroll <= 10) {
+		// 	header.removeClass("_header-hidden");
+		// }
 		prevscroll = currentScroll;
 		if (isFront && prevscroll <= window.innerHeight * 2) {
 			prevscroll = window.innerHeight * 2;
@@ -1080,27 +1010,74 @@ function header() {
 	});
 }
 
-function hoverCursor() {
-	if ($(".hoverCursor").length) {
-		$(".hoverCursor").each(function () {
-			let wrapper = $(this).parent();
-			let cursor = $(this);
-			wrapper.on("mousemove", function (e) {
-				let position = $(this).offset();
-				let left = e.pageX - position.left - 70 / 2;
-				let top = e.pageY - position.top - 70 / 2;
-				// cursor.css({
-				// 	left: left,
-				// 	top: top,
-				// });
-				gsap.to(cursor, 0.03, {
-					left: left,
-					top: top,
-					ease: Power4.easOut,
-				});
+function form() {
+	$("._mask-int").each(function () {
+		Inputmask("9{1,5}").mask(this);
+	});
+	$("._mask-oneint").each(function () {
+		Inputmask({ mask: "9", placeholder: "" }).mask(this);
+	});
+	$("._mask-phone").each(function () {
+		Inputmask("+7 (999) 999-99-99").mask(this);
+	});
+	$("._mask-time").each(function () {
+		Inputmask("9{1,2}:9{1,2}").mask(this);
+	});
+	$("._mask-date,._mask-calendar").each(function () {
+		Inputmask("99.99.9999").mask(this);
+	});
+	$(".filters").each(function () {
+		$(this)
+			.find(".filters__flex")
+			.append('<div class="filters__bg"></div>');
+	});
+	function filtersBg() {
+		$(".filters").each(function () {
+			filterBg = $(this).find(".filters__bg");
+
+			filterActive = $(this)
+				.find(".mixitup-control-active,._active")
+				.first();
+
+			console.log(filterActive, filterActive.outerHeight());
+			filterBg.css({
+				width: filterActive.outerWidth(),
+				height: filterActive.outerHeight(),
+				top: filterActive.position().top,
+				left: filterActive.position().left,
 			});
 		});
 	}
+	$(".filters__btn").click(function () {
+		setTimeout(function () {
+			filtersBg();
+		}, 50);
+	});
+	filtersBg();
+	setTimeout(function () {
+		filtersBg();
+	}, 250);
+	window.addEventListener(
+		"resize",
+		function (event) {
+			filtersBg();
+		},
+		true
+	);
+	// $(".filters__btn[data-filter]").click(function () {
+	// 	let wrap = $(this).closest(".block");
+	// });
+	// wrap.find(".filters__btn").removeClass("_active");
+	// $(this).addClass("_active");
+
+	$(".select2").select2({ minimumResultsForSearch: -1 });
+	$(".btn-1,.btn-2,.btn-3, .btn-4, .btn-5").each(function () {
+		$(this).html(
+			`<span class='button-content'><span>${$(
+				this
+			).html()}</span><span>${$(this).html()}</span></span>`
+		);
+	});
 }
 
 function mixiltup() {
@@ -1165,6 +1142,29 @@ function popup() {
 	$(".popup-location__overlay ,.popup-location__close").click(function () {
 		$(this).closest(".popup-location").fadeOut();
 	});
+}
+
+function hoverCursor() {
+	if ($(".hoverCursor").length) {
+		$(".hoverCursor").each(function () {
+			let wrapper = $(this).parent();
+			let cursor = $(this);
+			wrapper.on("mousemove", function (e) {
+				let position = $(this).offset();
+				let left = e.pageX - position.left - 70 / 2;
+				let top = e.pageY - position.top - 70 / 2;
+				// cursor.css({
+				// 	left: left,
+				// 	top: top,
+				// });
+				gsap.to(cursor, 0.03, {
+					left: left,
+					top: top,
+					ease: Power4.easOut,
+				});
+			});
+		});
+	}
 }
 
 $(function () {

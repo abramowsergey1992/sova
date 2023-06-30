@@ -83,14 +83,14 @@ function header() {
 		} else {
 			header.removeClass("_bg");
 		}
-		if (currentScroll > prevscroll) {
-			header.addClass("_header-hidden");
-		} else {
-			header.removeClass("_header-hidden");
-		}
-		if (currentScroll <= 10) {
-			header.removeClass("_header-hidden");
-		}
+		// if (currentScroll > prevscroll) {
+		// 	header.addClass("_header-hidden");
+		// } else {
+		// 	header.removeClass("_header-hidden");
+		// }
+		// if (currentScroll <= 10) {
+		// 	header.removeClass("_header-hidden");
+		// }
 		prevscroll = currentScroll;
 		if (isFront && prevscroll <= window.innerHeight * 2) {
 			prevscroll = window.innerHeight * 2;

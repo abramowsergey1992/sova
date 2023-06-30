@@ -7,7 +7,7 @@ function frontPage() {
 		// $("._square").each(function () {
 		// 	$(this).css("min-height", $(this).outerWidth());
 		// });
-		smScroll = window.innerHeight * 2;
+		smScroll = window.innerHeight * 1.5;
 		function procent(number1, number2) {
 			return (number2 / 100) * number1;
 		}
